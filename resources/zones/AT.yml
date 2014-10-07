@@ -1,0 +1,21 @@
+code: AT
+name: Austria
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      1984-01-01: 20
+      
+  - name: Reduced
+    code: R
+    rates:
+      1984-01-01: 10
+      
+zone:
+  country: AT
+  not-postalcode:
+    6691 # Jungholz
+    6991 # Mittelberg
+    6992
+    6993

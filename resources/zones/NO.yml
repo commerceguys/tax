@@ -1,0 +1,26 @@
+code: NO
+name: norway
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2012-01-01: 25
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2012-01-01: 15
+      
+  - name: Reduced
+    code: R
+    rates:
+      2012-01-01: 8
+      
+  - name: Zero
+    code: Z
+    rates:
+      2012-01-01: 0
+      
+zone:
+  country: NO

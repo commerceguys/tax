@@ -1,0 +1,16 @@
+code: DK
+name: Denmark
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      1992-01-01: 25
+      
+  - name: Zero
+    code: Z
+    rates:
+      1967-07-03: 0
+      
+zone:
+  country: DK

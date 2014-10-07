@@ -1,0 +1,21 @@
+code: MT
+name: Malta
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2004-01-01: 18
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2011-01-01: 7
+      
+  - name: Reduced
+    code: R
+    rates:
+      1995-01-01: 5
+      
+zone:
+  country: MT

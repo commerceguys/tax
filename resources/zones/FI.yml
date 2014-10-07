@@ -1,0 +1,16 @@
+code: FI
+name: Finland
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2010-07-01: 23
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2010-07-01: 13
+      
+zones:
+  country: FI

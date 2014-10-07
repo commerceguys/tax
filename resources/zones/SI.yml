@@ -1,0 +1,18 @@
+code: SI
+name: Slovenia
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2013-07-01: 22
+      2002-01-01: 20
+      
+  - name: Reduced
+    code: R
+    rates:
+      2013-07-01: 9.5
+      2002-01-01: 8.5
+      
+zone:
+  country: SI

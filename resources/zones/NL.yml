@@ -1,0 +1,16 @@
+code: NL
+name: Netherlands
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2012-10-01: 21
+      
+  - name: Reduced
+    code: R
+    rates:
+      1986-10-01: 6
+      
+zone:
+  country: NL

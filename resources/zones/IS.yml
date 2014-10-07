@@ -1,0 +1,27 @@
+code: IS
+name: Iceland
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2012-01-01: 25.5
+      
+  - name: Accommodation
+    code: A
+    rates:
+      2013-09-01: 14
+      2012-01-01: 7
+      
+  - name: Reduced
+    code: R
+    rates:
+      2012-01-01: 7
+      
+  - name: Zero
+    code: Z
+    rates:
+      2012-01-01: 0
+      
+zone:
+  country: IS

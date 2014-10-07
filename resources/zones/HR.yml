@@ -1,0 +1,21 @@
+code: HR
+name: Croatia
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2013-07-01: 25
+      
+  - name: Reduced
+    code: R
+    rates:
+      2013-07-01: 10
+  
+  - name: Zero
+    code: Z
+    rates:
+      3013-07-01: 0
+      
+zone:
+  country: HR

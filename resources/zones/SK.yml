@@ -1,0 +1,16 @@
+code: SK
+name: Slovakia
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2011-01-01: 20
+      
+  - name: Reduced
+    code: R
+    rates:
+      2011-01-01: 10
+      
+ zone:
+  country: SK
