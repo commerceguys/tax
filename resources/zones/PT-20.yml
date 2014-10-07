@@ -19,4 +19,4 @@ taxes:
       
 zone:
   country: PT
-  adminastrative_area: 20
+  postalcode: '(9)[0-4][0-9]{2}-[0-9]{3}'
