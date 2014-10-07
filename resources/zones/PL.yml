@@ -1,0 +1,21 @@
+code: PL
+name: Poland
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2011-01-01: 23
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2011-01-01: 8
+      
+  - name: Reduced
+    code: R
+    rates:
+      2011-01-01: 5
+      
+zone:
+  country: PL

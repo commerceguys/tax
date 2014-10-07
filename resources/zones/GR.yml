@@ -1,0 +1,31 @@
+code: GR
+name: Greece
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2010-07-01: 23
+  
+  - name: Intermediate
+    code: I
+    rates:
+      2011-01-01: 13
+      
+  - name: Reduced
+    code: R
+    rates:
+      2011-01-01: 6.5
+      
+zone:
+  country: GR
+  not-administrative_area:
+    'L'              # The Dodecanese and the Cyclades
+  not-locality:
+    '83'             # Lesbos
+    '85'             # Chios
+  not-postalcode:
+    '640 04'         # Thassos
+    '680 02'         # Samothrace
+    '340 07'         # Skiros
+    '(370 )[0-9]{2}' # Northern Sporades

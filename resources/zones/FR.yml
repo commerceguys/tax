@@ -1,0 +1,28 @@
+code: FR
+name: France
+type: VAT
+taxes: 
+  - name: Standard
+    code: S
+    rates:
+      2014-01-01: 20
+      2004-04-01: 19.6
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2012-01-01: 7
+    
+  - name: Reduced
+    code: R
+    rates:
+      1982-07-01: 5.5
+      
+  - name: "Super Reduced"
+    code: SR
+    rates:
+      1986-07-01: 2.1
+    
+zone:
+  country: FR
+  

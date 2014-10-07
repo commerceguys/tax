@@ -1,0 +1,21 @@
+code: HU
+name: Hungary
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2012-01-01: 27
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2009-07-01: 18
+      
+  - name: Reduced
+    code: R
+    rates:
+      2004-01-01: 5
+      
+zone:
+  country: HU

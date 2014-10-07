@@ -1,0 +1,22 @@
+code: PT
+name: Portugal
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2011-01-01: 23
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2010-07-01: 13
+      
+  - name: Reduced
+    code: I
+    rates:
+      2010-07-01: 6
+      
+zone:
+  country: PT
+  not-adminastrative_area: [20, 30]
