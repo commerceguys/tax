@@ -19,5 +19,5 @@ taxes:
     
 zone:
   country: FR
-  administrative_area: H
+  postalcode: '(20)[0-9]{3}'
   

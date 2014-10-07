@@ -19,4 +19,4 @@ taxes:
       
 zone:
   country: PT
-  not-adminastrative_area: [20, 30]
+  not-postalcode: '(9)[0-9]{3}-[0-9]{3}'
