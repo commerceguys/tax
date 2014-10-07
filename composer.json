@@ -1,0 +1,31 @@
+{
+    "name": "commerceguys/tax",
+    "type": "library",
+    "description": "Tax library.",
+    "keywords": ["tax", "vat"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "commerceguys/zone": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "mikey179/vfsStream": "1.*"
+    },
+    "autoload": {
+        "psr-4": { "CommerceGuys\\Tax\\": "src" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CommerceGuys\\Tax\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bojan Zivanovic"
+        },
+        {
+            "name": "David Kitchen"
+        }
+    ]
+}
