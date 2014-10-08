@@ -15,7 +15,7 @@ taxes:
 zone:
   country: AT
   not-postalcode:
-    6691 # Jungholz
-    6991 # Mittelberg
-    6992
-    6993
+    - 6691 # Jungholz
+    - 6991 # Mittelberg
+    - 6992
+    - 6993
