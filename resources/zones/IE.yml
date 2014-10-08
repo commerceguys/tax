@@ -32,6 +32,6 @@ taxes:
     rates:
       1972-04-01: 0
     
-Zone:
+zone:
   country: IE
   
