@@ -21,7 +21,7 @@ interface TaxRateInterface
     /**
      * Gets the tax rate id.
      *
-     * @return string
+     * @return string The tax rate id.
      */
     public function getId();
 
@@ -67,46 +67,16 @@ interface TaxRateInterface
     public function setDisplayName($displayName);
 
     /**
-     * Gets the decimal tax rate amount.
+     * Gets the tax rate amounts.
      *
-     * For example, 0.2 for a 20% tax rate.
-     *
-     * @return float The tax rate amount expressed as a decimal.
+     * @return TaxRateAmount[] The tax rate amounts.
      */
-    public function getAmount();
+    public function getAmounts();
 
     /**
-     * Sets the decimal tax rate amount.
+     * Sets the tax rate amounts.
      *
-     * @param float $amount The tax rate amount expressed as a decimal.
+     * @param TaxRateAmount[] $amounts The tax rate amounts.
      */
-    public function setAmount($amount);
-
-    /**
-     * Gets the tax rate start date.
-     *
-     * @return \DateTime|null The start date, if known.
-     */
-    public function getStartDate();
-
-    /**
-     * Sets the tax rate start date.
-     *
-     * @param \DateTime $startDate The tax rate start date.
-     */
-    public function setStartDate($startDate);
-
-    /**
-     * Gets the tax rate end date.
-     *
-     * @return \DateTime|null The tax rate end date, if known.
-     */
-    public function getEndDate();
-
-    /**
-     * Sets the tax rate end date.
-     *
-     * @param \DateTime $endDate The tax rate end date.
-     */
-    public function setEndDate($endDate);
+    public function setAmounts($amounts);
 }

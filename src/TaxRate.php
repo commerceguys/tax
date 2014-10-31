@@ -33,25 +33,11 @@ class TaxRate implements TaxRateInterface
     protected $displayName;
 
     /**
-     * The tax rate amount.
+     * The tax rate amounts.
      *
-     * @var float
+     * @var TaxRateAmount[]
      */
-    protected $amount;
-
-    /**
-     * The tax rate start date.
-     *
-     * @var \DateTime
-     */
-    protected $startDate;
-
-    /**
-     * The tax rate end date.
-     *
-     * @var \DateTime
-     */
-    protected $endDate;
+    protected $amounts;
 
     /**
      * {@inheritdoc}
@@ -128,53 +114,17 @@ class TaxRate implements TaxRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getAmount()
+    public function getAmounts()
     {
-        return $this->amount;
+        return $this->amounts;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setAmount($amount)
+    public function setAmounts($amounts)
     {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getStartDate()
-    {
-        return $this->startDate;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setStartDate($startDate)
-    {
-        $this->startDate = $startDate;
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getEndDate()
-    {
-        return $this->endDate;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setEndDate($endDate)
-    {
-        $this->endDate = $endDate;
+        $this->amounts = $amounts;
 
         return $this;
     }

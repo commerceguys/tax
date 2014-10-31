@@ -7,7 +7,6 @@ use CommerceGuys\Zone\ZoneInterface;
 interface TaxTypeInterface
 {
     // Rounding modes.
-    const ROUND_NONE = 0;
     const ROUND_HALF_UP = PHP_ROUND_HALF_UP;
     const ROUND_HALF_DOWN = PHP_ROUND_HALF_DOWN;
     const ROUND_HALF_EVEN = PHP_ROUND_HALF_EVEN;
