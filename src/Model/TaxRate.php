@@ -152,9 +152,12 @@ class TaxRate implements TaxRateInterface
      */
     public function getAmount(\DateTime $date)
     {
+        // Amount start/end dates don't include the time, so discard the time
+        // portion of the provided date to make the matching precise.
+        $date->setTime(0, 0);
         foreach ($this->amounts as $amount) {
-            $startDate = $this->amount->getStartDate();
-            $endDate = $this->amount->getEndDate();
+            $startDate = $amount->getStartDate();
+            $endDate = $amount->getEndDate();
             // Match the date against the optional amount start/end dates.
             if ((!$startDate || $startDate <= $date) && (!$endDate || $endDate > $date)) {
                 return $amount;

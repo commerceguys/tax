@@ -69,6 +69,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
      * @covers ::getAmounts
      * @covers ::setAmounts
      * @covers ::hasAmounts
+     * @covers ::getAmount
      * @covers ::addAmount
      * @covers ::removeAmount
      * @covers ::hasAmount
@@ -79,9 +80,21 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
         $firstAmount = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRateAmount')
             ->getMock();
+        $firstAmount
+            ->expects($this->any())
+            ->method('getStartDate')
+            ->will($this->returnValue(new \DateTime('2013/01/01')));
+        $firstAmount
+            ->expects($this->any())
+            ->method('getEndDate')
+            ->will($this->returnValue(new \DateTime('2013/12/31')));
         $secondAmount = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRateAmount')
             ->getMock();
+        $secondAmount
+            ->expects($this->any())
+            ->method('getStartDate')
+            ->will($this->returnValue(new \DateTime('2014/01/01')));
 
         $this->assertEquals(false, $this->taxRate->hasAmounts());
         $rates = array($firstAmount, $secondAmount);
@@ -94,5 +107,12 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(true, $this->taxRate->hasAmount($firstAmount));
         $this->taxRate->addAmount($secondAmount);
         $this->assertEquals($rates, $this->taxRate->getAmounts());
+
+        $amount = $this->taxRate->getAmount(new \DateTime('2012/02/24'));
+        $this->assertNull($amount);
+        $amount = $this->taxRate->getAmount(new \DateTime('2013/02/24'));
+        $this->assertSame($firstAmount, $amount);
+        $amount = $this->taxRate->getAmount(new \DateTime('2014/02/24'));
+        $this->assertSame($secondAmount, $amount);
     }
 }
