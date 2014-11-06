@@ -37,7 +37,7 @@ class TaxRate implements TaxRateInterface
      *
      * @var TaxRateAmount[]
      */
-    protected $amounts;
+    protected $amounts = array();
 
     /**
      * Returns the string representation of the tax rate.
