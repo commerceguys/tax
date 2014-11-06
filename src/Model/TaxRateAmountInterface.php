@@ -1,6 +1,6 @@
 <?php
 
-namespace CommerceGuys\Tax;
+namespace CommerceGuys\Tax\Model;
 
 interface TaxRateAmountInterface
 {
@@ -14,9 +14,9 @@ interface TaxRateAmountInterface
     /**
      * Sets the tax rate.
      *
-     * @param TaxRateInterface $rate The tax rate.
+     * @param TaxRateInterface|null $rate The tax rate.
      */
-    public function setRate(TaxRateInterface $rate);
+    public function setRate(TaxRateInterface $rate = null);
 
     /**
      * Gets the tax rate amount id.
@@ -28,7 +28,7 @@ interface TaxRateAmountInterface
     /**
      * Sets the tax rate amount id.
      *
-     * @param string $id The tax rate amountid.
+     * @param string $id The tax rate amount id.
      */
     public function setId($id);
 
@@ -60,7 +60,7 @@ interface TaxRateAmountInterface
      *
      * @param \DateTime $startDate The tax rate amount start date.
      */
-    public function setStartDate($startDate);
+    public function setStartDate(\DateTime $startDate);
 
     /**
      * Gets the tax rate amount end date.
@@ -74,5 +74,5 @@ interface TaxRateAmountInterface
      *
      * @param \DateTime $endDate The tax rate amount end date.
      */
-    public function setEndDate($endDate);
+    public function setEndDate(\DateTime $endDate);
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace CommerceGuys\Tax;
+namespace CommerceGuys\Tax\Model;
 
 class TaxRate implements TaxRateInterface
 {
@@ -40,6 +40,16 @@ class TaxRate implements TaxRateInterface
     protected $amounts;
 
     /**
+     * Returns the string representation of the tax rate.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getType()
@@ -50,7 +60,7 @@ class TaxRate implements TaxRateInterface
     /**
      * {@inheritdoc}
      */
-    public function setType(TaxTypeInterface $type)
+    public function setType(TaxTypeInterface $type = null)
     {
         $this->type = $type;
 
@@ -127,5 +137,67 @@ class TaxRate implements TaxRateInterface
         $this->amounts = $amounts;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasAmounts()
+    {
+        return !empty($this->amounts);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAmount(\DateTime $date)
+    {
+        foreach ($this->amounts as $amount) {
+            $startDate = $this->amount->getStartDate();
+            $endDate = $this->amount->getEndDate();
+            // Match the date against the optional amount start/end dates.
+            if ((!$startDate || $startDate <= $date) && (!$endDate || $endDate > $date)) {
+                return $amount;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addAmount(TaxRateAmountInterface $amount)
+    {
+        if (!$this->hasAmount($amount)) {
+            $amount->setRate($this);
+            $this->amounts[] = $amount;
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeAmount(TaxRateAmountInterface $amount)
+    {
+        if ($this->hasAmount($amount)) {
+            $amount->setRate(null);
+            // Remove the amount and rekey the array.
+            $index = array_search($amount, $this->amounts);
+            unset($this->amounts[$index]);
+            $this->amounts = array_values($this->amounts);
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasAmount(TaxRateAmountInterface $amount)
+    {
+        return in_array($amount, $this->amounts);
     }
 }

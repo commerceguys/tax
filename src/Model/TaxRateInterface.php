@@ -1,0 +1,122 @@
+<?php
+
+namespace CommerceGuys\Tax\Model;
+
+interface TaxRateInterface
+{
+    /**
+     * Gets the tax type.
+     *
+     * @return TaxTypeInterface The tax type.
+     */
+    public function getType();
+
+    /**
+     * Sets the tax type.
+     *
+     * @param TaxTypeInterface|null $type The tax type.
+     */
+    public function setType(TaxTypeInterface $type = null);
+
+    /**
+     * Gets the tax rate id.
+     *
+     * @return string The tax rate id.
+     */
+    public function getId();
+
+    /**
+     * Sets the tax rate id.
+     *
+     * @param string $id The tax rate id.
+     */
+    public function setId($id);
+
+    /**
+     * Gets the tax rate name.
+     *
+     * Used to identify the tax rate on administration pages.
+     * For example, "Standard".
+     *
+     * @return string The tax rate name.
+     */
+    public function getName();
+
+    /**
+     * Sets the tax rate name.
+     *
+     * @param string $name The tax rate name.
+     */
+    public function setName($name);
+
+    /**
+     * Gets the tax rate display name.
+     *
+     * Used to identify the tax rate in the cart and other user-facing pages.
+     * The % placeholder will be replaced with the selected tax rate amount
+     * formatted as a percentage. For example, "% VAT" becomes "20% VAT".
+     *
+     * @return string The tax rate display name.
+     */
+    public function getDisplayName();
+
+    /**
+     * Sets the tax rate display name.
+     *
+     * @param string $displayName The tax rate display name.
+     */
+    public function setDisplayName($displayName);
+
+    /**
+     * Gets the tax rate amounts.
+     *
+     * @return TaxRateAmountInterface[] The tax rate amounts.
+     */
+    public function getAmounts();
+
+    /**
+     * Sets the tax rate amounts.
+     *
+     * @param TaxRateAmountInterface[] $amounts The tax rate amounts.
+     */
+    public function setAmounts($amounts);
+
+    /**
+     * Gets the tax rate amount valid for the provided date.
+     *
+     * @param \DateTime $date The date.
+     *
+     * @return TaxRateAmountInterface|null The tax rate amount, if matched.
+     */
+    public function getAmount(\DateTime $date);
+
+    /**
+     * Checks whether the tax rate has tax rate amounts.
+     *
+     * @return boolean True if the tax rate has tax rate amounts, false otherwise.
+     */
+    public function hasAmounts();
+
+    /**
+     * Adds a tax rate amount.
+     *
+     * @param TaxRateAmountInterface $amount The tax rate amount.
+     */
+    public function addAmount(TaxRateAmountInterface $amount);
+
+    /**
+     * Removes a tax rate amount.
+     *
+     * @param TaxRateAmountInterface $amount The tax rate amount.
+     */
+    public function removeAmount(TaxRateAmountInterface $amount);
+
+    /**
+     * Checks whether the tax rate has a tax rate amount.
+     *
+     * @param TaxRateAmountInterface $amount The tax rate amount.
+     *
+     * @return boolean True if the tax rate amount was found, false otherwise.
+     */
+    public function hasAmount(TaxRateAmountInterface $amount);
+}

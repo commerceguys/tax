@@ -1,8 +1,8 @@
 <?php
 
-namespace CommerceGuys\Tax;
+namespace CommerceGuys\Tax\Model;
 
-use CommerceGuys\Zone\ZoneInterface;
+use CommerceGuys\Zone\Model\ZoneInterface;
 
 interface TaxTypeInterface
 {
@@ -101,4 +101,34 @@ interface TaxTypeInterface
      * @param TaxRateInterface[] $rates The tax rates.
      */
     public function setRates($rates);
+
+    /**
+     * Checks whether the tax type has tax rates.
+     *
+     * @return boolean True if the tax type has tax rates, false otherwise.
+     */
+    public function hasRates();
+
+    /**
+     * Adds a tax rate.
+     *
+     * @param TaxRateInterface $rate The tax rate.
+     */
+    public function addRate(TaxRateInterface $rate);
+
+    /**
+     * Removes a tax rate.
+     *
+     * @param TaxRateInterface $rate The tax rate.
+     */
+    public function removeRate(TaxRateInterface $rate);
+
+    /**
+     * Checks whether the tax type has a tax rate.
+     *
+     * @param TaxRateInterface $rate The tax rate.
+     *
+     * @return boolean True if the tax rate was found, false otherwise.
+     */
+    public function hasRate(TaxRateInterface $rate);
 }

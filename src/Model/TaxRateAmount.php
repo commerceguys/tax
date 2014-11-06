@@ -1,6 +1,6 @@
 <?php
 
-namespace CommerceGuys\Tax;
+namespace CommerceGuys\Tax\Model;
 
 class TaxRateAmount implements TaxRateAmountInterface
 {
@@ -50,7 +50,7 @@ class TaxRateAmount implements TaxRateAmountInterface
     /**
      * {@inheritdoc}
      */
-    public function setRate(TaxRateInterface $rate)
+    public function setRate(TaxRateInterface $rate = null)
     {
         $this->rate = $rate;
 
@@ -104,7 +104,7 @@ class TaxRateAmount implements TaxRateAmountInterface
     /**
      * {@inheritdoc}
      */
-    public function setStartDate($startDate)
+    public function setStartDate(\DateTime $startDate)
     {
         $this->startDate = $startDate;
 
@@ -122,7 +122,7 @@ class TaxRateAmount implements TaxRateAmountInterface
     /**
      * {@inheritdoc}
      */
-    public function setEndDate($endDate)
+    public function setEndDate(\DateTime $endDate)
     {
         $this->endDate = $endDate;
 

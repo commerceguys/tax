@@ -1,8 +1,8 @@
 <?php
 
-namespace CommerceGuys\Tax;
+namespace CommerceGuys\Tax\Model;
 
-use CommerceGuys\Zone\ZoneInterface;
+use CommerceGuys\Zone\Model\ZoneInterface;
 
 class TaxType implements TaxTypeInterface
 {
@@ -44,9 +44,19 @@ class TaxType implements TaxTypeInterface
     /**
      * The tax rates.
      *
-     * @var TaxRate[]
+     * @var TaxRateInterface[]
      */
-    protected $rates;
+    protected $rates = array();
+
+    /**
+     * Returns the string representation of the tax type.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * {@inheritdoc}
@@ -154,5 +164,50 @@ class TaxType implements TaxTypeInterface
         $this->rates = $rates;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasRates()
+    {
+        return !empty($this->rates);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addRate(TaxRateInterface $rate)
+    {
+        if (!$this->hasRate($rate)) {
+            $rate->setType($this);
+            $this->rates[] = $rate;
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeRate(TaxRateInterface $rate)
+    {
+        if ($this->hasRate($rate)) {
+            $rate->setType(null);
+            // Remove the rate and rekey the array.
+            $index = array_search($rate, $this->rates);
+            unset($this->rates[$index]);
+            $this->rates = array_values($this->rates);
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasRate(TaxRateInterface $rate)
+    {
+        return in_array($rate, $this->rates);
     }
 }
