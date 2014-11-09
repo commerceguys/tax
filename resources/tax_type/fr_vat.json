@@ -1,0 +1,60 @@
+{
+    "name": "French VAT",
+    "zone": "fr_vat",
+    "rates": [
+        {
+            "id": "fr_vat_standard",
+            "name": "Standard",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "fr_vat_standard_0",
+                    "amount": 0.196,
+                    "start_date": "2004-04-01",
+                    "end_date": "2013-12-31"
+                },
+                {
+                    "id": "fr_vat_standard_1",
+                    "amount": 0.2,
+                    "start_date": "2014-01-01"
+                }
+            ]
+        },
+        {
+            "id": "fr_vat_intermediate",
+            "name": "Indermediate",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "fr_vat_intermediate_0",
+                    "amount": 0.07,
+                    "start_date": "2012-01-01"
+                }
+            ]
+        },
+        {
+            "id": "fr_vat_reduced",
+            "name": "Reduced",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "fr_vat_reduced_0",
+                    "amount": 0.055,
+                    "start_date": "1982-07-01"
+                }
+            ]
+        },
+        {
+            "id": "fr_vat_super_reduced",
+            "name": "Super Reduced",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "fr_vat_super_reduced_0",
+                    "amount": 0.021,
+                    "start_date": "1986-07-01"
+                }
+            ]
+        }
+    ]
+}

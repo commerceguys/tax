@@ -1,0 +1,12 @@
+{
+    "name": "Bulgarian VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "bg",
+            "name": "Bulgaria",
+            "country_code": "BG"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "name": "Bulgarian VAT",
+    "zone": "bg_vat",
+    "rates": [
+        {
+            "id": "bg_vat_standard",
+            "name": "Standard",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "bg_vat_standard_0",
+                    "amount": 0.2,
+                    "start_date": "1999-01-01"
+                }
+            ]
+        },
+        {
+            "id": "bg_vat_reduced",
+            "name": "Reduced",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "bg_vat_reduced_0",
+                    "amount": 0.09,
+                    "start_date": "2011-04-01"
+                }
+            ]
+        }
+    ]
+}

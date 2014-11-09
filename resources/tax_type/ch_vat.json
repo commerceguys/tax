@@ -1,0 +1,42 @@
+{
+    "name": "Swiss VAT",
+    "zone": "ch_vat",
+    "rates": [
+        {
+            "id": "ch_vat_standard",
+            "name": "Standard",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "ch_vat_standard_0",
+                    "amount": 0.08,
+                    "start_date": "2011-01-01"
+                }
+            ]
+        },
+        {
+            "id": "ch_vat_hotel",
+            "name": "Hotel",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "ch_vat_reduced_0",
+                    "amount": 0.038,
+                    "start_date": "2011-01-01"
+                }
+            ]
+        },
+        {
+            "id": "ch_vat_reduced",
+            "name": "Reduced",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "ch_vat_reduced_0",
+                    "amount": 0.025,
+                    "start_date": "2011-01-01"
+                }
+            ]
+        }
+    ]
+}

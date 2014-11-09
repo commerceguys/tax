@@ -1,0 +1,13 @@
+{
+    "name": "Austrian VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "at",
+            "name": "Austria",
+            "country_code": "AT",
+            "excluded_postal_codes": "6691, 6991:6993"
+        }
+    ]
+}

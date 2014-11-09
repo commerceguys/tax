@@ -1,0 +1,18 @@
+{
+    "name": "British VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "gb",
+            "name": "Great Britain",
+            "country_code": "GB"
+        },
+        {
+            "type": "country",
+            "id": "im",
+            "name": "Isle of Man",
+            "country_code": "IM"
+        }
+    ]
+}

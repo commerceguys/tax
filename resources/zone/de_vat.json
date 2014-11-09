@@ -1,0 +1,20 @@
+{
+    "name": "German VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "de",
+            "name": "Germany",
+            "country_code": "DE",
+            "excluded_postal_codes": "27498, 78266"
+        },
+        {
+            "type": "country",
+            "id": "at",
+            "name": "Austria (Jungholz and Mittelberg)",
+            "country_code": "AT",
+            "included_postal_codes": "6691, 6991:6993"
+        }
+    ]
+}

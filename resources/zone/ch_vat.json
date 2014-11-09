@@ -1,0 +1,19 @@
+{
+    "name": "Swiss VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ch",
+            "name": "Switzerland",
+            "country_code": "CH"
+        },
+        {
+            "type": "country",
+            "id": "de",
+            "name": "Germany",
+            "country_code": "DE",
+            "included_postal_codes": "27498, 78266"
+        }
+    ]
+}

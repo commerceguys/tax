@@ -1,0 +1,19 @@
+{
+    "name": "French VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "fr",
+            "name": "France (without Corsica)",
+            "country_code": "FR",
+            "excluded_postal_codes": "\/(20)[0-9]{3}\/"
+        },
+        {
+            "type": "country",
+            "id": "mc",
+            "name": "Monaco",
+            "country_code": "MC"
+        }
+    ]
+}

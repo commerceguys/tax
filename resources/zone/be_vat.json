@@ -1,0 +1,12 @@
+{
+    "name": "Belgian VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "be",
+            "name": "Belgium",
+            "country_code": "BE"
+        }
+    ]
+}
