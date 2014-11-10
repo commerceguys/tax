@@ -11,9 +11,16 @@
         {
             "type": "country",
             "id": "de",
-            "name": "Germany",
+            "name": "Germany (Büsingen)",
             "country_code": "DE",
-            "included_postal_codes": "27498, 78266"
+            "included_postal_codes": "78266"
+        },
+        {
+            "type": "country",
+            "id": "it",
+            "name": "Italy (Lake Lugano)",
+            "country_code": "IT",
+            "included_postal_codes": "22060"
         }
     ]
 }
