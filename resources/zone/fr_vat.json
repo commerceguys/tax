@@ -5,7 +5,7 @@
         {
             "type": "country",
             "id": "fr",
-            "name": "France (without Corsica)",
+            "name": "France (ex. Corsica)",
             "country_code": "FR",
             "excluded_postal_codes": "\/(20)[0-9]{3}\/"
         },
