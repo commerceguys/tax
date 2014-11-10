@@ -5,7 +5,7 @@
         {
             "type": "country",
             "id": "at",
-            "name": "Austria",
+            "name": "Austria (ex. Jungholz and Mittelberg)",
             "country_code": "AT",
             "excluded_postal_codes": "6691, 6991:6993"
         }
