@@ -1,11 +1,11 @@
 {
-    "name": "British VAT",
+    "name": "United Kingdom VAT",
     "scope": "tax",
     "members": [
         {
             "type": "country",
             "id": "gb",
-            "name": "Great Britain",
+            "name": "United Kingdom",
             "country_code": "GB"
         },
         {
