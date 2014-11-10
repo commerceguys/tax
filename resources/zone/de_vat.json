@@ -5,7 +5,7 @@
         {
             "type": "country",
             "id": "de",
-            "name": "Germany",
+            "name": "Germany (ex. Heligoland and Büsingen)",
             "country_code": "DE",
             "excluded_postal_codes": "27498, 78266"
         },
