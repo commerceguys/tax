@@ -7,6 +7,30 @@
             "id": "gp",
             "name": "Guadeloupe",
             "country_code": "GP"
+        },
+        {
+            "type": "country",
+            "id": "gf",
+            "name": "French Guiana",
+            "country_code": "GF"
+        },
+        {
+            "type": "country",
+            "id": "mq",
+            "name": "Martinique",
+            "country_code": "MQ"
+        },
+        {
+            "type": "country",
+            "id": "re",
+            "name": "Réunion",
+            "country_code": "RE"
+        },
+        {
+            "type": "country",
+            "id": "yt",
+            "name": "Mayotte",
+            "country_code": "YT"
         }
     ]
 }
