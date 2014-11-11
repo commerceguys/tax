@@ -1,0 +1,12 @@
+{
+    "name": "Denmark VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "dk",
+            "name": "Denmark",
+            "country_code": "DK"
+        }
+    ]
+}

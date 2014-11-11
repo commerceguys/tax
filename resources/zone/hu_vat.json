@@ -1,0 +1,12 @@
+{
+    "name": "Hungary VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "hu",
+            "name": "Hungary",
+            "country_code": "HU"
+        }
+    ]
+}

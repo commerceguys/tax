@@ -1,0 +1,12 @@
+{
+    "name": "Latvia VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "lv",
+            "name": "Latvia",
+            "country_code": "LV"
+        }
+    ]
+}

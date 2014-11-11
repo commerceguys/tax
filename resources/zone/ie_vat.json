@@ -1,0 +1,12 @@
+{
+    "name": "Ireland VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ie",
+            "name": "Ireland",
+            "country_code": "IE"
+        }
+    ]
+}

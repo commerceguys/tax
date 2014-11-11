@@ -1,0 +1,12 @@
+{
+    "name": "Slovenia VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "si",
+            "name": "Slovenia",
+            "country_code": "SI"
+        }
+    ]
+}

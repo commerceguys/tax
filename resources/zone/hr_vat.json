@@ -1,0 +1,12 @@
+{
+    "name": "Croatia VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "hr",
+            "name": "Croatia",
+            "country_code": "HR"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "Netherlands VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "nl",
+            "name": "Netherlands",
+            "country_code": "NL"
+        }
+    ]
+}

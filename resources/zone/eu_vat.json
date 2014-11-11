@@ -1,0 +1,190 @@
+{
+    "name": "European Union VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "at",
+            "name": "Austria",
+            "country_code": "AT"
+        },
+        {
+            "type": "country",
+            "id": "be",
+            "name": "Belgium",
+            "country_code": "BE"
+        },
+        {
+            "type": "country",
+            "id": "bg",
+            "name": "Bulgaria",
+            "country_code": "BG"
+        },
+        {
+            "type": "country",
+            "id": "cy",
+            "name": "Cyprus",
+            "country_code": "CY"
+        },
+        {
+            "type": "country",
+            "id": "cz",
+            "name": "Czech Republic",
+            "country_code": "CZ"
+        },
+        {
+            "type": "country",
+            "id": "de",
+            "name": "Germany (ex. Heligoland and Büsingen)",
+            "country_code": "DE",
+            "excluded_postal_codes": "27498, 78266"
+        },
+        {
+            "type": "country",
+            "id": "dk",
+            "name": "Denmark",
+            "country_code": "DK"
+        },
+        {
+            "type": "country",
+            "id": "ee",
+            "name": "Estonia",
+            "country_code": "EE"
+        },
+        {
+            "type": "country",
+            "id": "es",
+            "name": "Spain (ex.  Canary Islands, Ceuta and Melilla)",
+            "country_code": "ES",
+            "excluded_postal_codes": "\/(35|38)[0-9]{3}\/, \/(51|52)[0-9]{3}\/"
+        },
+        {
+            "type": "country",
+            "id": "fi",
+            "name": "Finland (ex. Åland Islands)",
+            "country_code": "FI",
+            "excluded_postal_codes": "22000:22999"
+        },
+        {
+            "type": "country",
+            "id": "fr",
+            "name": "France",
+            "country_code": "FR"
+        },
+        {
+            "type": "country",
+            "id": "mc",
+            "name": "Monaco",
+            "country_code": "MC"
+        },
+        {
+            "type": "country",
+            "id": "gb",
+            "name": "United Kingdom",
+            "country_code": "GB"
+        },
+        {
+            "type": "country",
+            "id": "im",
+            "name": "Isle of Man",
+            "country_code": "IM"
+        },
+        {
+            "type": "country",
+            "id": "gr",
+            "name": "Greece",
+            "country_code": "ES"
+        },
+        {
+            "type": "country",
+            "id": "hr",
+            "name": "Croatia",
+            "country_code": "HR"
+        },
+        {
+            "type": "country",
+            "id": "hu",
+            "name": "Hungary",
+            "country_code": "HU"
+        },
+        {
+            "type": "country",
+            "id": "ie",
+            "name": "Ireland",
+            "country_code": "IE"
+        },
+        {
+            "type": "country",
+            "id": "it",
+            "name": "Italy (ex.  Livigno, Campione d’Italia and Lake Lugano)",
+            "country_code": "IT",
+            "excluded_postal_codes": "23030, 22060"
+        },
+        {
+            "type": "country",
+            "id": "lt",
+            "name": "Latvia",
+            "country_code": "LT"
+        },
+        {
+            "type": "country",
+            "id": "lu",
+            "name": "Luxembourg",
+            "country_code": "LU"
+        },
+        {
+            "type": "country",
+            "id": "lv",
+            "name": "Latvia",
+            "country_code": "LV"
+        },
+        {
+            "type": "country",
+            "id": "mt",
+            "name": "Malta",
+            "country_code": "mt"
+        },
+        {
+            "type": "country",
+            "id": "nl",
+            "name": "Netherlands",
+            "country_code": "NL"
+        },
+        {
+            "type": "country",
+            "id": "pl",
+            "name": "Poland",
+            "country_code": "PL"
+        },
+        {
+            "type": "country",
+            "id": "pt",
+            "name": "Portugal",
+            "country_code": "PT"
+        },
+        {
+            "type": "country",
+            "id": "ro",
+            "name": "Romania",
+            "country_code": "RO"
+        },
+        {
+            "type": "country",
+            "id": "se",
+            "name": "Sweden",
+            "country_code": "SE"
+        },
+        {
+            "type": "country",
+            "id": "si",
+            "name": "Slovenia",
+            "country_code": "SI"
+        },
+        {
+            "type": "country",
+            "id": "sk",
+            "name": "Slovakia",
+            "country_code": "SK"
+        }
+    ]
+}

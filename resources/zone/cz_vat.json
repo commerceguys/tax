@@ -1,0 +1,12 @@
+{
+    "name": "Czech Republic VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "cz",
+            "name": "Czech Republic",
+            "country_code": "CZ"
+        }
+    ]
+}

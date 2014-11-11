@@ -1,0 +1,12 @@
+{
+    "name": "France DOM VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "gp",
+            "name": "Guadeloupe",
+            "country_code": "GP"
+        }
+    ]
+}
