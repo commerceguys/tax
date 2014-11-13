@@ -68,6 +68,23 @@ interface TaxRateInterface
     public function setDisplayName($displayName);
 
     /**
+     * Gets whether the tax rate is the default for its tax type.
+     *
+     * When resolving the tax rate for a specific tax type, the default tax
+     * rate is returned if no other resolver provides a more applicable one.
+     *
+     * @return bool True if the tax rate is the default, false otherwise.
+     */
+    public function isDefault();
+
+    /**
+     * Sets whether the tax rate is the default for its tax type.
+     *
+     * @param bool $default Whether the tax rate is the default.
+     */
+    public function setDefault($default);
+
+    /**
      * Gets the tax rate amounts.
      *
      * @return TaxRateAmountInterface[] The tax rate amounts.
@@ -93,7 +110,7 @@ interface TaxRateInterface
     /**
      * Checks whether the tax rate has tax rate amounts.
      *
-     * @return boolean True if the tax rate has tax rate amounts, false otherwise.
+     * @return bool True if the tax rate has tax rate amounts, false otherwise.
      */
     public function hasAmounts();
 
@@ -116,7 +133,7 @@ interface TaxRateInterface
      *
      * @param TaxRateAmountInterface $amount The tax rate amount.
      *
-     * @return boolean True if the tax rate amount was found, false otherwise.
+     * @return bool True if the tax rate amount was found, false otherwise.
      */
     public function hasAmount(TaxRateAmountInterface $amount);
 }

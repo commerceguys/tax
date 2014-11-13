@@ -66,6 +66,16 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers ::isDefault
+     * @covers ::setDefault
+     */
+    public function testDefault()
+    {
+        $this->taxRate->setDefault(true);
+        $this->assertEquals(true, $this->taxRate->isDefault());
+    }
+
+    /**
      * @covers ::getAmounts
      * @covers ::setAmounts
      * @covers ::hasAmounts

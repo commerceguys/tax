@@ -49,14 +49,14 @@ interface TaxTypeInterface
      * For example, Canada's Provincial Sales Tax (PST) is compound, calculated
      * on a price that already includes the Goods and Services Tax (GST).
      *
-     * @return boolean True if the tax type is compound, false otherwise.
+     * @return bool True if the tax type is compound, false otherwise.
      */
     public function isCompound();
 
     /**
      * Sets whether the tax type is compound.
      *
-     * @param boolean $compound Whether the tax type is compound.
+     * @param bool $compound Whether the tax type is compound.
      */
     public function setCompound($compound);
 
@@ -89,6 +89,24 @@ interface TaxTypeInterface
     public function setZone(ZoneInterface $zone);
 
     /**
+     * Gets the tax type tag.
+     *
+     * Used by the resolvers to analyze only the tax types relevant to them.
+     * For example, the EuTaxTypeResolver would analyze only the tax types
+     * with the "EU" tag.
+     *
+     * @return string The tax type tag.
+     */
+    public function getTag();
+
+    /**
+     * Sets the tax type tag.
+     *
+     * @param string $tag The tax type tag.
+     */
+    public function setTag($tag);
+
+    /**
      * Gets the tax rates.
      *
      * @return TaxRateInterface[] The tax rates.
@@ -105,7 +123,7 @@ interface TaxTypeInterface
     /**
      * Checks whether the tax type has tax rates.
      *
-     * @return boolean True if the tax type has tax rates, false otherwise.
+     * @return bool True if the tax type has tax rates, false otherwise.
      */
     public function hasRates();
 
@@ -128,7 +146,7 @@ interface TaxTypeInterface
      *
      * @param TaxRateInterface $rate The tax rate.
      *
-     * @return boolean True if the tax rate was found, false otherwise.
+     * @return bool True if the tax rate was found, false otherwise.
      */
     public function hasRate(TaxRateInterface $rate);
 }

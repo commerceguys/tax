@@ -76,6 +76,16 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers ::getTag
+     * @covers ::setTag
+     */
+    public function testTag()
+    {
+        $this->taxType->setTag('EU');
+        $this->assertEquals('EU', $this->taxType->getTag());
+    }
+
+    /**
      * @covers ::getRates
      * @covers ::setRates
      * @covers ::hasRates

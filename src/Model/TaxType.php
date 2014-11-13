@@ -23,7 +23,7 @@ class TaxType implements TaxTypeInterface
     /**
      * Whether the tax type is compound.
      *
-     * @var boolean
+     * @var bool
      */
     protected $compound;
 
@@ -40,6 +40,13 @@ class TaxType implements TaxTypeInterface
      * @var ZoneInterface
      */
     protected $zone;
+
+    /**
+     * The tax type tag.
+     *
+     * @var string
+     */
+    protected $tag;
 
     /**
      * The tax rates.
@@ -144,6 +151,24 @@ class TaxType implements TaxTypeInterface
     public function setZone(ZoneInterface $zone)
     {
         $this->zone = $zone;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
 
         return $this;
     }
