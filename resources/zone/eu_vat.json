@@ -85,12 +85,6 @@
         },
         {
             "type": "country",
-            "id": "gf",
-            "name": "French Guiana",
-            "country_code": "GF"
-        },
-        {
-            "type": "country",
             "id": "mq",
             "name": "Martinique",
             "country_code": "MQ"
