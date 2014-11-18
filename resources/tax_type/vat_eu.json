@@ -1,0 +1,6 @@
+{
+    "name": "European Union VAT",
+    "zone": "vat_eu",
+    "compound": "false",
+    "rounding_mode": "PHP_ROUND_HALF_UP"
+}
