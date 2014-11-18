@@ -1,0 +1,12 @@
+{
+    "name": "Norway VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "no",
+            "name": "Norway",
+            "country_code": "NO"
+        }
+    ]
+}

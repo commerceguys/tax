@@ -1,0 +1,12 @@
+{
+    "name": "Romania VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ro",
+            "name": "Romania",
+            "country_code": "RO"
+        }
+    ]
+}

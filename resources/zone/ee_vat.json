@@ -1,0 +1,12 @@
+{
+    "name": "Estonia VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ee",
+            "name": "Estonia",
+            "country_code": "EE"
+        }
+    ]
+}

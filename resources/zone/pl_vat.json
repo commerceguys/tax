@@ -1,0 +1,12 @@
+{
+    "name": "Poland VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "pl",
+            "name": "Poland",
+            "country_code": "PL"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "name": "France DOM VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "gp",
+            "name": "Guadeloupe",
+            "country_code": "GP"
+        },
+        {
+            "type": "country",
+            "id": "mq",
+            "name": "Martinique",
+            "country_code": "MQ"
+        },
+        {
+            "type": "country",
+            "id": "re",
+            "name": "Réunion",
+            "country_code": "RE"
+        },
+        {
+            "type": "country",
+            "id": "yt",
+            "name": "Mayotte",
+            "country_code": "YT"
+        }
+    ]
+}

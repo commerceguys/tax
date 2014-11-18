@@ -1,0 +1,12 @@
+{
+    "name": "Sweden VAT",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "se",
+            "name": "Sweden",
+            "country_code": "SE"
+        }
+    ]
+}
