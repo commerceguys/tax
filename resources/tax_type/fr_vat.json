@@ -22,13 +22,19 @@
         },
         {
             "id": "fr_vat_intermediate",
-            "name": "Indermediate",
+            "name": "Intermediate",
             "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "fr_vat_intermediate_0",
                     "amount": 0.07,
-                    "start_date": "2012-01-01"
+                    "start_date": "2012-01-01",
+                    "end_date": "2013-12-31"
+                },
+                {
+                    "id": "fr_vat_intermediate_1",
+                    "amount": 0.1,
+                    "start_date": "2014-01-01"
                 }
             ]
         },
