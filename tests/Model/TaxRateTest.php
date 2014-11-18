@@ -124,5 +124,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($firstAmount, $amount);
         $amount = $this->taxRate->getAmount(new \DateTime('2014/02/24'));
         $this->assertSame($secondAmount, $amount);
+        $amount = $this->taxRate->getAmount();
+        $this->assertSame($secondAmount, $amount);
     }
 }

@@ -175,8 +175,13 @@ class TaxRate implements TaxRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getAmount(\DateTime $date)
+    public function getAmount(\DateTime $date = null)
     {
+        if (is_null($date)) {
+            // Initialize DateTime to the current date.
+            $date = new \DateTime();
+        }
+
         // Amount start/end dates don't include the time, so discard the time
         // portion of the provided date to make the matching precise.
         $date->setTime(0, 0);
