@@ -139,6 +139,9 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
         $type->setCompound($definition['compound']);
         $type->setRoundingMode($definition['rounding_mode']);
         $type->setZone($zone);
+        if (isset($definition['tag'])) {
+            $type->setTag($definition['tag']);
+        }
         foreach ($definition['rates'] as $rateDefinition) {
             $rate = $this->createTaxRateFromDefinition($rateDefinition);
             $type->addRate($rate);
@@ -160,6 +163,9 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
         $rate->setId($definition['id']);
         $rate->setName($definition['name']);
         $rate->setDisplayName($definition['display_name']);
+        if (isset($definition['default'])) {
+            $rate->setDefault($definition['default']);
+        }
         foreach ($definition['amounts'] as $amountDefinition) {
             $amount = $this->createTaxRateAmountFromDefinition($amountDefinition);
             $rate->addAmount($amount);

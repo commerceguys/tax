@@ -20,11 +20,13 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
             'id' => 'fr_vat',
             'name' => 'French VAT',
             'zone' => 'fr',
+            'tag' => 'EU',
             'rates' => array(
                 array(
                     'id' => 'fr_vat_standard',
                     'name' => 'Standard',
                     'display_name' => '% VAT',
+                    'default' => true,
                     'amounts' => array(
                         array(
                             'id' => 'fr_vat_standard_196',
@@ -45,11 +47,13 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
             'id' => 'de_vat',
             'name' => 'German VAT',
             'zone' => 'de',
+            'tag' => 'EU',
             'rates' => array(
                 array(
                     'id' => 'de_vat_standard',
                     'name' => 'Standard',
                     'display_name' => '% VAT',
+                    'default' => true,
                     'amounts' => array(
                         array(
                             'id' => 'de_vat_standard_19',
@@ -118,6 +122,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('CommerceGuys\Zone\Model\Zone', $taxType->getZone());
         $this->assertEquals('fr_vat', $taxType->getId());
         $this->assertEquals('French VAT', $taxType->getName());
+        $this->assertEquals('EU', $taxType->getTag());
         $rates = $taxType->getRates();
         $this->assertCount(1, $rates);
 
@@ -127,6 +132,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('fr_vat_standard', $rate->getId());
         $this->assertEquals('Standard', $rate->getName());
         $this->assertEquals('% VAT', $rate->getDisplayName());
+        $this->assertEquals(true, $rate->isDefault());
         $amounts = $rate->getAmounts();
         $this->assertCount(2, $amounts);
 
