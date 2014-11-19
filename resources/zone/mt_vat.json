@@ -1,12 +1,12 @@
 {
-    "name": "Malta VAT",
+    "name": "Malta (VAT)",
     "scope": "tax",
     "members": [
         {
             "type": "country",
             "id": "mt",
             "name": "Malta",
-            "country_code": "mt"
+            "country_code": "MT"
         }
     ]
 }
