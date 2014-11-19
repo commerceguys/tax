@@ -6,6 +6,7 @@
             "id": "ch_vat_standard",
             "name": "Standard",
             "display_name": "% VAT",
+            "default": true,
             "amounts": [
                 {
                     "id": "ch_vat_standard_0",

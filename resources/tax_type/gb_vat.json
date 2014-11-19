@@ -1,11 +1,13 @@
 {
     "name": "British VAT",
     "zone": "gb_vat",
+    "tag": "EU",
     "rates": [
         {
             "id": "gb_vat_standard",
             "name": "Standard",
             "display_name": "% VAT",
+            "default": true,
             "amounts": [
                 {
                     "id": "gb_vat_standard_0",

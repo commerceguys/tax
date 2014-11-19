@@ -1,0 +1,68 @@
+{
+    "name": "Cyprus VAT",
+    "zone": "cy_vat",
+    "tag": "EU",
+    "rates": [
+        {
+            "id": "cy_vat_standard",
+            "name": "Standard",
+            "display_name": "% VAT",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "cy_vat_standard_0",
+                    "amount": 0.15,
+                    "start_date": "2004-05-01",
+                    "end_date": "2012-02-28"
+                },
+                {
+                    "id": "cy_vat_standard_0",
+                    "amount": 0.17,
+                    "start_date": "2012-03-01",
+                    "end_date": "2013-01-13"
+                },
+                {
+                    "id": "cy_vat_standard_1",
+                    "amount": 0.18,
+                    "start_date": "2013-01-14",
+                    "end_date": "2014-01-12"
+                },
+                {
+                    "id": "cy_vat_standard_2",
+                    "amount": 0.19,
+                    "start_date": "2014-01-13"
+                }
+            ]
+        },
+        {
+            "id": "cy_vat_intermediate",
+            "name": "Intermediate",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "cy_vat_intermediate_0",
+                    "amount": 0.08,
+                    "start_date": "2005-08-01",
+                    "end_date": "2014-01-12"
+                },
+                {
+                    "id": "cy_vat_intermediate_1",
+                    "amount": 0.09,
+                    "start_date": "2014-01-13"
+                }
+            ]
+        },
+        {
+            "id": "cy_vat_reduced",
+            "name": "Reduced",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "cy_vat_reduced_0",
+                    "amount": 0.05,
+                    "start_date": "2004-05-01"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "name": "Italian VAT",
+    "zone": "it_vat",
+    "tag": "EU",
+    "rates": [
+        {
+            "id": "it_vat_standard",
+            "name": "Standard",
+            "display_name": "% VAT",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "it_vat_standard_0",
+                    "amount": 0.21,
+                    "start_date": "2011-09-17",
+                    "end_date": "2013-09-30"
+                },
+                {
+                    "id": "it_vat_standard_1",
+                    "amount": 0.22,
+                    "start_date": "2013-10-01"
+                }
+            ]
+        },
+        {
+            "id": "it_vat_reduced",
+            "name": "Reduced",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "it_vat_reduced_0",
+                    "amount": 0.1,
+                    "start_date": "1995-02-24"
+                }
+            ]
+        },
+        {
+            "id": "it_vat_super_reduced",
+            "name": "Super Reduced",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "it_vat_super_reduced_0",
+                    "amount": 0.04,
+                    "start_date": "1989-01-01"
+                }
+            ]
+        }
+    ]
+}

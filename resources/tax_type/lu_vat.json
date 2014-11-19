@@ -1,53 +1,54 @@
 {
-    "name": "Belgian VAT",
-    "zone": "be_vat",
+    "name": "Luxembourg VAT",
+    "zone": "lu_vat",
     "tag": "EU",
     "rates": [
         {
-            "id": "be_vat_standard",
+            "id": "lu_vat_standard",
             "name": "Standard",
             "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
-                    "id": "be_vat_standard_0",
-                    "amount": 0.21,
-                    "start_date": "1996-01-01"
+                    "id": "lu_vat_standard_0",
+                    "amount": 0.15,
+                    "start_date": "1992-01-01"
                 }
             ]
         },
         {
-            "id": "be_vat_intermediate",
+            "id": "lu_vat_intermediate",
             "name": "Intermediate",
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "be_vat_intermediate_0",
+                    "id": "lu_vat_intermediate_0",
                     "amount": 0.12,
-                    "start_date": "1992-04-01"
+                    "start_date": "1979-02-12"
                 }
             ]
         },
         {
-            "id": "be_vat_reduced",
+            "id": "lu_vat_reduced",
             "name": "Reduced",
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "be_vat_reduced_0",
+                    "id": "lu_vat_reduced_0",
                     "amount": 0.06,
-                    "start_date": "1971-01-01"
+                    "start_date": "1983-07-01"
                 }
             ]
         },
         {
-            "id": "be_vat_zero",
-            "name": "Zero",
+            "id": "lu_vat_super_reduced",
+            "name": "Super Reduced",
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "be_vat_zero",
-                    "amount": 0
+                    "id": "lu_vat_super_reduced_0",
+                    "amount": 0.03,
+                    "start_date": "1983-07-01"
                 }
             ]
         }

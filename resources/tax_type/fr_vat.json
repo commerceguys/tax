@@ -1,11 +1,13 @@
 {
     "name": "French VAT",
     "zone": "fr_vat",
+    "tag": "EU",
     "rates": [
         {
             "id": "fr_vat_standard",
             "name": "Standard",
             "display_name": "% VAT",
+            "default": true,
             "amounts": [
                 {
                     "id": "fr_vat_standard_0",

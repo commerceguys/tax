@@ -1,0 +1,50 @@
+{
+    "name": "Croatian VAT",
+    "zone": "hr_vat",
+    "tag": "EU",
+    "rates": [
+        {
+            "id": "hr_vat_standard",
+            "name": "Standard",
+            "display_name": "% VAT",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "hr_vat_standard_0",
+                    "amount": 0.25,
+                    "start_date": "2013-07-01"
+                }
+            ]
+        },
+        {
+            "id": "hr_vat_reduced",
+            "name": "Reduced",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "hr_vat_reduced_0",
+                    "amount": 0.1,
+                    "start_date": "2013-07-01",
+                    "end_date": "2013-12-31"
+                },
+                {
+                    "id": "hr_vat_reduced_1",
+                    "amount": 0.13,
+                    "start_date": "2014-01-01"
+                }
+            ]
+        },
+        {
+            "id": "hr_vat_zero",
+            "name": "Zero",
+            "display_name": "% VAT",
+            "amounts": [
+                {
+                    "id": "hr_vat_zero",
+                    "amount": 0,
+                    "start_date": "2013-07-01"
+                }
+            ]
+        }
+    ]
+}
