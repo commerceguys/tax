@@ -29,3 +29,85 @@ Example:
 - Tax rates: Standard, Intermediate, Reduced, Super Reduced
 - Tax rate amounts for Standard: 19.6% (until January 1st 2014), 20% (from January 1st 2014)
 
+# Tax resolvers
+
+The process of finding the most suitable tax type/rate/amount for the given taxable object is called resolving.
+Along with the [Taxable object](https://github.com/commerceguys/tax/blob/master/src/TaxableInterface.php), a [Context object](https://github.com/commerceguys/tax/blob/master/src/Resolver/Context.php) containing customer and store information is also passed to the system.
+
+Tax is resolved in three steps:
+
+1. Resolve the tax types.
+2. Resolve the tax rate for each resolved tax type.
+3. Get the tax rate amount for each resolved tax rate (by calling `$rate->getAmount($date)`).
+
+Tax types and tax rates are resolved by invoking registered resolvers (sorted by priority) until one of them returns a result.
+
+Included tax type resolvers:
+
+- [CanadaTaxTypeResolver](https://github.com/commerceguys/tax/blob/master/src/Resolver/TaxType/CanadaTaxTypeResolver.php) (Canada specific logic)
+
+  The store charges the tax defined by the customer’s home province/territory.
+
+  `If selling from a store in Quebec to a customer in Ontario, apply the Ontario HST.`
+
+- [EuTaxTypeResolver](https://github.com/commerceguys/tax/blob/master/src/Resolver/TaxType/EuTaxTypeResolver.php) (EU specific logic)
+
+  `A French store selling physical products (e.g. t-shirts) will charge French VAT to EU customers.`
+
+  `A French store selling digital products (e.g. ebooks) from Jan 1st 2015 will apply the EU customer's tax rates (German customer - German VAT, etc)`
+
+  `A French store will charge the 0% Intra-Community rate if the EU customer has provided a VAT number.`
+
+- [DefaultTaxTypeResolver](https://github.com/commerceguys/tax/blob/master/src/Resolver/TaxType/DefaultTaxTypeResolver.php) (logic valid for most countries)
+
+  If both the customer and the store belong to the same zone, returns the matched tax type.
+
+  `The Serbian store is selling to a Serbian customer, use Serbian VAT.`
+
+Included tax rate resolvers:
+
+- [DefaultTaxRateResolver](https://github.com/commerceguys/tax/blob/master/src/Resolver/TaxRate/DefaultTaxRateResolver.php) - Returns a tax type's default tax rate.
+
+Users would create a custom resolver for:
+- "No tax in New York for t-shirts under 200$"
+- "No tax for school supplies on september 1st (US tax holiday)"
+- "Reduced rate for ebooks in France and other countries".
+- "Return the tax type / rate referenced by the $taxable object"
+(explicit place of supply, e.g. "French company providing a training in Spain")
+
+Usage example:
+```php
+use CommerceGuys\Tax\Repository\TaxTypeRepository;
+use CommerceGuys\Tax\Resolver\Engine\TaxTypeResolverEngine;
+use CommerceGuys\Tax\Resolver\Engine\TaxRateResolverEngine;
+use CommerceGuys\Tax\Resolver\TaxType\CanadaTaxTypeResolver;
+use CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver;
+use CommerceGuys\Tax\Resolver\TaxType\DefaultTaxTypeResolver;
+use CommerceGuys\Tax\Resolver\TaxRate\DefaultTaxRateResolver;
+use CommerceGuys\Tax\Resolver\TaxResolver;
+
+// The repository, engine and individual resolvers are usualy initialized by the
+// container, this is just a verbose example.
+$taxTypeRepository = new TaxTypeRepository();
+$taxTypeResolverEngine = new TaxTypeResolverEngine();
+$taxTypeResolverEngine->add(new CanadaTaxTypeResolver($taxTypeRepository));
+$taxTypeResolverEngine->add(new EuTaxTypeResolver($taxTypeRepository));
+$taxTypeResolverEngine->add(new DefaultTaxTypeResolver($taxTypeRepository));
+$taxRateResolverEngine = new TaxRateResolverEngine();
+$taxRateResolverEngine->add(new DefaultTaxRateResolver());
+$resolver = new TaxResolver($taxTypeResolverEngine, $taxRateResolverEngine);
+
+// You can also provide the customer's tax number (e.g. VAT number needed
+// to trigger Intra-Community supply rules in EU), list of additional countries
+// where the store is registered to collect tax, a different calculation date.
+$context = new Context($customerAddress, $storeAddress);
+
+$amounts = $resolver->resolveAmounts($taxable, $context);
+// More rarely, if only the types or rates are needed:
+$rates = $resolver->resolveRates($taxable, $context);
+$types = $resolver->resolveTypes($taxable, $context);
+
+```
+
+# Credits
+- [Source for EU data](http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf)
