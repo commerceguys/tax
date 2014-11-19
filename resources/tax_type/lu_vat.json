@@ -10,7 +10,7 @@
             "default": true,
             "amounts": [
                 {
-                    "id": "lu_vat_standard_0",
+                    "id": "lu_vat_standard_1992",
                     "amount": 0.15,
                     "start_date": "1992-01-01"
                 }
@@ -22,7 +22,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "lu_vat_intermediate_0",
+                    "id": "lu_vat_intermediate_1979",
                     "amount": 0.12,
                     "start_date": "1979-02-12"
                 }
@@ -34,7 +34,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "lu_vat_reduced_0",
+                    "id": "lu_vat_reduced_1983",
                     "amount": 0.06,
                     "start_date": "1983-07-01"
                 }
@@ -46,7 +46,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "lu_vat_super_reduced_0",
+                    "id": "lu_vat_super_reduced_1983",
                     "amount": 0.03,
                     "start_date": "1983-07-01"
                 }

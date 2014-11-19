@@ -10,13 +10,13 @@
             "default": true,
             "amounts": [
                 {
-                    "id": "ro_vat_standard_0",
+                    "id": "ro_vat_standard_2007",
                     "amount": 0.19,
                     "start_date": "2007-01-01",
                     "end_date": "2010-06-30"
                 },
                 {
-                    "id": "ro_vat_standard_1",
+                    "id": "ro_vat_standard_2010",
                     "amount": 0.24,
                     "start_date": "2010-07-01"
                 }
@@ -28,7 +28,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "ro_vat_intermediate_0",
+                    "id": "ro_vat_intermediate_2008",
                     "amount": 0.09,
                     "start_date": "2008-12-01"
                 }
@@ -40,7 +40,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "ro_vat_reduced_0",
+                    "id": "ro_vat_reduced_2008",
                     "amount": 0.05,
                     "start_date": "2008-12-01"
                 }
