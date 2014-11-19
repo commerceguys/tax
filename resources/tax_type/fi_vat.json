@@ -10,19 +10,19 @@
             "default": true,
             "amounts": [
                 {
-                    "id": "fi_vat_standard_0",
+                    "id": "fi_vat_standard_1995",
                     "amount": 0.22,
                     "start_date": "1995-01-01",
                     "end_date": "2010-06-30"
                 },
                 {
-                    "id": "fi_vat_standard_1",
+                    "id": "fi_vat_standard_2010",
                     "amount": 0.23,
                     "start_date": "2010-07-01",
                     "end_date": "2012-12-31"
                 },
                 {
-                    "id": "fi_vat_standard_2",
+                    "id": "fi_vat_standard_2013",
                     "amount": 0.24,
                     "start_date": "2013-01-01"
                 }
@@ -34,13 +34,13 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "fi_vat_intermediate_0",
+                    "id": "fi_vat_intermediate_2010",
                     "amount": 0.13,
                     "start_date": "2010-07-01",
                     "end_date": "2012-12-31"
                 },
                 {
-                    "id": "fi_vat_intermediate_1",
+                    "id": "fi_vat_intermediate_2013",
                     "amount": 0.14,
                     "start_date": "2013-01-01"
                 }
@@ -52,13 +52,13 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "fi_vat_reduced_0",
+                    "id": "fi_vat_reduced_2010",
                     "amount": 0.9,
                     "start_date": "2010-07-01",
                     "end_date": "2012-12-31"
                 },
                 {
-                    "id": "fi_vat_reduced_1",
+                    "id": "fi_vat_reduced_2013",
                     "amount": 0.1,
                     "start_date": "2013-01-01"
                 }

@@ -10,25 +10,25 @@
             "default": true,
             "amounts": [
                 {
-                    "id": "gb_vat_standard_0",
+                    "id": "gb_vat_standard_1991",
                     "amount": 0.175,
                     "start_date": "1991-03-19",
                     "end_date": "2008-11-30"
                 },
                 {
-                    "id": "gb_vat_standard_1",
+                    "id": "gb_vat_standard_2008",
                     "amount": 0.15,
                     "start_date": "2008-12-01",
                     "end_date": "2009-12-31"
                 },
                 {
-                    "id": "gb_vat_standard_2",
+                    "id": "gb_vat_standard_2010",
                     "amount": 0.175,
                     "start_date": "2010-01-01",
                     "end_date": "2011-01-03"
                 },
                 {
-                    "id": "gb_vat_standard_3",
+                    "id": "gb_vat_standard_2011",
                     "amount": 0.2,
                     "start_date": "2011-01-04"
                 }
@@ -40,7 +40,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "gb_vat_reduced_0",
+                    "id": "gb_vat_reduced_1997",
                     "amount": 0.05,
                     "start_date": "1997-09-01"
                 }

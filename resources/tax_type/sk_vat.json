@@ -10,13 +10,13 @@
             "default": true,
             "amounts": [
                 {
-                    "id": "sk_vat_standard_0",
+                    "id": "sk_vat_standard_2001",
                     "amount": 0.19,
                     "start_date": "2004-05-01",
                     "end_date": "2010-12-31"
                 },
                 {
-                    "id": "sk_vat_standard_1",
+                    "id": "sk_vat_standard_2011",
                     "amount": 0.2,
                     "start_date": "2011-01-01"
                 }
@@ -28,7 +28,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "sk_vat_reduced_0",
+                    "id": "sk_vat_reduced_2011",
                     "amount": 0.1,
                     "start_date": "2011-01-01"
                 }

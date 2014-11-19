@@ -10,13 +10,13 @@
             "default": true,
             "amounts": [
                 {
-                    "id": "it_vat_standard_0",
+                    "id": "it_vat_standard_2011",
                     "amount": 0.21,
                     "start_date": "2011-09-17",
                     "end_date": "2013-09-30"
                 },
                 {
-                    "id": "it_vat_standard_1",
+                    "id": "it_vat_standard_2013",
                     "amount": 0.22,
                     "start_date": "2013-10-01"
                 }
@@ -28,7 +28,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "it_vat_reduced_0",
+                    "id": "it_vat_reduced_1995",
                     "amount": 0.1,
                     "start_date": "1995-02-24"
                 }
@@ -40,7 +40,7 @@
             "display_name": "% VAT",
             "amounts": [
                 {
-                    "id": "it_vat_super_reduced_0",
+                    "id": "it_vat_super_reduced_1989",
                     "amount": 0.04,
                     "start_date": "1989-01-01"
                 }
