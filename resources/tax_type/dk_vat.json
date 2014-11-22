@@ -23,7 +23,8 @@
             "amounts": [
                 {
                     "id": "dk_vat_zero",
-                    "amount": 0
+                    "amount": 0,
+                    "start_date": "1973-01-01"
                 }
             ]
         }

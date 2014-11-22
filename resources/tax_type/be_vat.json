@@ -47,7 +47,8 @@
             "amounts": [
                 {
                     "id": "be_vat_zero",
-                    "amount": 0
+                    "amount": 0,
+                    "start_date": "1971-01-01"
                 }
             ]
         }
