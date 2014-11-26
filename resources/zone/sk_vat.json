@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "sk",
+            "id": "sk_vat_0",
             "name": "Slovakia",
             "country_code": "SK"
         }

@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "mt",
+            "id": "mt_vat_0",
             "name": "Malta",
             "country_code": "MT"
         }

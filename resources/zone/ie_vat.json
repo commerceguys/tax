@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "ie",
+            "id": "ie_vat_0",
             "name": "Ireland",
             "country_code": "IE"
         }

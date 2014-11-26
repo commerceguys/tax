@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "dk",
+            "id": "dk_vat_0",
             "name": "Denmark",
             "country_code": "DK"
         }

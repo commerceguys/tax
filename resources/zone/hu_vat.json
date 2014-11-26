@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "hu",
+            "id": "hu_vat_0",
             "name": "Hungary",
             "country_code": "HU"
         }

@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "lt",
+            "id": "lt_vat_0",
             "name": "Latvia",
             "country_code": "LT"
         }

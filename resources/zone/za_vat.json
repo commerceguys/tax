@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "za",
+            "id": "za_vat_0",
             "name": "South Africa",
             "country_code": "ZA"
         }

@@ -4,13 +4,13 @@
     "members": [
         {
             "type": "country",
-            "id": "gb",
+            "id": "gb_vat_0",
             "name": "United Kingdom",
             "country_code": "GB"
         },
         {
             "type": "country",
-            "id": "im",
+            "id": "gb_vat_1",
             "name": "Isle of Man",
             "country_code": "IM"
         }

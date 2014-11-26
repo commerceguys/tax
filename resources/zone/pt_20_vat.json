@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "pt",
+            "id": "pt_20_vat_0",
             "name": "Portugal (Azores)",
             "country_code": "PT",
             "included_postal_codes": "\/(9)[0-4][0-9]{2}-[0-9]{3}\/"

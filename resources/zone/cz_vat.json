@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "cz",
+            "id": "cz_vat_0",
             "name": "Czech Republic",
             "country_code": "CZ"
         }

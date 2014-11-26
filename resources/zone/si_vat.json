@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "si",
+            "id": "si_vat_0",
             "name": "Slovenia",
             "country_code": "SI"
         }

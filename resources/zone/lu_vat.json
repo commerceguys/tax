@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "lu",
+            "id": "lu_vat_0",
             "name": "Luxembourg",
             "country_code": "LU"
         }

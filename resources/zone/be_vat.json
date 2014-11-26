@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "be",
+            "id": "be_vat_0",
             "name": "Belgium",
             "country_code": "BE"
         }

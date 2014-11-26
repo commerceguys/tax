@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "bg",
+            "id": "bg_vat_0",
             "name": "Bulgaria",
             "country_code": "BG"
         }

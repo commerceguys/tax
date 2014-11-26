@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "no",
+            "id": "no_vat_0",
             "name": "Norway",
             "country_code": "NO"
         }
