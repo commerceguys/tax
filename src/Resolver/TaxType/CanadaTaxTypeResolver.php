@@ -34,7 +34,9 @@ class CanadaTaxTypeResolver implements TaxTypeResolverInterface
     public function resolve(TaxableInterface $taxable, Context $context)
     {
         $customerAddress = $context->getCustomerAddress();
-        if ($customerAddress->getCountryCode() != 'CA') {
+        $storeAddress = $context->getStoreAddress();
+        if ($customerAddress->getCountryCode() != 'CA' || $storeAddress->getCountryCode() != 'CA') {
+            // The customer or the store is not in Canada.
             return array();
         }
 

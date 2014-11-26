@@ -162,7 +162,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('ca_on_hst', $result->getId());
 
         // Ontario store, Nova Scotia customer.
-        $context = $this->getContext($novaScotiaAddress, $ontarioAddress, array('ME'));
+        $context = $this->getContext($novaScotiaAddress, $ontarioAddress);
         $results = $resolver->resolve($taxable, $context);
         $result = reset($results);
         $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
@@ -170,6 +170,11 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
         // Ontario store, US customer.
         $context = $this->getContext($usAddress, $ontarioAddress);
+        $result = $resolver->resolve($taxable, $context);
+        $this->assertEquals(array(), $result);
+
+        // US store, Ontario customer.
+        $context = $this->getContext($ontarioAddress, $usAddress);
         $result = $resolver->resolve($taxable, $context);
         $this->assertEquals(array(), $result);
     }

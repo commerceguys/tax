@@ -245,8 +245,13 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
         $this->assertEquals('de_vat', $result->getId());
 
-        // French store, Serbian customer.
+        // Serbian customer, French store, physical product.
         $context = $this->getContext($serbianAddress, $frenchAddress);
+        $result = $resolver->resolve($physicalTaxable, $context);
+        $this->assertEquals(array(), $result);
+
+        // French customer, Serbian store, physical product.
+        $context = $this->getContext($frenchAddress, $serbianAddress);
         $result = $resolver->resolve($physicalTaxable, $context);
         $this->assertEquals(array(), $result);
     }

@@ -38,8 +38,9 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         $taxTypes = $this->taxTypeRepository->getAll();
         $customerAddress = $context->getCustomerAddress();
         $storeAddress = $context->getStoreAddress();
-        // Match the customer zone, gather the customer and store tax types.
+        // Match the customer and store zones, gather the relevant tax types.
         $customerZone = null;
+        $storeZone = null;
         $customerTaxTypes = array();
         $storeTaxTypes = array();
         foreach ($taxTypes as $taxType) {
@@ -51,12 +52,13 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
                 }
                 if ($zone->match($storeAddress)) {
                     $storeTaxTypes[] = $taxType;
+                    $storeZone = $zone;
                 }
             }
         }
 
-        if (is_null($customerZone)) {
-            // The customer is not in the EU.
+        if (is_null($customerZone) || is_null($storeZone)) {
+            // The customer or the store is not in the EU.
             return array();
         }
 
