@@ -3,6 +3,9 @@
 namespace CommerceGuys\Tax\Model;
 
 use CommerceGuys\Zone\Model\ZoneInterface;
+use CommerceGuys\Tax\Exception\UnexpectedTypeException;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class TaxType implements TaxTypeInterface
 {
@@ -49,11 +52,12 @@ class TaxType implements TaxTypeInterface
     protected $tag;
 
     /**
-     * The tax rates.
-     *
-     * @var TaxRateInterface[]
+     * Creates a TaxeType instance.
      */
-    protected $rates = array();
+    public function __construct()
+    {
+        $this->rates = new ArrayCollection();
+    }
 
     /**
      * Returns the string representation of the tax type.
@@ -186,6 +190,11 @@ class TaxType implements TaxTypeInterface
      */
     public function setRates($rates)
     {
+        // The interface doesn't typehint $children to allow other
+        // implementations to avoid using Doctrine Collections if desired.
+        if (!($rates instanceof Collection)) {
+           throw new UnexpectedTypeException($rates, 'Collection');
+        }
         $this->rates = $rates;
 
         return $this;
@@ -196,7 +205,7 @@ class TaxType implements TaxTypeInterface
      */
     public function hasRates()
     {
-        return !empty($this->rates);
+        return !$this->rates->isEmpty();
     }
 
     /**
@@ -206,7 +215,7 @@ class TaxType implements TaxTypeInterface
     {
         if (!$this->hasRate($rate)) {
             $rate->setType($this);
-            $this->rates[] = $rate;
+            $this->rates->add($rate);
         }
 
         return $this;
@@ -218,11 +227,7 @@ class TaxType implements TaxTypeInterface
     public function removeRate(TaxRateInterface $rate)
     {
         if ($this->hasRate($rate)) {
-            $rate->setType(null);
-            // Remove the rate and rekey the array.
-            $index = array_search($rate, $this->rates);
-            unset($this->rates[$index]);
-            $this->rates = array_values($this->rates);
+            $this->rates->removeElement($rate);
         }
 
         return $this;
@@ -233,6 +238,6 @@ class TaxType implements TaxTypeInterface
      */
     public function hasRate(TaxRateInterface $rate)
     {
-        return in_array($rate, $this->rates);
+        return $this->rates->contains($rate);
     }
 }

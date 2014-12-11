@@ -2,6 +2,10 @@
 
 namespace CommerceGuys\Tax\Model;
 
+use CommerceGuys\Tax\Exception\UnexpectedTypeException;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 class TaxRate implements TaxRateInterface
 {
     /**
@@ -45,6 +49,14 @@ class TaxRate implements TaxRateInterface
      * @var TaxRateAmount[]
      */
     protected $amounts = array();
+
+    /**
+     * Creates a TaxRate instance.
+     */
+    public function __construct()
+    {
+        $this->amounts = new ArrayCollection();
+    }
 
     /**
      * Returns the string representation of the tax rate.
@@ -159,6 +171,11 @@ class TaxRate implements TaxRateInterface
      */
     public function setAmounts($amounts)
     {
+        // The interface doesn't typehint $children to allow other
+        // implementations to avoid using Doctrine Collections if desired.
+        if (!($amounts instanceof Collection)) {
+            throw new UnexpectedTypeException($amounts, 'Collection');
+        }
         $this->amounts = $amounts;
 
         return $this;
@@ -169,7 +186,7 @@ class TaxRate implements TaxRateInterface
      */
     public function hasAmounts()
     {
-        return !empty($this->amounts);
+        return !$this->amounts->isEmpty();
     }
 
     /**
@@ -204,7 +221,7 @@ class TaxRate implements TaxRateInterface
     {
         if (!$this->hasAmount($amount)) {
             $amount->setRate($this);
-            $this->amounts[] = $amount;
+            $this->amounts->add($amount);
         }
 
         return $this;
@@ -217,10 +234,7 @@ class TaxRate implements TaxRateInterface
     {
         if ($this->hasAmount($amount)) {
             $amount->setRate(null);
-            // Remove the amount and rekey the array.
-            $index = array_search($amount, $this->amounts);
-            unset($this->amounts[$index]);
-            $this->amounts = array_values($this->amounts);
+            $this->amounts->removeElement($amount);
         }
 
         return $this;
@@ -231,6 +245,6 @@ class TaxRate implements TaxRateInterface
      */
     public function hasAmount(TaxRateAmountInterface $amount)
     {
-        return in_array($amount, $this->amounts);
+        return $this->amounts->contains($amount);
     }
 }

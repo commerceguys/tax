@@ -28,6 +28,8 @@ class TaxRateResolverEngineTest extends \PHPUnit_Framework_TestCase
      * @covers ::getAll
      * @covers ::resolve
      * @covers \CommerceGuys\Tax\Resolver\Engine\ResolverSorterTrait::sortResolvers
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testEngine()
     {

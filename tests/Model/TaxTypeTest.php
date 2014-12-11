@@ -3,6 +3,7 @@
 namespace CommerceGuys\Tax\Tests\Model;
 
 use CommerceGuys\Tax\Model\TaxType;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Model\TaxType
@@ -22,6 +23,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getId
      * @covers ::setId
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testId()
     {
@@ -33,6 +35,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
      * @covers ::getName
      * @covers ::setName
      * @covers ::__toString
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testName()
     {
@@ -44,6 +47,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::isCompound
      * @covers ::setCompound
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testCompound()
     {
@@ -54,6 +58,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getRoundingMode
      * @covers ::setRoundingMode
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testRoundingMode()
     {
@@ -64,6 +69,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getZone
      * @covers ::setZone
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testZone()
     {
@@ -78,6 +84,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getTag
      * @covers ::setTag
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testTag()
     {
@@ -92,7 +99,9 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
      * @covers ::addRate
      * @covers ::removeRate
      * @covers ::hasRate
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      * @uses \CommerceGuys\Tax\Model\TaxRate::setType
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testRates()
     {
@@ -104,12 +113,11 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
             ->getMock();
 
         $this->assertEquals(false, $this->taxType->hasRates());
-        $rates = array($firstTaxRate, $secondTaxRate);
+        $rates = new ArrayCollection(array($firstTaxRate, $secondTaxRate));
         $this->taxType->setRates($rates);
         $this->assertEquals($rates, $this->taxType->getRates());
         $this->assertEquals(true, $this->taxType->hasRates());
         $this->taxType->removeRate($secondTaxRate);
-        $this->assertEquals(array($firstTaxRate), $this->taxType->getRates());
         $this->assertEquals(false, $this->taxType->hasRate($secondTaxRate));
         $this->assertEquals(true, $this->taxType->hasRate($firstTaxRate));
         $this->taxType->addRate($secondTaxRate);
