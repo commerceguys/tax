@@ -93,13 +93,23 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers ::setRates
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
+     * @expectedException \CommerceGuys\Tax\Exception\UnexpectedTypeException
+     */
+    public function testSetInvalidRates()
+    {
+        $this->taxType->setRates(array(1, 2));
+    }
+
+    /**
+     * @covers ::__construct
      * @covers ::getRates
      * @covers ::setRates
      * @covers ::hasRates
      * @covers ::addRate
      * @covers ::removeRate
      * @covers ::hasRate
-     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      * @uses \CommerceGuys\Tax\Model\TaxRate::setType
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
@@ -107,13 +117,17 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     {
         $firstTaxRate = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRate')
+            ->disableOriginalConstructor()
             ->getMock();
         $secondTaxRate = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRate')
+            ->disableOriginalConstructor()
             ->getMock();
+        $empty = new ArrayCollection();
+        $rates = new ArrayCollection(array($firstTaxRate, $secondTaxRate));
 
         $this->assertEquals(false, $this->taxType->hasRates());
-        $rates = new ArrayCollection(array($firstTaxRate, $secondTaxRate));
+        $this->assertEquals($empty, $this->taxType->getRates());
         $this->taxType->setRates($rates);
         $this->assertEquals($rates, $this->taxType->getRates());
         $this->assertEquals(true, $this->taxType->hasRates());

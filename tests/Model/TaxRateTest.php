@@ -83,6 +83,17 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+    * @covers ::setAmounts
+    * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
+    * @expectedException \CommerceGuys\Tax\Exception\UnexpectedTypeException
+    */
+    public function testSetInvalidAmounts()
+    {
+        $this->taxRate->setAmounts(array(1, 2));
+    }
+
+    /**
+     * @covers ::__construct
      * @covers ::getAmounts
      * @covers ::setAmounts
      * @covers ::hasAmounts
@@ -90,13 +101,13 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
      * @covers ::addAmount
      * @covers ::removeAmount
      * @covers ::hasAmount
-     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount::setRate
      */
     public function testAmounts()
     {
         $firstAmount = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRateAmount')
+            ->disableOriginalConstructor()
             ->getMock();
         $firstAmount
             ->expects($this->any())
@@ -108,22 +119,25 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(new \DateTime('2013/12/31')));
         $secondAmount = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRateAmount')
+            ->disableOriginalConstructor()
             ->getMock();
         $secondAmount
             ->expects($this->any())
             ->method('getStartDate')
             ->will($this->returnValue(new \DateTime('2014/01/01')));
+        $empty = new ArrayCollection();
+        $amounts = new ArrayCollection(array($firstAmount, $secondAmount));
 
         $this->assertEquals(false, $this->taxRate->hasAmounts());
-        $rates = new ArrayCollection(array($firstAmount, $secondAmount));
-        $this->taxRate->setAmounts($rates);
-        $this->assertEquals($rates, $this->taxRate->getAmounts());
+        $this->assertEquals($empty, $this->taxRate->getAmounts());
+        $this->taxRate->setAmounts($amounts);
+        $this->assertEquals($amounts, $this->taxRate->getAmounts());
         $this->assertEquals(true, $this->taxRate->hasAmounts());
         $this->taxRate->removeAmount($secondAmount);
         $this->assertEquals(false, $this->taxRate->hasAmount($secondAmount));
         $this->assertEquals(true, $this->taxRate->hasAmount($firstAmount));
         $this->taxRate->addAmount($secondAmount);
-        $this->assertEquals($rates, $this->taxRate->getAmounts());
+        $this->assertEquals($amounts, $this->taxRate->getAmounts());
 
         $amount = $this->taxRate->getAmount(new \DateTime('2012/02/24'));
         $this->assertNull($amount);
