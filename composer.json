@@ -6,12 +6,12 @@
     "license": "MIT",
     "require": {
         "php": ">=5.4.0",
-        "commerceguys/intl": "dev-master",
         "commerceguys/addressing": "dev-master",
         "commerceguys/zone": "dev-master",
         "doctrine/collections": "~1.0"
     },
     "require-dev": {
+        "symfony/intl": ">=2.3",
         "phpunit/phpunit": "~4.0",
         "mikey179/vfsStream": "1.*"
     },
