@@ -31,6 +31,8 @@ class TaxResolverTest extends \PHPUnit_Framework_TestCase
      * @covers ::resolveRates
      * @covers ::resolveTypes
      * @uses \CommerceGuys\Tax\Resolver\TaxResolver::__construct
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testResolver()
     {

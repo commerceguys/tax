@@ -3,6 +3,7 @@
 namespace CommerceGuys\Tax\Tests\Model;
 
 use CommerceGuys\Tax\Model\TaxRate;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Model\TaxRate
@@ -22,6 +23,8 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getType
      * @covers ::setType
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testType()
     {
@@ -36,6 +39,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getId
      * @covers ::setId
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      */
     public function testId()
     {
@@ -47,6 +51,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
      * @covers ::getName
      * @covers ::setName
      * @covers ::__toString
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      */
     public function testName()
     {
@@ -58,6 +63,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getDisplayName
      * @covers ::setDisplayName
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      */
     public function testDisplayName()
     {
@@ -68,6 +74,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::isDefault
      * @covers ::setDefault
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      */
     public function testDefault()
     {
@@ -83,6 +90,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
      * @covers ::addAmount
      * @covers ::removeAmount
      * @covers ::hasAmount
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount::setRate
      */
     public function testAmounts()
@@ -107,12 +115,11 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(new \DateTime('2014/01/01')));
 
         $this->assertEquals(false, $this->taxRate->hasAmounts());
-        $rates = array($firstAmount, $secondAmount);
+        $rates = new ArrayCollection(array($firstAmount, $secondAmount));
         $this->taxRate->setAmounts($rates);
         $this->assertEquals($rates, $this->taxRate->getAmounts());
         $this->assertEquals(true, $this->taxRate->hasAmounts());
         $this->taxRate->removeAmount($secondAmount);
-        $this->assertEquals(array($firstAmount), $this->taxRate->getAmounts());
         $this->assertEquals(false, $this->taxRate->hasAmount($secondAmount));
         $this->assertEquals(true, $this->taxRate->hasAmount($firstAmount));
         $this->taxRate->addAmount($secondAmount);

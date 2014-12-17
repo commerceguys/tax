@@ -22,6 +22,8 @@ class TaxRateAmountTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getRate
      * @covers ::setRate
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testRate()
     {
