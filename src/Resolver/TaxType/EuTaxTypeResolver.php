@@ -2,6 +2,7 @@
 
 namespace CommerceGuys\Tax\Resolver\TaxType;
 
+use CommerceGuys\Addressing\Model\AddressInterface;
 use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepositoryInterface;
 use CommerceGuys\Tax\Resolver\Context;
@@ -37,26 +38,15 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
     {
         $taxTypes = $this->getTaxTypes();
         $customerAddress = $context->getCustomerAddress();
-        $storeAddress = $context->getStoreAddress();
-        // Match the customer and store zones, gather the relevant tax types.
-        $customerZone = null;
-        $storeZone = null;
-        $customerTaxTypes = array();
-        $storeTaxTypes = array();
-        foreach ($taxTypes as $taxType) {
-            $zone = $taxType->getZone();
-            if ($zone->match($customerAddress)) {
-                $customerTaxTypes[] = $taxType;
-                $customerZone = $zone;
-            }
-            if ($zone->match($storeAddress)) {
-                $storeTaxTypes[] = $taxType;
-                $storeZone = $zone;
-            }
+        $customerTaxTypes = $this->filterByAddress($taxTypes, $customerAddress);
+        if (empty($customerTaxTypes)) {
+            // The customer is not in the EU.
+            return array();
         }
-
-        if (is_null($customerZone) || is_null($storeZone)) {
-            // The customer or the store is not in the EU.
+        $storeAddress = $context->getStoreAddress();
+        $storeTaxTypes = $this->filterByAddress($taxTypes, $storeAddress);
+        if (empty($storeTaxTypes)) {
+            // The store is not in the EU.
             return array();
         }
 
@@ -78,12 +68,33 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
             // when the total yearly transactions breach the defined threshold.
             // See http://www.vatlive.com/eu-vat-rules/vat-registration-threshold/
             $resolvedTaxTypes = $storeTaxTypes;
-            if ($this->checkStoreRegistration($customerZone, $context)) {
+            $customerTaxType = reset($customerTaxTypes);
+            if ($this->checkStoreRegistration($customerTaxType->getZone(), $context)) {
                 $resolvedTaxTypes = $customerTaxTypes;
             }
         }
 
         return $resolvedTaxTypes;
+    }
+
+    /**
+     * Filters out tax types not matching the provided address.
+     *
+     * @param TaxTypeInterface[] $taxTypes The tax types to filter.
+     * @param AddressInterface   $address  The address to filter by.
+     *
+     * @return TaxTypeInterface[] An array of tax types whose zones match the
+     *                            provided address.
+     */
+    protected function filterByAddress(array $taxTypes, AddressInterface $address)
+    {
+        $taxTypes = array_filter($taxTypes, function ($taxType) use ($address) {
+            $zone = $taxType->getZone();
+
+            return $zone->match($address);
+        });
+
+        return $taxTypes;
     }
 
     /**
