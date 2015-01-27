@@ -42,28 +42,42 @@ class DefaultTaxTypeResolver implements TaxTypeResolverInterface
      */
     public function resolve(TaxableInterface $taxable, Context $context)
     {
-        $taxTypes = $this->taxTypeRepository->getAll();
+        $taxTypes = $this->getTaxTypes();
         $results = array();
         foreach ($taxTypes as $taxType) {
-            // Only the non-tagged tax types are evaluated because it is assumed
-            // other resolvers have already evaluated the tagged ones.
-            $tag = $taxType->getTag();
-            if (empty($tag)) {
-                $additionalTaxCountries = $context->getAdditionalTaxCountries();
-                $zone = $taxType->getZone();
-                $customerZoneMatch = $zone->match($context->getCustomerAddress());
-                $storeZoneMatch = $zone->match($context->getStoreAddress());
-                if ($customerZoneMatch && $storeZoneMatch) {
-                    // The customer and store belong to the same zone.
-                    $results[] = $taxType;
-                } elseif ($customerZoneMatch && $this->checkStoreRegistration($zone, $context)) {
-                    // The customer belongs to the zone, and the store is
-                    // registered to collect taxes there.
-                    $results[] = $taxType;
-                }
+            $zone = $taxType->getZone();
+            $customerZoneMatch = $zone->match($context->getCustomerAddress());
+            $storeZoneMatch = $zone->match($context->getStoreAddress());
+            if ($customerZoneMatch && $storeZoneMatch) {
+                // The customer and store belong to the same zone.
+                $results[] = $taxType;
+            } elseif ($customerZoneMatch && $this->checkStoreRegistration($zone, $context)) {
+                // The customer belongs to the zone, and the store is
+                // registered to collect taxes there.
+                $results[] = $taxType;
             }
         }
 
         return $results;
+    }
+
+    /**
+     * Returns the non-tagged tax types.
+     *
+     * It is assumed that the tagged tax types have already been evaluated by
+     * other resolvers.
+     *
+     * @return TaxTypeInterface[] An array of non-tagged tax types.
+     */
+    protected function getTaxTypes()
+    {
+        $taxTypes = $this->taxTypeRepository->getAll();
+        $taxTypes = array_filter($taxTypes, function ($taxType) {
+            $tag = $taxType->getTag();
+
+            return empty($tag);
+        });
+
+        return $taxTypes;
     }
 }

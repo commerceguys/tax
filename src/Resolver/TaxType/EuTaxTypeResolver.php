@@ -35,7 +35,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
      */
     public function resolve(TaxableInterface $taxable, Context $context)
     {
-        $taxTypes = $this->taxTypeRepository->getAll();
+        $taxTypes = $this->getTaxTypes();
         $customerAddress = $context->getCustomerAddress();
         $storeAddress = $context->getStoreAddress();
         // Match the customer and store zones, gather the relevant tax types.
@@ -44,16 +44,14 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         $customerTaxTypes = array();
         $storeTaxTypes = array();
         foreach ($taxTypes as $taxType) {
-            if ($taxType->getTag() == 'EU') {
-                $zone = $taxType->getZone();
-                if ($zone->match($customerAddress)) {
-                    $customerTaxTypes[] = $taxType;
-                    $customerZone = $zone;
-                }
-                if ($zone->match($storeAddress)) {
-                    $storeTaxTypes[] = $taxType;
-                    $storeZone = $zone;
-                }
+            $zone = $taxType->getZone();
+            if ($zone->match($customerAddress)) {
+                $customerTaxTypes[] = $taxType;
+                $customerZone = $zone;
+            }
+            if ($zone->match($storeAddress)) {
+                $storeTaxTypes[] = $taxType;
+                $storeZone = $zone;
             }
         }
 
@@ -86,5 +84,20 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         }
 
         return $resolvedTaxTypes;
+    }
+
+    /**
+     * Returns the EU tax types.
+     *
+     * @return TaxTypeInterface[] An array of EU tax types.
+     */
+    protected function getTaxTypes()
+    {
+        $taxTypes = $this->taxTypeRepository->getAll();
+        $taxTypes = array_filter($taxTypes, function ($taxType) {
+            return $taxType->getTag() == 'EU';
+        });
+
+        return $taxTypes;
     }
 }

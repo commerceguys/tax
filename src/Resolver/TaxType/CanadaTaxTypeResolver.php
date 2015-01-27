@@ -42,17 +42,30 @@ class CanadaTaxTypeResolver implements TaxTypeResolverInterface
 
         // Canadian tax types are matched by the customer address.
         // If the customer is from Ontario, the tax types are for Ontario.
-        $taxTypes = $this->taxTypeRepository->getAll();
+        $taxTypes = $this->getTaxTypes();
         $results = array();
         foreach ($taxTypes as $taxType) {
-            if ($taxType->getTag() == 'CA') {
-                $zone = $taxType->getZone();
-                if ($zone->match($customerAddress)) {
-                    $results[] = $taxType;
-                }
+            $zone = $taxType->getZone();
+            if ($zone->match($customerAddress)) {
+                $results[] = $taxType;
             }
         }
 
         return $results;
+    }
+
+    /**
+     * Returns the Canadian tax types.
+     *
+     * @return TaxTypeInterface[] An array of Canadian tax types.
+     */
+    protected function getTaxTypes()
+    {
+        $taxTypes = $this->taxTypeRepository->getAll();
+        $taxTypes = array_filter($taxTypes, function ($taxType) {
+            return $taxType->getTag() == 'CA';
+        });
+
+        return $taxTypes;
     }
 }
