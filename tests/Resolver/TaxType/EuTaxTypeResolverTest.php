@@ -175,105 +175,71 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @uses \CommerceGuys\Tax\Model\TaxRate
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount
      * @depends testConstructor
+     * @dataProvider dataProvider
      */
-    public function testResolver($resolver)
+    public function testResolver($taxable, $context, $expected, $resolver)
     {
-        $physicalTaxable = $this
-            ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
-            ->getMock();
+        $results = $resolver->resolve($taxable, $context);
+        $result = reset($results);
+        if ($expected) {
+            $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
+            $this->assertEquals($expected, $result->getId());
+        }
+    }
+
+    /**
+     * Provides data for the resolver test.
+     */
+    public function dataProvider()
+    {
+        $mockTaxableBuilder = $this->getMockBuilder('CommerceGuys\Tax\TaxableInterface');
+        $physicalTaxable = $mockTaxableBuilder->getMock();
         $physicalTaxable->expects($this->any())
             ->method('isPhysical')
             ->will($this->returnValue(true));
-        $digitalTaxable = $this
-            ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
-            ->getMock();
+        $digitalTaxable = $mockTaxableBuilder->getMock();
 
-        $serbianAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
-            ->getMock();
+        $mockAddressBuilder = $this->getMockBuilder('CommerceGuys\Addressing\Model\Address');
+        $serbianAddress = $mockAddressBuilder->getMock();
         $serbianAddress->expects($this->any())
             ->method('getCountryCode')
             ->will($this->returnValue('RS'));
-        $frenchAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
-            ->getMock();
+        $frenchAddress = $mockAddressBuilder->getMock();
         $frenchAddress->expects($this->any())
             ->method('getCountryCode')
             ->will($this->returnValue('FR'));
-        $germanAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
-            ->getMock();
+        $germanAddress = $mockAddressBuilder->getMock();
         $germanAddress->expects($this->any())
             ->method('getCountryCode')
             ->will($this->returnValue('DE'));
-        $usAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
-            ->getMock();
+        $usAddress = $mockAddressBuilder->getMock();
         $usAddress->expects($this->any())
             ->method('getCountryCode')
             ->will($this->returnValue('US'));
 
-        // German customer, French store, VAT number provided.
-        $context = $this->getContext($germanAddress, $frenchAddress, '123');
-        $results = $resolver->resolve($physicalTaxable, $context);
-        $result = reset($results);
-        $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
-        $this->assertEquals('eu_ic_vat', $result->getId());
+        $date1 = new \DateTime('2014-02-24');
+        $date2 = new \DateTime('2015-02-24');
 
-        // German customer, French store, physical product.
-        $context = $this->getContext($germanAddress, $frenchAddress);
-        $results = $resolver->resolve($physicalTaxable, $context);
-        $result = reset($results);
-        $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
-        $this->assertEquals('fr_vat', $result->getId());
-
-        // German customer, French store, physical product, store registered
-        // for German VAT.
-        $context = $this->getContext($germanAddress, $frenchAddress, '', array('DE'));
-        $results = $resolver->resolve($physicalTaxable, $context);
-        $result = reset($results);
-        $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
-        $this->assertEquals('de_vat', $result->getId());
-
-        // German customer, French store, digital product.
-        $date = new \DateTime('2014-02-24');
-        $context = $this->getContext($germanAddress, $frenchAddress, '', array(), $date);
-        $results = $resolver->resolve($digitalTaxable, $context);
-        $result = reset($results);
-        $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
-        $this->assertEquals('fr_vat', $result->getId());
-
-        // German customer, French store, digital product after Jan 1st 2015.
-        $date = new \DateTime('2015-02-24');
-        $context = $this->getContext($germanAddress, $frenchAddress, '', array(), $date);
-        $results = $resolver->resolve($digitalTaxable, $context);
-        $result = reset($results);
-        $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
-        $this->assertEquals('de_vat', $result->getId());
-
-        // German customer, US store, digital product.
-        $date = new \DateTime('2015-02-24');
-        $context = $this->getContext($germanAddress, $usAddress, '', array(), $date);
-        $result = $resolver->resolve($digitalTaxable, $context);
-        $this->assertEquals(array(), $result);
-
-        // German customer, US store registered in FR, digital product.
-        $date = new \DateTime('2015-02-24');
-        $context = $this->getContext($germanAddress, $usAddress, '', array('FR'), $date);
-        $results = $resolver->resolve($digitalTaxable, $context);
-        $result = reset($results);
-        $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
-        $this->assertEquals('de_vat', $result->getId());
-
-        // Serbian customer, French store, physical product.
-        $context = $this->getContext($serbianAddress, $frenchAddress);
-        $result = $resolver->resolve($physicalTaxable, $context);
-        $this->assertEquals(array(), $result);
-
-        // French customer, Serbian store, physical product.
-        $context = $this->getContext($frenchAddress, $serbianAddress);
-        $result = $resolver->resolve($physicalTaxable, $context);
-        $this->assertEquals(array(), $result);
+        return array(
+            // German customer, French store, VAT number provided.
+            array($physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '123'), 'eu_ic_vat'),
+            // German customer, French store, physical product.
+            array($physicalTaxable, $this->getContext($germanAddress, $frenchAddress), 'fr_vat'),
+            // German customer, French store registered for German VAT, physical product.
+            array($physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array('DE')), 'de_vat'),
+            // German customer, French store, digital product.
+            array($digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array(), $date1), 'fr_vat'),
+            // German customer, French store, digital product after Jan 1st 2015.
+            array($digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array(), $date2), 'de_vat'),
+            // German customer, US store, digital product after Jan 1st 2015.
+            array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '', array(), $date2), null),
+            // German customer, US store registered in FR, digital product.
+            array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '', array('FR'), $date2), 'de_vat'),
+            // Serbian customer, French store, physical product.
+            array($physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), null),
+            // French customer, Serbian store, physical product.
+            array($physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), null),
+        );
     }
 
     /**
