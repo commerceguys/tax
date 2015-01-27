@@ -206,6 +206,12 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $germanAddress->expects($this->any())
             ->method('getCountryCode')
             ->will($this->returnValue('DE'));
+        $usAddress = $this
+            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMock();
+        $usAddress->expects($this->any())
+            ->method('getCountryCode')
+            ->will($this->returnValue('US'));
 
         // German customer, French store, VAT number provided.
         $context = $this->getContext($germanAddress, $frenchAddress, '123');
@@ -240,6 +246,20 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         // German customer, French store, digital product after Jan 1st 2015.
         $date = new \DateTime('2015-02-24');
         $context = $this->getContext($germanAddress, $frenchAddress, '', array(), $date);
+        $results = $resolver->resolve($digitalTaxable, $context);
+        $result = reset($results);
+        $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
+        $this->assertEquals('de_vat', $result->getId());
+
+        // German customer, US store, digital product.
+        $date = new \DateTime('2015-02-24');
+        $context = $this->getContext($germanAddress, $usAddress, '', array(), $date);
+        $result = $resolver->resolve($digitalTaxable, $context);
+        $this->assertEquals(array(), $result);
+
+        // German customer, US store registered in FR, digital product.
+        $date = new \DateTime('2015-02-24');
+        $context = $this->getContext($germanAddress, $usAddress, '', array('FR'), $date);
         $results = $resolver->resolve($digitalTaxable, $context);
         $result = reset($results);
         $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);

@@ -4,6 +4,7 @@ namespace CommerceGuys\Tax\Resolver\TaxType;
 
 use CommerceGuys\Addressing\Model\AddressInterface;
 use CommerceGuys\Tax\TaxableInterface;
+use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepositoryInterface;
 use CommerceGuys\Tax\Resolver\Context;
 
@@ -45,22 +46,27 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         }
         $storeAddress = $context->getStoreAddress();
         $storeTaxTypes = $this->filterByAddress($taxTypes, $storeAddress);
-        if (empty($storeTaxTypes)) {
-            // The store is not in the EU.
+        $storeRegistrationTaxTypes = $this->filterByStoreRegistration($taxTypes, $context);
+        if (empty($storeTaxTypes) && empty($storeRegistrationTaxTypes)) {
+            // The store is not in the EU nor registered to collect EU VAT.
             return array();
         }
 
+        // Since january 1st 2015 all digital services sold to EU customers
+        // must apply the destination tax type(s). For example, an ebook sold
+        // to Germany needs to have German VAT applied.
+        $isDigital = $context->getDate()->format('Y') >= '2015' && !$taxable->isPhysical();
+
         $resolvedTaxTypes = array();
-        $taxNumber = $context->getCustomerTaxNumber();
-        $date = $context->getDate();
-        if (!empty($taxNumber)) {
-            // Intra-community supply.
+        if (empty($storeTaxTypes) && !empty($storeRegistrationTaxTypes)) {
+            // The store is not in the EU but is registered to collect VAT.
+            // This VAT is only charged on digital services.
+            $resolvedTaxTypes = $isDigital ? $customerTaxTypes : array();
+        } elseif ($context->getCustomerTaxNumber()) {
+            // Intra-community supply (B2B).
             $icTaxType = $this->taxTypeRepository->get('eu_ic_vat');
             $resolvedTaxTypes = array($icTaxType);
-        } elseif ($date->format('Y') >= '2015' && !$taxable->isPhysical()) {
-            // Since january 1st 2015 all digital products inside the EU use
-            // the destination tax type(s). For example, an ebook sold from
-            // France to Germany needs to have German VAT applied.
+        } elseif ($isDigital) {
             $resolvedTaxTypes = $customerTaxTypes;
         } else {
             // Physical products use the origin tax types, unless the store is
