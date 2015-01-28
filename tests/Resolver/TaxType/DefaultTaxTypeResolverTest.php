@@ -113,7 +113,8 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::resolve
-     * @covers \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
+     * @covers ::getTaxTypes
+     * @uses \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate

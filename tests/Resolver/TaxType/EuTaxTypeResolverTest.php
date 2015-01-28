@@ -169,7 +169,9 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::resolve
-     * @uses \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
+     * @covers ::filterByAddress
+     * @covers ::getTaxTypes
+     * @covers \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
