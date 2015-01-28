@@ -112,7 +112,8 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
     {
         $taxTypes = $this->taxTypeRepository->getAll();
         $taxTypes = array_filter($taxTypes, function ($taxType) {
-            return $taxType->getTag() == 'EU';
+            // "eu_ic_vat" is not resolved via its zone, so it isn't needed.
+            return $taxType->getId() != 'eu_ic_vat' && $taxType->getTag() == 'EU';
         });
 
         return $taxTypes;
