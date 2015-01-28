@@ -10,6 +10,13 @@ use CommerceGuys\Zone\Model\ZoneInterface;
 trait StoreRegistrationCheckerTrait
 {
     /**
+     * The empty addresses constructed for checking store registrations.
+     *
+     * @var Address[]
+     */
+    protected $emptyAddresses = array();
+
+    /**
      * Checks whether the store is registered to collect taxes in the given zone.
      *
      * @param ZoneInterface $zone    The zone.
@@ -21,10 +28,14 @@ trait StoreRegistrationCheckerTrait
     protected function checkStoreRegistration(ZoneInterface $zone, Context $context)
     {
         $additionalTaxCountries = $context->getAdditionalTaxCountries();
-        foreach ($additionalTaxCountries as $additionalTaxCountry) {
-            $address = new Address();
-            $address->setCountryCode($additionalTaxCountry);
-            if ($zone->match($address)) {
+        foreach ($additionalTaxCountries as $country) {
+            if (!isset($this->emptyAddresses[$country])) {
+                $address = new Address();
+                $address->setCountryCode($country);
+                $this->emptyAddresses[$country] = $address;
+            }
+
+            if ($zone->match($this->emptyAddresses[$country])) {
                 return true;
             }
         }
