@@ -124,7 +124,8 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
      */
     protected function createTaxTypeFromDefinition(array $definition)
     {
-        $zone = $this->zoneRepository->get($definition['zone']);
+        // Load the referenced zone.
+        $definition['zone'] = $this->zoneRepository->get($definition['zone']);
         // Provide defaults.
         if (!isset($definition['compound'])) {
             $definition['compound'] = false;
@@ -134,14 +135,20 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
         }
 
         $type = new TaxType();
-        $type->setId($definition['id']);
-        $type->setName($definition['name']);
-        $type->setCompound($definition['compound']);
-        $type->setRoundingMode($definition['rounding_mode']);
-        $type->setZone($zone);
-        if (isset($definition['tag'])) {
-            $type->setTag($definition['tag']);
-        }
+        // Bind the closure to the TaxType object, giving it access to
+        // its protected properties. Faster than both setters and reflection.
+        $setValues = \Closure::bind(function ($definition) {
+            $this->id = $definition['id'];
+            $this->name = $definition['name'];
+            $this->compound = $definition['compound'];
+            $this->roundingMode = $definition['rounding_mode'];
+            $this->zone = $definition['zone'];
+            if (isset($definition['tag'])) {
+                $this->tag = $definition['tag'];
+            }
+        }, $type, '\CommerceGuys\Tax\Model\TaxType');
+        $setValues($definition);
+
         foreach ($definition['rates'] as $rateDefinition) {
             $rate = $this->createTaxRateFromDefinition($rateDefinition);
             $type->addRate($rate);
@@ -160,12 +167,16 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
     protected function createTaxRateFromDefinition(array $definition)
     {
         $rate = new TaxRate();
-        $rate->setId($definition['id']);
-        $rate->setName($definition['name']);
-        $rate->setDisplayName($definition['display_name']);
-        if (isset($definition['default'])) {
-            $rate->setDefault($definition['default']);
-        }
+        $setValues = \Closure::bind(function ($definition) {
+            $this->id = $definition['id'];
+            $this->name = $definition['name'];
+            $this->displayName = $definition['display_name'];
+            if (isset($definition['default'])) {
+                $this->default = $definition['default'];
+            }
+        }, $rate, '\CommerceGuys\Tax\Model\TaxRate');
+        $setValues($definition);
+
         foreach ($definition['amounts'] as $amountDefinition) {
             $amount = $this->createTaxRateAmountFromDefinition($amountDefinition);
             $rate->addAmount($amount);
@@ -184,14 +195,17 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
     protected function createTaxRateAmountFromDefinition(array $definition)
     {
         $amount = new TaxRateAmount();
-        $amount->setId($definition['id']);
-        $amount->setAmount($definition['amount']);
-        if (isset($definition['start_date'])) {
-            $amount->setStartDate(new \DateTime($definition['start_date']));
-        }
-        if (isset($definition['end_date'])) {
-            $amount->setEndDate(new \DateTime($definition['end_date']));
-        }
+        $setValues = \Closure::bind(function ($definition) {
+            $this->id = $definition['id'];
+            $this->amount = $definition['amount'];
+            if (isset($definition['start_date'])) {
+                $this->startDate = new \DateTime($definition['start_date']);
+            }
+            if (isset($definition['end_date'])) {
+                $this->endDate = new \DateTime($definition['end_date']);
+            }
+        }, $amount, '\CommerceGuys\Tax\Model\TaxRateAmount');
+        $setValues($definition);
 
         return $amount;
     }
