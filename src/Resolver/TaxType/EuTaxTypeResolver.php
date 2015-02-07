@@ -52,6 +52,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
             return array();
         }
 
+        $customerTaxNumber = $context->getCustomerTaxNumber();
         // Since january 1st 2015 all digital services sold to EU customers
         // must apply the destination tax type(s). For example, an ebook sold
         // to Germany needs to have German VAT applied.
@@ -60,9 +61,12 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         $resolvedTaxTypes = array();
         if (empty($storeTaxTypes) && !empty($storeRegistrationTaxTypes)) {
             // The store is not in the EU but is registered to collect VAT.
-            // This VAT is only charged on digital services.
-            $resolvedTaxTypes = $isDigital ? $customerTaxTypes : array();
-        } elseif ($context->getCustomerTaxNumber()) {
+            // This VAT is only charged on B2C digital services.
+            $resolvedTaxTypes = self::NO_APPLICABLE_TAX_TYPE;
+            if ($isDigital && !$customerTaxNumber) {
+                $resolvedTaxTypes = $customerTaxTypes;
+            }
+        } elseif ($customerTaxNumber) {
             // Intra-community supply (B2B).
             $icTaxType = $this->taxTypeRepository->get('eu_ic_vat');
             $resolvedTaxTypes = array($icTaxType);

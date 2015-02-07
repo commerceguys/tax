@@ -182,8 +182,11 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     public function testResolver($taxable, $context, $expected, $resolver)
     {
         $results = $resolver->resolve($taxable, $context);
-        $result = reset($results);
-        if ($expected) {
+        if (empty($expected) || $expected == EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE) {
+            $this->assertEquals($expected, $results);
+        }
+        else {
+            $result = reset($results);
             $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
             $this->assertEquals($expected, $result->getId());
         }
@@ -221,6 +224,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
         $date1 = new \DateTime('2014-02-24');
         $date2 = new \DateTime('2015-02-24');
+        $notApplicable = EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE;
 
         return array(
             // German customer, French store, VAT number provided.
@@ -229,18 +233,20 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             array($physicalTaxable, $this->getContext($germanAddress, $frenchAddress), 'fr_vat'),
             // German customer, French store registered for German VAT, physical product.
             array($physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array('DE')), 'de_vat'),
-            // German customer, French store, digital product.
+            // German customer, French store, digital product before Jan 1st 2015.
             array($digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array(), $date1), 'fr_vat'),
-            // German customer, French store, digital product after Jan 1st 2015.
+            // German customer, French store, digital product.
             array($digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array(), $date2), 'de_vat'),
-            // German customer, US store, digital product after Jan 1st 2015.
-            array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '', array(), $date2), null),
+            // German customer, US store, digital product
+            array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '', array(), $date2), array()),
             // German customer, US store registered in FR, digital product.
             array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '', array('FR'), $date2), 'de_vat'),
+            // German customer with VAT number, US store registered in FR, digital product.
+            array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '123', array('FR'), $date2), $notApplicable),
             // Serbian customer, French store, physical product.
-            array($physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), null),
+            array($physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), array()),
             // French customer, Serbian store, physical product.
-            array($physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), null),
+            array($physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), array()),
         );
     }
 
