@@ -164,11 +164,11 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @param AddressInterface $customerAddress        The customer address.
      * @param AddressInterface $storeAddress           The store address.
-     * @param array            $additionalTaxCountries Additional tax countries.
+     * @param array            $storeRegistrations Additional tax countries.
      *
      * @return \CommerceGuys\Tax\Resolver\Context
      */
-    protected function getContext($customerAddress, $storeAddress, $additionalTaxCountries = array())
+    protected function getContext($customerAddress, $storeAddress, $storeRegistrations = array())
     {
         $context = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Context')
@@ -181,8 +181,8 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             ->method('getStoreAddress')
             ->will($this->returnValue($storeAddress));
         $context->expects($this->any())
-            ->method('getAdditionalTaxCountries')
-            ->will($this->returnValue($additionalTaxCountries));
+            ->method('getStoreRegistrations')
+            ->will($this->returnValue($storeRegistrations));
 
         return $context;
     }
