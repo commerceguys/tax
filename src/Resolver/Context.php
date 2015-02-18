@@ -38,7 +38,7 @@ class Context
      *
      * @var array
      */
-    protected $additionalTaxCountries;
+    protected $storeRegistrations;
 
     /**
      * The calculation date.
@@ -53,15 +53,15 @@ class Context
      * @param AddressInterface $customerAddress
      * @param AddressInterface $storeAddress
      * @param string           $customerTaxNumber
-     * @param array            $additionalTaxCountries
+     * @param array            $storeRegistrations
      * @param DateTime         $date
      */
-    public function __construct(AddressInterface $customerAddress, AddressInterface $storeAddress, $customerTaxNumber = '', array $additionalTaxCountries = array(), \DateTime $date = null)
+    public function __construct(AddressInterface $customerAddress, AddressInterface $storeAddress, $customerTaxNumber = '', array $storeRegistrations = array(), \DateTime $date = null)
     {
         $this->customerAddress = $customerAddress;
         $this->storeAddress = $storeAddress;
         $this->customerTaxNumber = $customerTaxNumber;
-        $this->additionalTaxCountries = $additionalTaxCountries;
+        $this->storeRegistrations = $storeRegistrations;
         $this->date = $date ?: new \DateTime();
     }
 
@@ -136,19 +136,19 @@ class Context
      *
      * @return array An array of country codes.
      */
-    public function getAdditionalTaxCountries()
+    public function getStoreRegistrations()
     {
-        return $this->additionalTaxCountries;
+        return $this->storeRegistrations;
     }
 
     /**
      * Sets the additional tax countries.
      *
-     * @param array $additionalTaxCountries An array of country codes.
+     * @param array $storeRegistrations An array of country codes.
      */
-    public function setAdditionalTaxCountries(array $additionalTaxCountries)
+    public function setStoreRegistrations(array $storeRegistrations)
     {
-        $this->additionalTaxCountries = $additionalTaxCountries;
+        $this->storeRegistrations = $storeRegistrations;
 
         return $this;
     }

@@ -256,12 +256,12 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @param AddressInterface $customerAddress        The customer address.
      * @param AddressInterface $storeAddress           The store address.
      * @param string           $customerTaxNumber      The customer tax number.
-     * @param array            $additionalTaxCountries Additional tax countries.
+     * @param array            $storeRegistrations Additional tax countries.
      * @param \DateTime        $date                   The date.
      *
      * @return \CommerceGuys\Tax\Resolver\Context
      */
-    protected function getContext($customerAddress, $storeAddress, $customerTaxNumber = '', $additionalTaxCountries = array(), $date = null)
+    protected function getContext($customerAddress, $storeAddress, $customerTaxNumber = '', $storeRegistrations = array(), $date = null)
     {
         $context = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Context')
@@ -277,8 +277,8 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             ->method('getCustomerTaxNumber')
             ->will($this->returnValue($customerTaxNumber));
         $context->expects($this->any())
-            ->method('getAdditionalTaxCountries')
-            ->will($this->returnValue($additionalTaxCountries));
+            ->method('getStoreRegistrations')
+            ->will($this->returnValue($storeRegistrations));
         $date = $date ?: new \DateTime();
         $context->expects($this->any())
             ->method('getDate')

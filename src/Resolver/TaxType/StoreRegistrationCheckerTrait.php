@@ -27,8 +27,8 @@ trait StoreRegistrationCheckerTrait
      */
     protected function checkStoreRegistration(ZoneInterface $zone, Context $context)
     {
-        $additionalTaxCountries = $context->getAdditionalTaxCountries();
-        foreach ($additionalTaxCountries as $country) {
+        $storeRegistrations = $context->getStoreRegistrations();
+        foreach ($storeRegistrations as $country) {
             if (!isset($this->emptyAddresses[$country])) {
                 $address = new Address();
                 $address->setCountryCode($country);
