@@ -56,7 +56,7 @@ class Context
      * @param array            $additionalTaxCountries
      * @param DateTime         $date
      */
-    public function __construct(AddressInterface $customerAddress, AddressInterface $storeAddress, $customerTaxNumber = '', array $additionalTaxCountries = array(), \DateTime $date = null)
+    public function __construct(AddressInterface $customerAddress, AddressInterface $storeAddress, $customerTaxNumber = '', array $additionalTaxCountries = [], \DateTime $date = null)
     {
         $this->customerAddress = $customerAddress;
         $this->storeAddress = $storeAddress;

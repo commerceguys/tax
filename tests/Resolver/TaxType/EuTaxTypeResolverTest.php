@@ -17,73 +17,73 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @var array
      */
-    protected $taxTypes = array(
-        'fr_vat' => array(
+    protected $taxTypes = [
+        'fr_vat' => [
             'name' => 'French VAT',
             'zone' => 'fr_vat',
             'tag' => 'EU',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'fr_vat_standard',
                     'name' => 'Standard',
                     'display_name' => '% VAT',
                     'default' => true,
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'fr_vat_standard_196',
                             'amount' => 0.196,
                             'start_date' => '2004-04-01',
                             'end_date' => '2013-12-31',
-                        ),
-                        array(
+                        ],
+                        [
                             'id' => 'fr_vat_standard_20',
                             'amount' => 0.2,
                             'start_date' => '2014-01-01',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'de_vat' => array(
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'de_vat' => [
             'name' => 'German VAT',
             'zone' => 'de_vat',
             'tag' => 'EU',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'de_vat_standard',
                     'name' => 'Standard',
                     'display_name' => '% VAT',
                     'default' => true,
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'de_vat_standard_19',
                             'amount' => 0.19,
                             'start_date' => '2007-01-01',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'eu_ic_vat' => array(
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'eu_ic_vat' => [
             'name' => 'Intra-Community Supply',
             'zone' => 'eu_vat',
             'tag' => 'EU',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'eu_ic_vat',
                     'name' => 'Intra-Community Supply',
                     'display_name' => '% VAT',
                     'default' => true,
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'eu_ic_vat',
                             'amount' => 0,
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    );
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ];
 
     /**
      * Known zones.
@@ -94,53 +94,53 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @var array
      */
-    protected $zones = array(
-        'fr_vat' => array(
+    protected $zones = [
+        'fr_vat' => [
             'name' => 'France (VAT)',
-            'members' => array(
-                array(
+            'members' => [
+                [
                     'type' => 'country',
                     'id' => '1',
                     'name' => 'France',
                     'country_code' => 'FR',
-                ),
-                array(
+                ],
+                [
                     'type' => 'country',
                     'id' => '2',
                     'name' => 'Monaco',
                     'country_code' => 'MC',
-                ),
-            ),
-        ),
-        'de_vat' => array(
+                ],
+            ],
+        ],
+        'de_vat' => [
             'name' => 'Germany (VAT)',
-            'members' => array(
-                array(
+            'members' => [
+                [
                     'type' => 'country',
                     'id' => '2',
                     'name' => 'Germany',
                     'country_code' => 'DE',
-                ),
-            ),
-        ),
-        'eu_vat' => array(
+                ],
+            ],
+        ],
+        'eu_vat' => [
             'name' => 'European Union (VAT)',
-            'members' => array(
-                array(
+            'members' => [
+                [
                     'type' => 'zone',
                     'id' => '3',
                     'name' => 'France (VAT)',
                     'zone' => 'fr_vat',
-                ),
-                array(
+                ],
+                [
                     'type' => 'zone',
                     'id' => '4',
                     'name' => 'Germany (VAT)',
                     'zone' => 'de_vat',
-                ),
-            ),
-        ),
-    );
+                ],
+            ],
+        ],
+    ];
 
     /**
      * @covers ::__construct
@@ -226,28 +226,28 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $date2 = new \DateTime('2015-02-24');
         $notApplicable = EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE;
 
-        return array(
+        return [
             // German customer, French store, VAT number provided.
-            array($physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '123'), 'eu_ic_vat'),
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '123'), 'eu_ic_vat'],
             // German customer, French store, physical product.
-            array($physicalTaxable, $this->getContext($germanAddress, $frenchAddress), 'fr_vat'),
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress), 'fr_vat'],
             // German customer, French store registered for German VAT, physical product.
-            array($physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array('DE')), 'de_vat'),
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', ['DE']), 'de_vat'],
             // German customer, French store, digital product before Jan 1st 2015.
-            array($digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array(), $date1), 'fr_vat'),
+            [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date1), 'fr_vat'],
             // German customer, French store, digital product.
-            array($digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', array(), $date2), 'de_vat'),
+            [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date2), 'de_vat'],
             // German customer, US store, digital product
-            array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '', array(), $date2), array()),
+            [$digitalTaxable, $this->getContext($germanAddress, $usAddress, '', [], $date2), []],
             // German customer, US store registered in FR, digital product.
-            array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '', array('FR'), $date2), 'de_vat'),
+            [$digitalTaxable, $this->getContext($germanAddress, $usAddress, '', ['FR'], $date2), 'de_vat'],
             // German customer with VAT number, US store registered in FR, digital product.
-            array($digitalTaxable, $this->getContext($germanAddress, $usAddress, '123', array('FR'), $date2), $notApplicable),
+            [$digitalTaxable, $this->getContext($germanAddress, $usAddress, '123', ['FR'], $date2), $notApplicable],
             // Serbian customer, French store, physical product.
-            array($physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), array()),
+            [$physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), []],
             // French customer, Serbian store, physical product.
-            array($physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), array()),
-        );
+            [$physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), []],
+        ];
     }
 
     /**
@@ -261,7 +261,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @return \CommerceGuys\Tax\Resolver\Context
      */
-    protected function getContext($customerAddress, $storeAddress, $customerTaxNumber = '', $additionalTaxCountries = array(), $date = null)
+    protected function getContext($customerAddress, $storeAddress, $customerTaxNumber = '', $additionalTaxCountries = [], $date = null)
     {
         $context = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Context')

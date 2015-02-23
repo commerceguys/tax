@@ -15,56 +15,56 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
      *
      * @var array
      */
-    protected $taxTypes = array(
-        'fr_vat' => array(
+    protected $taxTypes = [
+        'fr_vat' => [
             'id' => 'fr_vat',
             'name' => 'French VAT',
             'zone' => 'fr',
             'tag' => 'EU',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'fr_vat_standard',
                     'name' => 'Standard',
                     'display_name' => '% VAT',
                     'default' => true,
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'fr_vat_standard_196',
                             'amount' => 0.196,
                             'start_date' => '2004-04-01',
                             'end_date' => '2013-12-31',
-                        ),
-                        array(
+                        ],
+                        [
                             'id' => 'fr_vat_standard_20',
                             'amount' => 0.2,
                             'start_date' => '2014-01-01',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'de_vat' => array(
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'de_vat' => [
             'id' => 'de_vat',
             'name' => 'German VAT',
             'zone' => 'de',
             'tag' => 'EU',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'de_vat_standard',
                     'name' => 'Standard',
                     'display_name' => '% VAT',
                     'default' => true,
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'de_vat_standard_19',
                             'amount' => 0.19,
                             'start_date' => '2007-01-01',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    );
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ];
 
     /**
      * The tax repository

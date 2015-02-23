@@ -89,7 +89,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     */
     public function testSetInvalidAmounts()
     {
-        $this->taxRate->setAmounts(array(1, 2));
+        $this->taxRate->setAmounts([1, 2]);
     }
 
     /**
@@ -126,7 +126,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
             ->method('getStartDate')
             ->will($this->returnValue(new \DateTime('2014/01/01')));
         $empty = new ArrayCollection();
-        $amounts = new ArrayCollection(array($firstAmount, $secondAmount));
+        $amounts = new ArrayCollection([$firstAmount, $secondAmount]);
 
         $this->assertEquals(false, $this->taxRate->hasAmounts());
         $this->assertEquals($empty, $this->taxRate->getAmounts());

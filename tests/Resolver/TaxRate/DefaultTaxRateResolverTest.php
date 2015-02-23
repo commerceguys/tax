@@ -38,7 +38,7 @@ class DefaultTaxRateResolverTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
 
         // Confirm that the default tax rate is returned.
-        $taxType = $this->getTaxType(array($reducedRate, $standardRate));
+        $taxType = $this->getTaxType([$reducedRate, $standardRate]);
         $taxable = $this
             ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
             ->getMock();
@@ -50,7 +50,7 @@ class DefaultTaxRateResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($standardRate, $result);
 
         // Confirm that null is returned when no default rate exists.
-        $taxType = $this->getTaxType(array($reducedRate));
+        $taxType = $this->getTaxType([$reducedRate]);
         $result = $this->resolver->resolve($taxType, $taxable, $context);
         $this->assertNull($result);
     }

@@ -52,6 +52,13 @@ class TaxType implements TaxTypeInterface
     protected $tag;
 
     /**
+     * The tax rates.
+     *
+     * @var TaxRateInterface[]
+     */
+    protected $rates;
+
+    /**
      * Creates a TaxeType instance.
      */
     public function __construct()

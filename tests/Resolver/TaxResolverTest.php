@@ -66,7 +66,7 @@ class TaxResolverTest extends \PHPUnit_Framework_TestCase
             ->getMock();
         $taxTypeResolverEngine->expects($this->any())
             ->method('resolve')
-            ->will($this->returnValue(array($firstTaxType, $secondTaxType)));
+            ->will($this->returnValue([$firstTaxType, $secondTaxType]));
         $taxRateResolverEngine = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Engine\TaxRateResolverEngine')
             ->getMock();
@@ -85,6 +85,6 @@ class TaxResolverTest extends \PHPUnit_Framework_TestCase
         // Since resolveAmounts calls resolveRates and resolveTypes, there
         // is no need to invoke them separately.
         $result = $resolver->resolveAmounts($taxable, $context);
-        $this->assertEquals(array($firstTaxRateAmount, $secondTaxRateAmount), $result);
+        $this->assertEquals([$firstTaxRateAmount, $secondTaxRateAmount], $result);
     }
 }

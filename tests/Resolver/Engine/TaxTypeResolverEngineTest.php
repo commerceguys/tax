@@ -46,13 +46,13 @@ class TaxTypeResolverEngineTest extends \PHPUnit_Framework_TestCase
             ->getMock();
         $secondResolver->expects($this->any())
             ->method('resolve')
-            ->will($this->returnValue(array($firstTaxType)));
+            ->will($this->returnValue([$firstTaxType]));
         $thirdResolver = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxType\TaxTypeResolverInterface')
             ->getMock();
         $thirdResolver->expects($this->any())
             ->method('resolve')
-            ->will($this->returnValue(array($secondTaxType)));
+            ->will($this->returnValue([$secondTaxType]));
         $fourthResolver = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxType\TaxTypeResolverInterface')
             ->getMock();
@@ -65,7 +65,7 @@ class TaxTypeResolverEngineTest extends \PHPUnit_Framework_TestCase
         $this->engine->add($thirdResolver, 5);
 
         // Confirm that the added resolvers have been ordered by priority.
-        $expectedResolvers = array($firstResolver, $thirdResolver, $secondResolver);
+        $expectedResolvers = [$firstResolver, $thirdResolver, $secondResolver];
         $this->assertEquals($expectedResolvers, $this->engine->getAll());
 
         $taxable = $this
@@ -76,7 +76,7 @@ class TaxTypeResolverEngineTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $result = $this->engine->resolve($taxable, $context);
-        $this->assertSame(array($secondTaxType), $result);
+        $this->assertSame([$secondTaxType], $result);
 
         // The new resolver will run first, and return NO_APPLICABLE_TAX_TYPE,
         // which should cause the resolving to stop and an empty array to be

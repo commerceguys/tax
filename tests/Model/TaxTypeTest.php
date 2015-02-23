@@ -99,7 +99,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetInvalidRates()
     {
-        $this->taxType->setRates(array(1, 2));
+        $this->taxType->setRates([1, 2]);
     }
 
     /**
@@ -124,7 +124,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $empty = new ArrayCollection();
-        $rates = new ArrayCollection(array($firstTaxRate, $secondTaxRate));
+        $rates = new ArrayCollection([$firstTaxRate, $secondTaxRate]);
 
         $this->assertEquals(false, $this->taxType->hasRates());
         $this->assertEquals($empty, $this->taxType->getRates());

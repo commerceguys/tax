@@ -17,74 +17,74 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @var array
      */
-    protected $taxTypes = array(
-        'rs_vat' => array(
+    protected $taxTypes = [
+        'rs_vat' => [
             'name' => 'Serbian VAT',
             'zone' => 'rs_vat',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'rs_vat_standard',
                     'name' => 'Standard',
                     'display_name' => '% VAT',
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'rs_vat_standard_20',
                             'amount' => 0.2,
                             'start_date' => '2002-10-01',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'me_vat' => array(
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'me_vat' => [
             'name' => 'Montenegrin VAT',
             'zone' => 'me_vat',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'me_vat_standard',
                     'name' => 'Standard',
                     'display_name' => '% VAT',
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'me_vat_standard_19',
                             'amount' => 0.19,
                             'start_date' => '2003-07-01',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    );
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ];
 
     /**
      * Known zones.
      *
      * @var array
      */
-    protected $zones = array(
-        'rs_vat' => array(
+    protected $zones = [
+        'rs_vat' => [
             'name' => 'Serbia (VAT)',
-            'members' => array(
-                array(
+            'members' => [
+                [
                     'type' => 'country',
                     'id' => '1',
                     'name' => 'Serbia',
                     'country_code' => 'RS',
-                ),
-            ),
-        ),
-        'me_vat' => array(
+                ],
+            ],
+        ],
+        'me_vat' => [
             'name' => 'Montenegro (VAT)',
-            'members' => array(
-                array(
+            'members' => [
+                [
                     'type' => 'country',
                     'id' => '2',
                     'name' => 'Montenegro',
                     'country_code' => 'ME',
-                ),
-            ),
-        ),
-    );
+                ],
+            ],
+        ],
+    ];
 
     /**
      * @covers ::__construct
@@ -147,7 +147,7 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('rs_vat', $result->getId());
 
         // Serbian store, Montenegrin customer, store registered for VAT in ME.
-        $context = $this->getContext($montenegrinAddress, $serbianAddress, array('ME'));
+        $context = $this->getContext($montenegrinAddress, $serbianAddress, ['ME']);
         $results = $resolver->resolve($taxable, $context);
         $result = reset($results);
         $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
@@ -156,7 +156,7 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         // Serbian store, Montenegrin customer, store not registered in ME.
         $context = $this->getContext($montenegrinAddress, $serbianAddress);
         $result = $resolver->resolve($taxable, $context);
-        $this->assertEquals(array(), $result);
+        $this->assertEquals([], $result);
     }
 
     /**
@@ -168,7 +168,7 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @return \CommerceGuys\Tax\Resolver\Context
      */
-    protected function getContext($customerAddress, $storeAddress, $additionalTaxCountries = array())
+    protected function getContext($customerAddress, $storeAddress, $additionalTaxCountries = [])
     {
         $context = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Context')

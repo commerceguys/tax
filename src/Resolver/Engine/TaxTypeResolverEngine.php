@@ -15,25 +15,25 @@ class TaxTypeResolverEngine implements TaxTypeResolverEngineInterface
      *
      * @var array
      */
-    protected $resolvers = array();
+    protected $resolvers = [];
 
     /**
      * The resolvers, sorted by priority.
      *
      * @var TaxTypeResolverInterface[]
      */
-    protected $sortedResolvers = array();
+    protected $sortedResolvers = [];
 
     /**
      * {@inheritdoc}
      */
     public function add(TaxTypeResolverInterface $resolver, $priority = 0)
     {
-        $this->resolvers[] = array(
+        $this->resolvers[] = [
             'resolver' => $resolver,
             'priority' => $priority,
-        );
-        $this->sortedResolvers = array();
+        ];
+        $this->sortedResolvers = [];
     }
 
     /**
@@ -53,7 +53,7 @@ class TaxTypeResolverEngine implements TaxTypeResolverEngineInterface
      */
     public function resolve(TaxableInterface $taxable, Context $context)
     {
-        $result = array();
+        $result = [];
         $resolvers = $this->getAll();
         foreach ($resolvers as $resolver) {
             $result = $resolver->resolve($taxable, $context);
@@ -64,7 +64,7 @@ class TaxTypeResolverEngine implements TaxTypeResolverEngineInterface
         // The NO_APPLICABLE_TAX_TYPE flag is used to stop further resolving,
         // but shouldn't be returned to the outside world.
         if ($result == TaxTypeResolverInterface::NO_APPLICABLE_TAX_TYPE) {
-            $result = array();
+            $result = [];
         }
 
         return $result;

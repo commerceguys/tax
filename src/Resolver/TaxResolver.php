@@ -41,7 +41,7 @@ class TaxResolver implements TaxResolverInterface
     {
         $date = $context->getDate();
         $rates = $this->resolveRates($taxable, $context);
-        $amounts = array();
+        $amounts = [];
         foreach ($rates as $rate) {
             $amounts[] = $rate->getAmount($date);
         }
@@ -55,7 +55,7 @@ class TaxResolver implements TaxResolverInterface
     public function resolveRates(TaxableInterface $taxable, Context $context)
     {
         $types = $this->resolveTypes($taxable, $context);
-        $rates = array();
+        $rates = [];
         foreach ($types as $type) {
             $rate = $this->taxRateResolverEngine->resolve($type, $taxable, $context);
             if ($rate) {

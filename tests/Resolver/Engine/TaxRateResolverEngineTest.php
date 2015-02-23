@@ -66,7 +66,7 @@ class TaxRateResolverEngineTest extends \PHPUnit_Framework_TestCase
         $this->engine->add($thirdResolver, 5);
 
         // Confirm that the added resolvers have been ordered by priority.
-        $expectedResolvers = array($firstResolver, $thirdResolver, $secondResolver);
+        $expectedResolvers = [$firstResolver, $thirdResolver, $secondResolver];
         $this->assertEquals($expectedResolvers, $this->engine->getAll());
 
         $taxType = $this

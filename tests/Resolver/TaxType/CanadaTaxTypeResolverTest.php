@@ -17,78 +17,78 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @var array
      */
-    protected $taxTypes = array(
-        'ca_on_hst' => array(
+    protected $taxTypes = [
+        'ca_on_hst' => [
             'name' => 'Ontario HST',
             'tag' => 'CA',
             'zone' => 'ca_on_hst',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'ca_on_hst',
                     'name' => 'Ontario HST',
                     'display_name' => '% HST',
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'ca_on_hst_13',
                             'amount' => 0.13,
                             'start_date' => '2010-07-01',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'ca_ns_hst' => array(
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'ca_ns_hst' => [
             'name' => 'Nova Scotia HST',
             'tag' => 'CA',
             'zone' => 'ca_ns_hst',
-            'rates' => array(
-                array(
+            'rates' => [
+                [
                     'id' => 'ca_ns_hst',
                     'name' => 'Nova Scotia HST',
                     'display_name' => '% HST',
-                    'amounts' => array(
-                        array(
+                    'amounts' => [
+                        [
                             'id' => 'ca_ns_hst_15',
                             'amount' => 0.15,
                             'start_date' => '2010-07-01',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    );
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ];
 
     /**
      * Known zones.
      *
      * @var array
      */
-    protected $zones = array(
-        'ca_on_hst' => array(
+    protected $zones = [
+        'ca_on_hst' => [
             'name' => 'Ontario (HST)',
-            'members' => array(
-                array(
+            'members' => [
+                [
                     'type' => 'country',
                     'id' => '1',
                     'name' => 'Canada - Ontario',
                     'country_code' => 'CA',
                     'administrative_area' => 'CA-ON',
-                ),
-            ),
-        ),
-        'ca_ns_hst' => array(
+                ],
+            ],
+        ],
+        'ca_ns_hst' => [
             'name' => 'Nova Scotia (HST)',
-            'members' => array(
-                array(
+            'members' => [
+                [
                     'type' => 'country',
                     'id' => '2',
                     'name' => 'Canada - Nova Scotia',
                     'country_code' => 'CA',
                     'administrative_area' => 'CA-NS',
-                ),
-            ),
-        ),
-    );
+                ],
+            ],
+        ],
+    ];
 
     /**
      * @covers ::__construct
@@ -172,12 +172,12 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         // Ontario store, US customer.
         $context = $this->getContext($usAddress, $ontarioAddress);
         $result = $resolver->resolve($taxable, $context);
-        $this->assertEquals(array(), $result);
+        $this->assertEquals([], $result);
 
         // US store, Ontario customer.
         $context = $this->getContext($ontarioAddress, $usAddress);
         $result = $resolver->resolve($taxable, $context);
-        $this->assertEquals(array(), $result);
+        $this->assertEquals([], $result);
     }
 
     /**
@@ -189,7 +189,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @return \CommerceGuys\Tax\Resolver\Context
      */
-    protected function getContext($customerAddress, $storeAddress, $additionalTaxCountries = array())
+    protected function getContext($customerAddress, $storeAddress, $additionalTaxCountries = [])
     {
         $context = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Context')

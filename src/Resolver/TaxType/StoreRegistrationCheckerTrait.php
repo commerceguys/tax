@@ -14,7 +14,7 @@ trait StoreRegistrationCheckerTrait
      *
      * @var Address[]
      */
-    protected $emptyAddresses = array();
+    protected $emptyAddresses = [];
 
     /**
      * Checks whether the store is registered to collect taxes in the given zone.

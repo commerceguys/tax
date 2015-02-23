@@ -42,14 +42,14 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         $customerTaxTypes = $this->filterByAddress($taxTypes, $customerAddress);
         if (empty($customerTaxTypes)) {
             // The customer is not in the EU.
-            return array();
+            return [];
         }
         $storeAddress = $context->getStoreAddress();
         $storeTaxTypes = $this->filterByAddress($taxTypes, $storeAddress);
         $storeRegistrationTaxTypes = $this->filterByStoreRegistration($taxTypes, $context);
         if (empty($storeTaxTypes) && empty($storeRegistrationTaxTypes)) {
             // The store is not in the EU nor registered to collect EU VAT.
-            return array();
+            return [];
         }
 
         $customerTaxNumber = $context->getCustomerTaxNumber();
@@ -58,7 +58,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         // to Germany needs to have German VAT applied.
         $isDigital = $context->getDate()->format('Y') >= '2015' && !$taxable->isPhysical();
 
-        $resolvedTaxTypes = array();
+        $resolvedTaxTypes = [];
         if (empty($storeTaxTypes) && !empty($storeRegistrationTaxTypes)) {
             // The store is not in the EU but is registered to collect VAT.
             // This VAT is only charged on B2C digital services.
@@ -69,7 +69,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         } elseif ($customerTaxNumber) {
             // Intra-community supply (B2B).
             $icTaxType = $this->taxTypeRepository->get('eu_ic_vat');
-            $resolvedTaxTypes = array($icTaxType);
+            $resolvedTaxTypes = [$icTaxType];
         } elseif ($isDigital) {
             $resolvedTaxTypes = $customerTaxTypes;
         } else {

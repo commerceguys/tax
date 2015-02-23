@@ -42,11 +42,11 @@ class ContextTest extends \PHPUnit_Framework_TestCase
             ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
             ->getMock();
         $date = new \DateTime('2014-10-10');
-        $context = new Context($customerAddress, $storeAddress, '0123', array('DE'), $date);
+        $context = new Context($customerAddress, $storeAddress, '0123', ['DE'], $date);
         $this->assertSame($customerAddress, $context->getCustomerAddress());
         $this->assertSame($storeAddress, $context->getStoreAddress());
         $this->assertEquals('0123', $context->getCustomerTaxNumber());
-        $this->assertEquals(array('DE'), $context->getAdditionalTaxCountries());
+        $this->assertEquals(['DE'], $context->getAdditionalTaxCountries());
         $this->assertSame($date, $context->getDate());
     }
 
@@ -96,8 +96,8 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testAdditionalTaxCountries()
     {
-        $this->context->setAdditionalTaxCountries(array('DE', 'DK'));
-        $this->assertEquals(array('DE', 'DK'), $this->context->getAdditionalTaxCountries());
+        $this->context->setAdditionalTaxCountries(['DE', 'DK']);
+        $this->assertEquals(['DE', 'DK'], $this->context->getAdditionalTaxCountries());
     }
 
     /**

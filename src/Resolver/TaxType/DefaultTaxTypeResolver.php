@@ -43,7 +43,7 @@ class DefaultTaxTypeResolver implements TaxTypeResolverInterface
     public function resolve(TaxableInterface $taxable, Context $context)
     {
         $taxTypes = $this->getTaxTypes();
-        $results = array();
+        $results = [];
         foreach ($taxTypes as $taxType) {
             $zone = $taxType->getZone();
             $customerZoneMatch = $zone->match($context->getCustomerAddress());

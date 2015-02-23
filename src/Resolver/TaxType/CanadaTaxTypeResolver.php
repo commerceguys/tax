@@ -37,13 +37,13 @@ class CanadaTaxTypeResolver implements TaxTypeResolverInterface
         $storeAddress = $context->getStoreAddress();
         if ($customerAddress->getCountryCode() != 'CA' || $storeAddress->getCountryCode() != 'CA') {
             // The customer or the store is not in Canada.
-            return array();
+            return [];
         }
 
         // Canadian tax types are matched by the customer address.
         // If the customer is from Ontario, the tax types are for Ontario.
         $taxTypes = $this->getTaxTypes();
-        $results = array();
+        $results = [];
         foreach ($taxTypes as $taxType) {
             $zone = $taxType->getZone();
             if ($zone->match($customerAddress)) {

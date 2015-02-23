@@ -16,25 +16,25 @@ class TaxRateResolverEngine implements TaxRateResolverEngineInterface
      *
      * @var array
      */
-    protected $resolvers = array();
+    protected $resolvers = [];
 
     /**
      * The resolvers, sorted by priority.
      *
      * @var TaxRateResolverInterface[]
      */
-    protected $sortedResolvers = array();
+    protected $sortedResolvers = [];
 
     /**
      * {@inheritdoc}
      */
     public function add(TaxRateResolverInterface $resolver, $priority = 0)
     {
-        $this->resolvers[] = array(
+        $this->resolvers[] = [
             'resolver' => $resolver,
             'priority' => $priority,
-        );
-        $this->sortedResolvers = array();
+        ];
+        $this->sortedResolvers = [];
     }
 
     /**

@@ -33,14 +33,14 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
      *
      * @var array
      */
-    protected $taxTypeIndex = array();
+    protected $taxTypeIndex = [];
 
     /**
      * Tax types.
      *
      * @var array
      */
-    protected $taxTypes = array();
+    protected $taxTypes = [];
 
     /**
      * Creates a TaxRepository instance.
@@ -87,7 +87,7 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
         }
 
         // Load each tax type.
-        $taxTypes = array();
+        $taxTypes = [];
         foreach ($this->taxTypeIndex as $id) {
             $taxTypes[$id] = $this->get($id);
         }

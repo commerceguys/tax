@@ -21,7 +21,7 @@ trait ResolverSorterTrait
             return ($a['priority'] > $b['priority']) ? -1 : 1;
         });
 
-        $sortedResolvers = array();
+        $sortedResolvers = [];
         foreach ($resolvers as $resolver) {
             $sortedResolvers[] = $resolver['resolver'];
         }
