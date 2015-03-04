@@ -33,12 +33,14 @@ class Context
     protected $customerTaxNumber;
 
     /**
-     * A list of additional country codes where the store is registered to
+     * Store registrations.
+     *
+     * A list of country codes where the store is additionally registered to
      * collect taxes.
      *
      * @var array
      */
-    protected $additionalTaxCountries;
+    protected $storeRegistrations;
 
     /**
      * The calculation date.
@@ -53,15 +55,15 @@ class Context
      * @param AddressInterface $customerAddress
      * @param AddressInterface $storeAddress
      * @param string           $customerTaxNumber
-     * @param array            $additionalTaxCountries
+     * @param array            $storeRegistrations
      * @param DateTime         $date
      */
-    public function __construct(AddressInterface $customerAddress, AddressInterface $storeAddress, $customerTaxNumber = '', array $additionalTaxCountries = [], \DateTime $date = null)
+    public function __construct(AddressInterface $customerAddress, AddressInterface $storeAddress, $customerTaxNumber = '', array $storeRegistrations = [], \DateTime $date = null)
     {
         $this->customerAddress = $customerAddress;
         $this->storeAddress = $storeAddress;
         $this->customerTaxNumber = $customerTaxNumber;
-        $this->additionalTaxCountries = $additionalTaxCountries;
+        $this->storeRegistrations = $storeRegistrations;
         $this->date = $date ?: new \DateTime();
     }
 
@@ -132,23 +134,27 @@ class Context
     }
 
     /**
-     * Gets the additional tax countries.
+     * Gets the store registrations.
      *
-     * @return array An array of country codes.
+     * For example, ['UK'], for a US store registered in the UK to collect
+     * EU VAT on digital services.
+     *
+     * @return array An array of country codes where the store is additionally
+     *               registered to collect taxes.
      */
-    public function getAdditionalTaxCountries()
+    public function getStoreRegistrations()
     {
-        return $this->additionalTaxCountries;
+        return $this->storeRegistrations;
     }
 
     /**
-     * Sets the additional tax countries.
+     * Sets the store registrations.
      *
-     * @param array $additionalTaxCountries An array of country codes.
+     * @param array $storeRegistrations An array of country codes.
      */
-    public function setAdditionalTaxCountries(array $additionalTaxCountries)
+    public function setStoreRegistrations(array $storeRegistrations)
     {
-        $this->additionalTaxCountries = $additionalTaxCountries;
+        $this->storeRegistrations = $storeRegistrations;
 
         return $this;
     }

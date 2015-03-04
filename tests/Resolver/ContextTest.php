@@ -30,7 +30,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      * @uses \CommerceGuys\Tax\Resolver\Context::getCustomerAddress
      * @uses \CommerceGuys\Tax\Resolver\Context::getStoreAddress
      * @uses \CommerceGuys\Tax\Resolver\Context::getCustomerTaxNumber
-     * @uses \CommerceGuys\Tax\Resolver\Context::getAdditionalTaxCountries
+     * @uses \CommerceGuys\Tax\Resolver\Context::getStoreRegistrations
      * @uses \CommerceGuys\Tax\Resolver\Context::getDate
      */
     public function testConstructor()
@@ -46,7 +46,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($customerAddress, $context->getCustomerAddress());
         $this->assertSame($storeAddress, $context->getStoreAddress());
         $this->assertEquals('0123', $context->getCustomerTaxNumber());
-        $this->assertEquals(['DE'], $context->getAdditionalTaxCountries());
+        $this->assertEquals(['DE'], $context->getStoreRegistrations());
         $this->assertSame($date, $context->getDate());
     }
 
@@ -90,14 +90,14 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::getAdditionalTaxCountries
-     * @covers ::setAdditionalTaxCountries
+     * @covers ::getStoreRegistrations
+     * @covers ::setStoreRegistrations
      * @uses \CommerceGuys\Tax\Resolver\Context::__construct
      */
-    public function testAdditionalTaxCountries()
+    public function testStoreRegistrations()
     {
-        $this->context->setAdditionalTaxCountries(['DE', 'DK']);
-        $this->assertEquals(['DE', 'DK'], $this->context->getAdditionalTaxCountries());
+        $this->context->setStoreRegistrations(['DE', 'DK']);
+        $this->assertEquals(['DE', 'DK'], $this->context->getStoreRegistrations());
     }
 
     /**
