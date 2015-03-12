@@ -6,8 +6,8 @@
     "license": "MIT",
     "require": {
         "php": ">=5.4.0",
-        "commerceguys/addressing": "dev-master",
-        "commerceguys/zone": "dev-master",
+        "commerceguys/addressing": "~0.5",
+        "commerceguys/zone": "~0.5",
         "doctrine/collections": "~1.0"
     },
     "require-dev": {
