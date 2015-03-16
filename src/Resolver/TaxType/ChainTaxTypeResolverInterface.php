@@ -30,6 +30,13 @@ interface ChainTaxTypeResolverInterface
     public function getResolvers();
 
     /**
+     * Returns the available tax rules.
+     *
+     * @return TaxRulesInterface[] An array of tax rules.
+     */
+    public function getTaxRules();
+
+    /**
      * Resolves the tax type by invoking the individual resolvers.
      *
      * @param TaxableInterface The taxable object.

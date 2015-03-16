@@ -51,6 +51,20 @@ class ChainTaxTypeResolver implements ChainTaxTypeResolverInterface
     /**
      * {@inheritdoc}
      */
+    public function getTaxRules()
+    {
+        $resolvers = $this->getAll();
+        $result = [];
+        foreach ($resolvers as $resolver) {
+          $result += $resolver->getTaxRules();
+        }
+
+      return $result;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function resolve(TaxableInterface $taxable, Context $context)
     {
         $result = [];
