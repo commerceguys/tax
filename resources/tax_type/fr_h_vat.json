@@ -6,7 +6,6 @@
         {
             "id": "fr_h_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -25,7 +24,6 @@
         {
             "id": "fr_h_vat_special",
             "name": "Special",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "fr_h_vat_special_2004",
@@ -43,7 +41,6 @@
         {
             "id": "fr_h_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "fr_h_vat_reduced_1997",
@@ -55,7 +52,6 @@
         {
             "id": "fr_h_vat_super_reduced",
             "name": "Super Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "fr_h_vat_super_reduced_1972",

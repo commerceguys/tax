@@ -6,7 +6,6 @@
         {
             "id": "nl_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -25,7 +24,6 @@
         {
             "id": "nl_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "nl_vat_reduced_1986",

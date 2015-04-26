@@ -5,7 +5,6 @@
         {
             "id": "ch_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -18,7 +17,6 @@
         {
             "id": "ch_vat_hotel",
             "name": "Hotel",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "ch_vat_reduced_2011",
@@ -30,7 +28,6 @@
         {
             "id": "ch_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "ch_vat_reduced_2011",

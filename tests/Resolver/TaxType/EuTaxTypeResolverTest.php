@@ -26,7 +26,6 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'fr_vat_standard',
                     'name' => 'Standard',
-                    'display_name' => '% VAT',
                     'default' => true,
                     'amounts' => [
                         [
@@ -52,7 +51,6 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'de_vat_standard',
                     'name' => 'Standard',
-                    'display_name' => '% VAT',
                     'default' => true,
                     'amounts' => [
                         [
@@ -72,7 +70,6 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'eu_ic_vat',
                     'name' => 'Intra-Community Supply',
-                    'display_name' => '% VAT',
                     'default' => true,
                     'amounts' => [
                         [

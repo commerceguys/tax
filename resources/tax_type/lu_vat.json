@@ -6,7 +6,6 @@
         {
             "id": "lu_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -25,7 +24,6 @@
         {
             "id": "lu_vat_intermediate",
             "name": "Intermediate",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "lu_vat_intermediate_1979",
@@ -43,7 +41,6 @@
         {
             "id": "lu_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "lu_vat_reduced_1983",
@@ -61,7 +58,6 @@
         {
             "id": "lu_vat_super_reduced",
             "name": "Super Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "lu_vat_super_reduced_1983",

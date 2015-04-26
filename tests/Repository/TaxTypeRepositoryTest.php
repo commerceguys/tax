@@ -25,7 +25,6 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'fr_vat_standard',
                     'name' => 'Standard',
-                    'display_name' => '% VAT',
                     'default' => true,
                     'amounts' => [
                         [
@@ -52,7 +51,6 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'de_vat_standard',
                     'name' => 'Standard',
-                    'display_name' => '% VAT',
                     'default' => true,
                     'amounts' => [
                         [
@@ -131,7 +129,6 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($taxType, $rate->getType());
         $this->assertEquals('fr_vat_standard', $rate->getId());
         $this->assertEquals('Standard', $rate->getName());
-        $this->assertEquals('% VAT', $rate->getDisplayName());
         $this->assertEquals(true, $rate->isDefault());
         $amounts = $rate->getAmounts();
         $this->assertCount(2, $amounts);

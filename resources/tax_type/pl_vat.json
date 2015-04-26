@@ -6,7 +6,6 @@
         {
             "id": "pl_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -25,7 +24,6 @@
         {
             "id": "pl_vat_intermediate",
             "name": "Intermediate",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "pl_vat_intermediate_2004",
@@ -43,7 +41,6 @@
         {
             "id": "pl_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "pl_vat_reduced_2004",

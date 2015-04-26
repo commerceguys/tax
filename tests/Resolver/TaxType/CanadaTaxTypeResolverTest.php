@@ -26,7 +26,6 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'ca_on_hst',
                     'name' => 'Ontario HST',
-                    'display_name' => '% HST',
                     'amounts' => [
                         [
                             'id' => 'ca_on_hst_13',
@@ -45,7 +44,6 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'ca_ns_hst',
                     'name' => 'Nova Scotia HST',
-                    'display_name' => '% HST',
                     'amounts' => [
                         [
                             'id' => 'ca_ns_hst_15',

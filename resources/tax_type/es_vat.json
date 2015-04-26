@@ -6,7 +6,6 @@
         {
             "id": "es_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -31,7 +30,6 @@
         {
             "id": "es_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "es_vat_reduced_1995",
@@ -55,7 +53,6 @@
         {
             "id": "es_vat_super_reduced",
             "name": "Super Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "es_vat_super_reduced_1995",

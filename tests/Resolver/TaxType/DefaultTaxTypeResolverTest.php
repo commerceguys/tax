@@ -25,7 +25,6 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'rs_vat_standard',
                     'name' => 'Standard',
-                    'display_name' => '% VAT',
                     'amounts' => [
                         [
                             'id' => 'rs_vat_standard_20',
@@ -43,7 +42,6 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 [
                     'id' => 'me_vat_standard',
                     'name' => 'Standard',
-                    'display_name' => '% VAT',
                     'amounts' => [
                         [
                             'id' => 'me_vat_standard_19',

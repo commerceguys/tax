@@ -6,7 +6,6 @@
         {
             "id": "gb_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -37,7 +36,6 @@
         {
             "id": "gb_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "gb_vat_reduced_1997",
@@ -49,7 +47,6 @@
         {
             "id": "gb_vat_zero",
             "name": "Zero",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "gb_vat_zero",

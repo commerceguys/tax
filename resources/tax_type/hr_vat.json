@@ -6,7 +6,6 @@
         {
             "id": "hr_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -19,7 +18,6 @@
         {
             "id": "hr_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "hr_vat_reduced_2013",
@@ -37,7 +35,6 @@
         {
             "id": "hr_vat_zero",
             "name": "Zero",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "hr_vat_zero",

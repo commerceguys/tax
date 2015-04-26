@@ -6,7 +6,6 @@
         {
             "id": "eu_ic_vat",
             "name": "Intra-Community Supply",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {

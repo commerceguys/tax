@@ -170,7 +170,6 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
         $setValues = \Closure::bind(function ($definition) {
             $this->id = $definition['id'];
             $this->name = $definition['name'];
-            $this->displayName = $definition['display_name'];
             if (isset($definition['default'])) {
                 $this->default = $definition['default'];
             }
