@@ -1,5 +1,6 @@
 {
     "name": "Portugese VAT",
+    "generic_label": "vat",
     "zone": "pt_vat",
     "tag": "EU",
     "rates": [

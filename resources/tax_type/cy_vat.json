@@ -1,5 +1,6 @@
 {
     "name": "Cyprus VAT",
+    "generic_label": "vat",
     "zone": "cy_vat",
     "tag": "EU",
     "rates": [

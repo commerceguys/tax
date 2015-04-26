@@ -2,6 +2,7 @@
 
 namespace CommerceGuys\Tax\Tests\Repository;
 
+use CommerceGuys\Tax\Enum\GenericLabel;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use org\bovigo\vfs\vfsStream;
 
@@ -19,6 +20,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         'fr_vat' => [
             'id' => 'fr_vat',
             'name' => 'French VAT',
+            'generic_label' => 'vat',
             'zone' => 'fr',
             'tag' => 'EU',
             'rates' => [
@@ -45,6 +47,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         'de_vat' => [
             'id' => 'de_vat',
             'name' => 'German VAT',
+            'generic_label' => 'vat',
             'zone' => 'de',
             'tag' => 'EU',
             'rates' => [
@@ -120,6 +123,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('CommerceGuys\Zone\Model\Zone', $taxType->getZone());
         $this->assertEquals('fr_vat', $taxType->getId());
         $this->assertEquals('French VAT', $taxType->getName());
+        $this->assertEquals(GenericLabel::VAT, $taxType->getGenericLabel());
         $this->assertEquals('EU', $taxType->getTag());
         $rates = $taxType->getRates();
         $this->assertCount(1, $rates);

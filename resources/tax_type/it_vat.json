@@ -1,5 +1,6 @@
 {
     "name": "Italian VAT",
+    "generic_label": "vat",
     "zone": "it_vat",
     "tag": "EU",
     "rates": [

@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": ">=5.4.0",
+        "commerceguys/enum": "~1.0",
         "commerceguys/addressing": "~0.5",
         "commerceguys/zone": "~0.5",
         "doctrine/collections": "~1.0"

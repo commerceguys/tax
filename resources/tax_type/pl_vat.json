@@ -1,5 +1,6 @@
 {
     "name": "Polish VAT",
+    "generic_label": "vat",
     "zone": "pl_vat",
     "tag": "EU",
     "rates": [

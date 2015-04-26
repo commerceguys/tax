@@ -20,6 +20,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     protected $taxTypes = [
         'ca_on_hst' => [
             'name' => 'Ontario HST',
+            'generic_label' => 'hst',
             'tag' => 'CA',
             'zone' => 'ca_on_hst',
             'rates' => [
@@ -38,6 +39,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         ],
         'ca_ns_hst' => [
             'name' => 'Nova Scotia HST',
+            'generic_label' => 'hst',
             'tag' => 'CA',
             'zone' => 'ca_ns_hst',
             'rates' => [

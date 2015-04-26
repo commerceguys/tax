@@ -1,5 +1,6 @@
 {
     "name": "Intra-Community Supply",
+    "generic_label": "vat",
     "zone": "eu_vat",
     "tag": "EU",
     "rates": [

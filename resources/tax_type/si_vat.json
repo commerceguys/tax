@@ -1,5 +1,6 @@
 {
     "name": "Slovenian VAT",
+    "generic_label": "vat",
     "zone": "si_vat",
     "tag": "EU",
     "rates": [

@@ -2,8 +2,9 @@
 
 namespace CommerceGuys\Tax\Model;
 
-use CommerceGuys\Zone\Model\ZoneInterface;
+use CommerceGuys\Tax\Enum\GenericLabel;
 use CommerceGuys\Tax\Exception\UnexpectedTypeException;
+use CommerceGuys\Zone\Model\ZoneInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -22,6 +23,13 @@ class TaxType implements TaxTypeInterface
      * @var string
      */
     protected $name;
+
+    /**
+     * The tax type generic label.
+     *
+     * @var string
+     */
+    protected $genericLabel;
 
     /**
      * Whether the tax type is compound.
@@ -63,6 +71,7 @@ class TaxType implements TaxTypeInterface
      */
     public function __construct()
     {
+        $this->genericLabel = GenericLabel::getDefault();
         $this->rates = new ArrayCollection();
     }
 
@@ -108,6 +117,25 @@ class TaxType implements TaxTypeInterface
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getGenericLabel()
+    {
+        return $this->genericLabel;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setGenericLabel($genericLabel)
+    {
+        GenericLabel::assertExists($genericLabel);
+        $this->genericLabel = $genericLabel;
 
         return $this;
     }

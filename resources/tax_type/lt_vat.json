@@ -1,5 +1,6 @@
 {
     "name": "Lithuanian VAT",
+    "generic_label": "vat",
     "zone": "lt_vat",
     "tag": "EU",
     "rates": [

@@ -1,5 +1,6 @@
 {
     "name": "Slovakian VAT",
+    "generic_label": "vat",
     "zone": "sk_vat",
     "tag": "EU",
     "rates": [

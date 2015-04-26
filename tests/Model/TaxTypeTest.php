@@ -2,6 +2,7 @@
 
 namespace CommerceGuys\Tax\Tests\Model;
 
+use CommerceGuys\Tax\Enum\GenericLabel;
 use CommerceGuys\Tax\Model\TaxType;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -42,6 +43,17 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
         $this->taxType->setName('German VAT');
         $this->assertEquals('German VAT', $this->taxType->getName());
         $this->assertEquals('German VAT', (string) $this->taxType);
+    }
+
+    /**
+     * @covers ::getGenericLabel
+     * @covers ::setGenericLabel
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
+     */
+    public function testGenericLabel()
+    {
+        $this->taxType->setGenericLabel(GenericLabel::VAT);
+        $this->assertEquals(GenericLabel::VAT, $this->taxType->getGenericLabel());
     }
 
     /**

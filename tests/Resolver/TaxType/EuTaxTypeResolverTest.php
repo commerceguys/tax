@@ -20,6 +20,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     protected $taxTypes = [
         'fr_vat' => [
             'name' => 'French VAT',
+            'generic_label' => 'vat',
             'zone' => 'fr_vat',
             'tag' => 'EU',
             'rates' => [
@@ -45,6 +46,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         ],
         'de_vat' => [
             'name' => 'German VAT',
+            'generic_label' => 'vat',
             'zone' => 'de_vat',
             'tag' => 'EU',
             'rates' => [
@@ -64,6 +66,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         ],
         'eu_ic_vat' => [
             'name' => 'Intra-Community Supply',
+            'generic_label' => 'vat',
             'zone' => 'eu_vat',
             'tag' => 'EU',
             'rates' => [

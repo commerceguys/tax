@@ -1,5 +1,6 @@
 {
     "name": "Irish VAT",
+    "generic_label": "vat",
     "zone": "ie_vat",
     "tag": "EU",
     "rates": [

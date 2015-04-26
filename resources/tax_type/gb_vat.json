@@ -1,5 +1,6 @@
 {
     "name": "British VAT",
+    "generic_label": "vat",
     "zone": "gb_vat",
     "tag": "EU",
     "rates": [

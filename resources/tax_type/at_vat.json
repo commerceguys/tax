@@ -1,5 +1,6 @@
 {
     "name": "Austrian VAT",
+    "generic_label": "vat",
     "zone": "at_vat",
     "tag": "EU",
     "rates": [

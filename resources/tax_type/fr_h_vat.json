@@ -1,5 +1,6 @@
 {
     "name": "Corsican VAT",
+    "generic_label": "vat",
     "zone": "fr_h_vat",
     "tag": "EU",
     "rates": [

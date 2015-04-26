@@ -1,5 +1,6 @@
 {
     "name": "Luxembourg VAT",
+    "generic_label": "vat",
     "zone": "lu_vat",
     "tag": "EU",
     "rates": [
