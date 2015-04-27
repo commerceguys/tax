@@ -1,12 +1,12 @@
 {
     "name": "Bulgarian VAT",
+    "generic_label": "vat",
     "zone": "bg_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "bg_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -19,7 +19,6 @@
         {
             "id": "bg_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "bg_vat_reduced_2007",

@@ -1,12 +1,12 @@
 {
     "name": "Finish VAT",
+    "generic_label": "vat",
     "zone": "fi_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "fi_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -31,7 +31,6 @@
         {
             "id": "fi_vat_intermediate",
             "name": "Intermediate",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "fi_vat_intermediate_2010",
@@ -49,7 +48,6 @@
         {
             "id": "fi_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "fi_vat_reduced_2010",

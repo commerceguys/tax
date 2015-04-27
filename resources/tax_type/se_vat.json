@@ -1,12 +1,12 @@
 {
     "name": "Swedish VAT",
+    "generic_label": "vat",
     "zone": "se_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "se_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -19,7 +19,6 @@
         {
             "id": "se_vat_intermediate",
             "name": "Intermediate",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "se_vat_intermediate_1995",
@@ -31,7 +30,6 @@
         {
             "id": "se_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "se_vat_reduced_1996",

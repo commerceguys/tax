@@ -1,12 +1,12 @@
 {
     "name": "Romanian VAT",
+    "generic_label": "vat",
     "zone": "ro_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "ro_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -25,7 +25,6 @@
         {
             "id": "ro_vat_intermediate",
             "name": "Intermediate",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "ro_vat_intermediate_2008",
@@ -37,7 +36,6 @@
         {
             "id": "ro_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "ro_vat_reduced_2008",

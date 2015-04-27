@@ -1,12 +1,12 @@
 {
     "name": "Hungarian VAT",
+    "generic_label": "vat",
     "zone": "hu_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "hu_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -37,7 +37,6 @@
         {
             "id": "hu_vat_intermediate",
             "name": "Intermediate",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "hu_vat_intermediate_2009",
@@ -49,7 +48,6 @@
         {
             "id": "hu_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "hu_vat_reduced_2004",

@@ -1,12 +1,12 @@
 {
     "name": "German VAT",
+    "generic_label": "vat",
     "zone": "de_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "de_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -19,7 +19,6 @@
         {
             "id": "de_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "de_vat_reduced_1983",

@@ -50,24 +50,6 @@ interface TaxRateInterface
     public function setName($name);
 
     /**
-     * Gets the tax rate display name.
-     *
-     * Used to identify the tax rate in the cart and other user-facing pages.
-     * The % placeholder will be replaced with the selected tax rate amount
-     * formatted as a percentage. For example, "% VAT" becomes "20% VAT".
-     *
-     * @return string The tax rate display name.
-     */
-    public function getDisplayName();
-
-    /**
-     * Sets the tax rate display name.
-     *
-     * @param string $displayName The tax rate display name.
-     */
-    public function setDisplayName($displayName);
-
-    /**
      * Gets whether the tax rate is the default for its tax type.
      *
      * When resolving the tax rate for a specific tax type, the default tax

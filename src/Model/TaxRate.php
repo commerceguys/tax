@@ -30,13 +30,6 @@ class TaxRate implements TaxRateInterface
     protected $name;
 
     /**
-     * The tax rate display name.
-     *
-     * @var string
-     */
-    protected $displayName;
-
-    /**
      * Whether the tax rate is the default for its tax type.
      *
      * @var bool
@@ -118,24 +111,6 @@ class TaxRate implements TaxRateInterface
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDisplayName()
-    {
-        return $this->displayName;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setDisplayName($displayName)
-    {
-        $this->displayName = $displayName;
 
         return $this;
     }

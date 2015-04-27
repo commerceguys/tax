@@ -1,12 +1,12 @@
 {
     "name": "Danish VAT",
+    "generic_label": "vat",
     "zone": "dk_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "dk_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -19,7 +19,6 @@
         {
             "id": "dk_vat_zero",
             "name": "Zero",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "dk_vat_zero",

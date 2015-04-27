@@ -61,17 +61,6 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::getDisplayName
-     * @covers ::setDisplayName
-     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
-     */
-    public function testDisplayName()
-    {
-        $this->taxRate->setDisplayName('% VAT');
-        $this->assertEquals('% VAT', $this->taxRate->getDisplayName());
-    }
-
-    /**
      * @covers ::isDefault
      * @covers ::setDefault
      * @uses \CommerceGuys\Tax\Model\TaxRate::__construct

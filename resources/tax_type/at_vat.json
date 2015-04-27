@@ -1,12 +1,12 @@
 {
     "name": "Austrian VAT",
+    "generic_label": "vat",
     "zone": "at_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "at_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -19,7 +19,6 @@
         {
             "id": "at_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "at_vat_reduced_1995",

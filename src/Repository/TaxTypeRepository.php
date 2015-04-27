@@ -143,6 +143,9 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
             $this->compound = $definition['compound'];
             $this->roundingMode = $definition['rounding_mode'];
             $this->zone = $definition['zone'];
+            if (isset($definition['generic_label'])) {
+                $this->genericLabel = $definition['generic_label'];
+            }
             if (isset($definition['tag'])) {
                 $this->tag = $definition['tag'];
             }
@@ -170,7 +173,6 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
         $setValues = \Closure::bind(function ($definition) {
             $this->id = $definition['id'];
             $this->name = $definition['name'];
-            $this->displayName = $definition['display_name'];
             if (isset($definition['default'])) {
                 $this->default = $definition['default'];
             }

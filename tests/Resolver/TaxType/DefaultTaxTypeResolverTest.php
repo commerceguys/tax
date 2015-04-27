@@ -20,12 +20,12 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     protected $taxTypes = [
         'rs_vat' => [
             'name' => 'Serbian VAT',
+            'generic_label' => 'vat',
             'zone' => 'rs_vat',
             'rates' => [
                 [
                     'id' => 'rs_vat_standard',
                     'name' => 'Standard',
-                    'display_name' => '% VAT',
                     'amounts' => [
                         [
                             'id' => 'rs_vat_standard_20',
@@ -38,12 +38,12 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         ],
         'me_vat' => [
             'name' => 'Montenegrin VAT',
+            'generic_label' => 'vat',
             'zone' => 'me_vat',
             'rates' => [
                 [
                     'id' => 'me_vat_standard',
                     'name' => 'Standard',
-                    'display_name' => '% VAT',
                     'amounts' => [
                         [
                             'id' => 'me_vat_standard_19',

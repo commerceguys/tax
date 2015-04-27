@@ -43,6 +43,24 @@ interface TaxTypeInterface
     public function setName($name);
 
     /**
+     * Gets the tax type generic label.
+     *
+     * Used to identify the applied tax in cart and order summaries.
+     * Represented by one of the GenericLabel values, it is mapped to a
+     * translated string by the implementing application.
+     *
+     * @return string The tax type generic label.
+     */
+    public function getGenericLabel();
+
+    /**
+     * Sets the tax type generic label.
+     *
+     * @param string $genericLabel The tax type generic label.
+     */
+    public function setGenericLabel($genericLabel);
+
+    /**
      * Gets whether the tax type is compound.
      *
      * Compound tax is calculated on top of a primary tax.

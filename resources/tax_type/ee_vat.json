@@ -1,12 +1,12 @@
 {
     "name": "Estonian VAT",
+    "generic_label": "vat",
     "zone": "ee_vat",
     "tag": "EU",
     "rates": [
         {
             "id": "ee_vat_standard",
             "name": "Standard",
-            "display_name": "% VAT",
             "default": true,
             "amounts": [
                 {
@@ -25,7 +25,6 @@
         {
             "id": "ee_vat_reduced",
             "name": "Reduced",
-            "display_name": "% VAT",
             "amounts": [
                 {
                     "id": "ee_vat_reduced_2004",
