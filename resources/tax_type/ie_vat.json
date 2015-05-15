@@ -35,22 +35,22 @@
             ]
         },
         {
-            "id": "ie_vat_intermediate",
-            "name": "Intermediate",
+            "id": "ie_vat_reduced",
+            "name": "Reduced",
             "amounts": [
                 {
-                    "id": "ie_vat_intermediate_2003",
+                    "id": "ie_vat_reduced_2003",
                     "amount": 0.135,
                     "start_date": "2003-01-01"
                 }
             ]
         },
         {
-            "id": "ie_vat_reduced",
-            "name": "Reduced",
+            "id": "ie_vat_second_reduced",
+            "name": "Second Reduced",
             "amounts": [
                 {
-                    "id": "ie_vat_reduced_2011",
+                    "id": "ie_vat_second_reduced_2011",
                     "amount": 0.09,
                     "start_date": "2011-07-01"
                 }
