@@ -68,7 +68,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
     ];
 
     /**
-     * The tax repository
+     * The tax repository.
      *
      * @var TaxTypeRepository
      */
@@ -111,6 +111,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
      * @covers ::createTaxTypeFromDefinition
      * @covers ::createTaxRateFromDefinition
      * @covers ::createTaxRateAmountFromDefinition
+     *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository::__construct
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
@@ -153,6 +154,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::get
      * @covers ::loadDefinition
+     *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository::__construct
      * @expectedException \CommerceGuys\Tax\Exception\UnknownTaxTypeException
      */
@@ -167,6 +169,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
      * @covers ::createTaxTypeFromDefinition
      * @covers ::createTaxRateFromDefinition
      * @covers ::createTaxRateAmountFromDefinition
+     *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository::__construct
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository::get
      * @uses \CommerceGuys\Tax\Model\TaxType

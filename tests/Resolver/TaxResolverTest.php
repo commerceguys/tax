@@ -23,13 +23,13 @@ class TaxResolverTest extends \PHPUnit_Framework_TestCase
         $resolver = new TaxResolver($taxTypeResolverEngine, $taxRateResolverEngine);
         $this->assertSame($taxTypeResolverEngine, $this->getObjectAttribute($resolver, 'taxTypeResolverEngine'));
         $this->assertSame($taxRateResolverEngine, $this->getObjectAttribute($resolver, 'taxRateResolverEngine'));
-
     }
 
     /**
      * @covers ::resolveAmounts
      * @covers ::resolveRates
      * @covers ::resolveTypes
+     *
      * @uses \CommerceGuys\Tax\Resolver\TaxResolver::__construct
      * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct

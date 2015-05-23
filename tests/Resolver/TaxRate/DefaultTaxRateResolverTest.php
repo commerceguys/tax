@@ -19,6 +19,7 @@ class DefaultTaxRateResolverTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::resolve
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
      */

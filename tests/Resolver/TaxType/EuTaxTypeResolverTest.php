@@ -144,6 +144,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::__construct
+     *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      */
     public function testConstructor()
@@ -172,6 +173,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @covers ::filterByAddress
      * @covers ::getTaxTypes
      * @covers \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
+     *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
@@ -184,8 +186,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $results = $resolver->resolve($taxable, $context);
         if (empty($expected) || $expected == EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE) {
             $this->assertEquals($expected, $results);
-        }
-        else {
+        } else {
             $result = reset($results);
             $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
             $this->assertEquals($expected, $result->getId());
@@ -253,11 +254,11 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     /**
      * Returns a mock context based on the provided data.
      *
-     * @param AddressInterface $customerAddress        The customer address.
-     * @param AddressInterface $storeAddress           The store address.
-     * @param string           $customerTaxNumber      The customer tax number.
-     * @param array            $storeRegistrations     The store registrations.
-     * @param \DateTime        $date                   The date.
+     * @param AddressInterface $customerAddress    The customer address.
+     * @param AddressInterface $storeAddress       The store address.
+     * @param string           $customerTaxNumber  The customer tax number.
+     * @param array            $storeRegistrations The store registrations.
+     * @param \DateTime        $date               The date.
      *
      * @return \CommerceGuys\Tax\Resolver\Context
      */

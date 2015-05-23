@@ -12,7 +12,7 @@ use CommerceGuys\Tax\Resolver\Context;
 class CanadaTaxTypeResolver implements TaxTypeResolverInterface
 {
     /**
-     * The tax type repository
+     * The tax type repository.
      *
      * @param TaxTypeRepositoryInterface
      */

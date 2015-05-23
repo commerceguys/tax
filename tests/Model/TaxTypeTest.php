@@ -24,6 +24,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getId
      * @covers ::setId
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testId()
@@ -36,6 +37,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
      * @covers ::getName
      * @covers ::setName
      * @covers ::__toString
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testName()
@@ -48,6 +50,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getGenericLabel
      * @covers ::setGenericLabel
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testGenericLabel()
@@ -59,6 +62,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::isCompound
      * @covers ::setCompound
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testCompound()
@@ -70,6 +74,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getRoundingMode
      * @covers ::setRoundingMode
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testRoundingMode()
@@ -81,6 +86,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getZone
      * @covers ::setZone
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testZone()
@@ -96,6 +102,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getTag
      * @covers ::setTag
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
     public function testTag()
@@ -106,6 +113,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::setRates
+     *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      * @expectedException \CommerceGuys\Tax\Exception\UnexpectedTypeException
      */
@@ -122,6 +130,7 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
      * @covers ::addRate
      * @covers ::removeRate
      * @covers ::hasRate
+     *
      * @uses \CommerceGuys\Tax\Model\TaxRate::setType
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */

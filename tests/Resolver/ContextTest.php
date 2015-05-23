@@ -27,6 +27,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::__construct
+     *
      * @uses \CommerceGuys\Tax\Resolver\Context::getCustomerAddress
      * @uses \CommerceGuys\Tax\Resolver\Context::getStoreAddress
      * @uses \CommerceGuys\Tax\Resolver\Context::getCustomerTaxNumber
@@ -53,6 +54,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getCustomerAddress
      * @covers ::setCustomerAddress
+     *
      * @uses \CommerceGuys\Tax\Resolver\Context::__construct
      */
     public function testCustomerAddress()
@@ -67,6 +69,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getStoreAddress
      * @covers ::setStoreAddress
+     *
      * @uses \CommerceGuys\Tax\Resolver\Context::__construct
      */
     public function testStoreAddress()
@@ -81,6 +84,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getCustomerTaxNumber
      * @covers ::setCustomerTaxNumber
+     *
      * @uses \CommerceGuys\Tax\Resolver\Context::__construct
      */
     public function testCustomerTaxNumber()
@@ -92,6 +96,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getStoreRegistrations
      * @covers ::setStoreRegistrations
+     *
      * @uses \CommerceGuys\Tax\Resolver\Context::__construct
      */
     public function testStoreRegistrations()
@@ -103,6 +108,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getDate
      * @covers ::setDate
+     *
      * @uses \CommerceGuys\Tax\Resolver\Context::__construct
      */
     public function testDate()

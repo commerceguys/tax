@@ -23,6 +23,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getType
      * @covers ::setType
+     *
      * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
@@ -39,6 +40,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::getId
      * @covers ::setId
+     *
      * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      */
     public function testId()
@@ -51,6 +53,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
      * @covers ::getName
      * @covers ::setName
      * @covers ::__toString
+     *
      * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      */
     public function testName()
@@ -63,6 +66,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::isDefault
      * @covers ::setDefault
+     *
      * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
      */
     public function testDefault()
@@ -72,10 +76,11 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-    * @covers ::setAmounts
-    * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
-    * @expectedException \CommerceGuys\Tax\Exception\UnexpectedTypeException
-    */
+     * @covers ::setAmounts
+     *
+     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
+     * @expectedException \CommerceGuys\Tax\Exception\UnexpectedTypeException
+     */
     public function testSetInvalidAmounts()
     {
         $this->taxRate->setAmounts([1, 2]);
@@ -90,6 +95,7 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
      * @covers ::addAmount
      * @covers ::removeAmount
      * @covers ::hasAmount
+     *
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount::setRate
      */
     public function testAmounts()

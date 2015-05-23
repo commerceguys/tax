@@ -21,7 +21,7 @@ class DefaultTaxTypeResolver implements TaxTypeResolverInterface
     use StoreRegistrationCheckerTrait;
 
     /**
-     * The tax type repository
+     * The tax type repository.
      *
      * @param TaxTypeRepositoryInterface
      */

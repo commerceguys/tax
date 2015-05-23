@@ -57,7 +57,7 @@ class TaxRateAmount implements TaxRateAmountInterface
         return $this;
     }
 
-     /**
+    /**
      * {@inheritdoc}
      */
     public function getId()

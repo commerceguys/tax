@@ -41,7 +41,7 @@ class TaxType implements TaxTypeInterface
     /**
      * The tax type rounding mode.
      *
-     * @var integer
+     * @var int
      */
     protected $roundingMode;
 
@@ -228,7 +228,7 @@ class TaxType implements TaxTypeInterface
         // The interface doesn't typehint $children to allow other
         // implementations to avoid using Doctrine Collections if desired.
         if (!($rates instanceof Collection)) {
-           throw new UnexpectedTypeException($rates, 'Collection');
+            throw new UnexpectedTypeException($rates, 'Collection');
         }
         $this->rates = $rates;
 

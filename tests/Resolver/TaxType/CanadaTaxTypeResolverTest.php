@@ -92,6 +92,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::__construct
+     *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      */
     public function testConstructor()
@@ -118,6 +119,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::resolve
      * @covers ::getTaxTypes
+     *
      * @uses \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      * @uses \CommerceGuys\Tax\Model\TaxType
@@ -183,9 +185,9 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     /**
      * Returns a mock context based on the provided data.
      *
-     * @param AddressInterface $customerAddress        The customer address.
-     * @param AddressInterface $storeAddress           The store address.
-     * @param array            $storeRegistrations     The store registrations.
+     * @param AddressInterface $customerAddress    The customer address.
+     * @param AddressInterface $storeAddress       The store address.
+     * @param array            $storeRegistrations The store registrations.
      *
      * @return \CommerceGuys\Tax\Resolver\Context
      */
