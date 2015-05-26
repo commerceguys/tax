@@ -230,6 +230,8 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         return [
             // German customer, French store, VAT number provided.
             [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '123'), 'eu_ic_vat'],
+            // French customer, French store, VAT number provided.
+            [$physicalTaxable, $this->getContext($frenchAddress, $frenchAddress, '123'), 'fr_vat'],
             // German customer, French store, physical product.
             [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress), 'fr_vat'],
             // German customer, French store registered for German VAT, physical product.

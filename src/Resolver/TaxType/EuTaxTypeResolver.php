@@ -39,12 +39,14 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
     {
         $taxTypes = $this->getTaxTypes();
         $customerAddress = $context->getCustomerAddress();
+        $customerCountry = $customerAddress->getCountryCode();
         $customerTaxTypes = $this->filterByAddress($taxTypes, $customerAddress);
         if (empty($customerTaxTypes)) {
             // The customer is not in the EU.
             return [];
         }
         $storeAddress = $context->getStoreAddress();
+        $storeCountry = $storeAddress->getCountryCode();
         $storeTaxTypes = $this->filterByAddress($taxTypes, $storeAddress);
         $storeRegistrationTaxTypes = $this->filterByStoreRegistration($taxTypes, $context);
         if (empty($storeTaxTypes) && empty($storeRegistrationTaxTypes)) {
@@ -66,7 +68,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
             if ($isDigital && !$customerTaxNumber) {
                 $resolvedTaxTypes = $customerTaxTypes;
             }
-        } elseif ($customerTaxNumber) {
+        } elseif ($customerTaxNumber && $customerCountry != $storeCountry) {
             // Intra-community supply (B2B).
             $icTaxType = $this->taxTypeRepository->get('eu_ic_vat');
             $resolvedTaxTypes = [$icTaxType];
