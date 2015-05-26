@@ -1,6 +1,7 @@
 {
     "name": "Maltese VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "mt_vat",
     "tag": "EU",
     "rates": [

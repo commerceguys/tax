@@ -1,6 +1,7 @@
 {
     "name": "Estonian VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "ee_vat",
     "tag": "EU",
     "rates": [

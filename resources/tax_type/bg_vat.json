@@ -1,6 +1,7 @@
 {
     "name": "Bulgarian VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "bg_vat",
     "tag": "EU",
     "rates": [

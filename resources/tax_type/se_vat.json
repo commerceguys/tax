@@ -1,6 +1,7 @@
 {
     "name": "Swedish VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "se_vat",
     "tag": "EU",
     "rates": [

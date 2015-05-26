@@ -1,6 +1,7 @@
 {
     "name": "Spanish VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "es_vat",
     "tag": "EU",
     "rates": [

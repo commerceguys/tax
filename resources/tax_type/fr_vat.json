@@ -1,6 +1,7 @@
 {
     "name": "French VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "fr_vat",
     "tag": "EU",
     "rates": [

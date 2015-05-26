@@ -130,6 +130,9 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
         if (!isset($definition['compound'])) {
             $definition['compound'] = false;
         }
+        if (!isset($definition['display_inclusive'])) {
+            $definition['display_inclusive'] = false;
+        }
         if (!isset($definition['rounding_mode'])) {
             $definition['rounding_mode'] = PHP_ROUND_HALF_UP;
         }
@@ -141,6 +144,7 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
             $this->id = $definition['id'];
             $this->name = $definition['name'];
             $this->compound = $definition['compound'];
+            $this->displayInclusive = $definition['display_inclusive'];
             $this->roundingMode = $definition['rounding_mode'];
             $this->zone = $definition['zone'];
             if (isset($definition['generic_label'])) {

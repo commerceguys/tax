@@ -1,6 +1,7 @@
 {
     "name": "German VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "de_vat",
     "tag": "EU",
     "rates": [

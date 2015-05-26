@@ -72,6 +72,18 @@ class TaxTypeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers ::isDisplayInclusive
+     * @covers ::setDisplayInclusive
+     *
+     * @uses \CommerceGuys\Tax\Model\TaxType::__construct
+     */
+    public function testDisplayInclusive()
+    {
+        $this->taxType->setDisplayInclusive(true);
+        $this->assertEquals(true, $this->taxType->isDisplayInclusive());
+    }
+
+    /**
      * @covers ::getRoundingMode
      * @covers ::setRoundingMode
      *

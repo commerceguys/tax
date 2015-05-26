@@ -1,6 +1,7 @@
 {
     "name": "Dutch VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "nl_vat",
     "tag": "EU",
     "rates": [

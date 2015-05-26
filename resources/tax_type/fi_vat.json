@@ -1,6 +1,7 @@
 {
     "name": "Finish VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "fi_vat",
     "tag": "EU",
     "rates": [

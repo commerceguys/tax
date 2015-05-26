@@ -36,7 +36,14 @@ class TaxType implements TaxTypeInterface
      *
      * @var bool
      */
-    protected $compound;
+    protected $compound = false;
+
+    /**
+     * Whether the tax type is display inclusive.
+     *
+     * @var bool
+     */
+    protected $displayInclusive = false;
 
     /**
      * The tax type rounding mode.
@@ -154,6 +161,24 @@ class TaxType implements TaxTypeInterface
     public function setCompound($compound)
     {
         $this->compound = $compound;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isDisplayInclusive()
+    {
+        return !empty($this->displayInclusive);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setDisplayInclusive($displayInclusive)
+    {
+        $this->displayInclusive = $displayInclusive;
 
         return $this;
     }

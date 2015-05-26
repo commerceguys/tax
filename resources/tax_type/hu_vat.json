@@ -1,6 +1,7 @@
 {
     "name": "Hungarian VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "hu_vat",
     "tag": "EU",
     "rates": [

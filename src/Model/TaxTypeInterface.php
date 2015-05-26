@@ -79,6 +79,24 @@ interface TaxTypeInterface
     public function setCompound($compound);
 
     /**
+     * Gets whether the tax type is display inclusive.
+     *
+     * E.g. US sales tax is not display inclusive, a $5 price is shown as $5
+     * even if a $1 tax has been calculated. In France, a 5€ price is shown as
+     * 6€ if a 1€ tax was calculated, because French VAT is display inclusive.
+     *
+     * @return bool True if the tax type is display inclusive, false otherwise.
+     */
+    public function isDisplayInclusive();
+
+    /**
+     * Sets whether the tax type is display inclusive.
+     *
+     * @param bool $displayInclusive Whether the tax type is display inclusive.
+     */
+    public function setDisplayInclusive($displayInclusive);
+
+    /**
      * Gets the tax type rounding mode.
      *
      * @return int The tax type rounding mode, a ROUND_ constant.

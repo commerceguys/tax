@@ -1,6 +1,7 @@
 {
     "name": "Greek VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "gr_vat",
     "tag": "EU",
     "rates": [

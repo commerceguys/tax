@@ -1,6 +1,7 @@
 {
     "name": "Romanian VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "ro_vat",
     "tag": "EU",
     "rates": [

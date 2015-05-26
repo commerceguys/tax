@@ -1,6 +1,7 @@
 {
     "name": "Swiss VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "ch_vat",
     "rates": [
         {

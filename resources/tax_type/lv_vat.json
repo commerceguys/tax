@@ -1,6 +1,7 @@
 {
     "name": "Latvian VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "lv_vat",
     "tag": "EU",
     "rates": [

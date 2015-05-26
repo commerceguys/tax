@@ -1,6 +1,7 @@
 {
     "name": "Belgian VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "be_vat",
     "tag": "EU",
     "rates": [

@@ -1,6 +1,7 @@
 {
   "name": "Madeiran VAT",
   "generic_label": "vat",
+  "display_inclusive": true,
   "zone": "pt_30_vat",
   "tag": "EU",
   "rates": [

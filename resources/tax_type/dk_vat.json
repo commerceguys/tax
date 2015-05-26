@@ -1,6 +1,7 @@
 {
     "name": "Danish VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "dk_vat",
     "tag": "EU",
     "rates": [

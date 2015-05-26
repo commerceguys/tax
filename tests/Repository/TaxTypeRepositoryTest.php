@@ -21,6 +21,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
             'id' => 'fr_vat',
             'name' => 'French VAT',
             'generic_label' => 'vat',
+            'display_inclusive' => true,
             'zone' => 'fr',
             'tag' => 'EU',
             'rates' => [
@@ -125,6 +126,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('fr_vat', $taxType->getId());
         $this->assertEquals('French VAT', $taxType->getName());
         $this->assertEquals(GenericLabel::VAT, $taxType->getGenericLabel());
+        $this->assertEquals(true, $taxType->isDisplayInclusive());
         $this->assertEquals('EU', $taxType->getTag());
         $rates = $taxType->getRates();
         $this->assertCount(1, $rates);

@@ -1,6 +1,7 @@
 {
     "name": "Croatian VAT",
     "generic_label": "vat",
+    "display_inclusive": true,
     "zone": "hr_vat",
     "tag": "EU",
     "rates": [
