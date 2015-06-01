@@ -19,11 +19,6 @@
         },
         {
             "type": "zone",
-            "id": "ch_vat",
-            "zone": "ch_vat"
-        },
-        {
-            "type": "zone",
             "id": "cy_vat",
             "zone": "cy_vat"
         },
