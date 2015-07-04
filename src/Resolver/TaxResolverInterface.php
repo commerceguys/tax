@@ -7,7 +7,7 @@ use CommerceGuys\Tax\TaxableInterface;
 /**
  * Tax resolver interface.
  *
- * Acts as a facade in front of the resolver engines and serves as the
+ * Acts as a facade in front of the chain resolvers and serves as the
  * single point of contact between the resolving system and the outside world.
  */
 interface TaxResolverInterface

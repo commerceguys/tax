@@ -1,37 +1,37 @@
 <?php
 
-namespace CommerceGuys\Tax\Tests\Resolver\Engine;
+namespace CommerceGuys\Tax\Tests\Resolver\TaxType;
 
-use CommerceGuys\Tax\Resolver\Engine\TaxTypeResolverEngine;
+use CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolver;
 use CommerceGuys\Tax\Resolver\TaxType\TaxTypeResolverInterface;
 
 /**
- * @coversDefaultClass \CommerceGuys\Tax\Resolver\Engine\TaxTypeResolverEngine
+ * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolver
  */
-class TaxTypeResolverEngineTest extends \PHPUnit_Framework_TestCase
+class ChainTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var TaxTypeResolverEngine
+     * @var ChainTaxTypeResolver
      */
-    protected $engine;
+    protected $chainResolver;
 
     /**
      * {@inheritdoc}
      */
     public function setUp()
     {
-        $this->engine = new TaxTypeResolverEngine();
+        $this->chainResolver = new ChainTaxTypeResolver();
     }
 
     /**
      * @covers ::add
      * @covers ::getAll
      * @covers ::resolve
-     * @covers \CommerceGuys\Tax\Resolver\Engine\ResolverSorterTrait::sortResolvers
+     * @covers \CommerceGuys\Tax\Resolver\ResolverSorterTrait::sortResolvers
      *
      * @uses \CommerceGuys\Tax\Model\TaxType::__construct
      */
-    public function testEngine()
+    public function testResolve()
     {
         $firstTaxType = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxType')
@@ -61,13 +61,13 @@ class TaxTypeResolverEngineTest extends \PHPUnit_Framework_TestCase
             ->method('resolve')
             ->will($this->returnValue(TaxTypeResolverInterface::NO_APPLICABLE_TAX_TYPE));
 
-        $this->engine->add($firstResolver, 10);
-        $this->engine->add($secondResolver);
-        $this->engine->add($thirdResolver, 5);
+        $this->chainResolver->add($firstResolver, 10);
+        $this->chainResolver->add($secondResolver);
+        $this->chainResolver->add($thirdResolver, 5);
 
         // Confirm that the added resolvers have been ordered by priority.
         $expectedResolvers = [$firstResolver, $thirdResolver, $secondResolver];
-        $this->assertEquals($expectedResolvers, $this->engine->getAll());
+        $this->assertEquals($expectedResolvers, $this->chainResolver->getAll());
 
         $taxable = $this
             ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
@@ -76,14 +76,14 @@ class TaxTypeResolverEngineTest extends \PHPUnit_Framework_TestCase
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Context')
             ->disableOriginalConstructor()
             ->getMock();
-        $result = $this->engine->resolve($taxable, $context);
+        $result = $this->chainResolver->resolve($taxable, $context);
         $this->assertSame([$secondTaxType], $result);
 
         // The new resolver will run first, and return NO_APPLICABLE_TAX_TYPE,
         // which should cause the resolving to stop and an empty array to be
         // returned.
-        $this->engine->add($fourthResolver, 10);
-        $result = $this->engine->resolve($taxable, $context);
+        $this->chainResolver->add($fourthResolver, 10);
+        $result = $this->chainResolver->resolve($taxable, $context);
         $this->assertEmpty($result);
     }
 }

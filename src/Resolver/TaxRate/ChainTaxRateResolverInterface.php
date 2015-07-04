@@ -1,20 +1,20 @@
 <?php
 
-namespace CommerceGuys\Tax\Resolver\Engine;
+namespace CommerceGuys\Tax\Resolver\TaxRate;
 
 use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Model\TaxRateInterface;
 use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Resolver\Context;
-use CommerceGuys\Tax\Resolver\TaxRate\TaxRateResolverInterface;
+use CommerceGuys\Tax\Resolver\ResolverSorterTrait;
 
 /**
- * Tax rate resolver engine interface.
+ * Chain tax rate resolver interface.
  *
  * Sorts the provided tax rate resolvers by priority and invokes them
  * individually until one of them returns a result.
  */
-interface TaxRateResolverEngineInterface
+interface ChainTaxRateResolverInterface
 {
     /**
      * Adds a resolver.

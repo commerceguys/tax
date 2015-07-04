@@ -1,18 +1,18 @@
 <?php
 
-namespace CommerceGuys\Tax\Resolver\Engine;
+namespace CommerceGuys\Tax\Resolver\TaxType;
 
 use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Resolver\Context;
 use CommerceGuys\Tax\Resolver\TaxType\TaxTypeResolverInterface;
 
 /**
- * Tax type resolver engine interface.
+ * Chain tax type resolver interface.
  *
  * Sorts the provided tax type resolvers by priority and invokes them
  * individually until one of them returns a result.
  */
-interface TaxTypeResolverEngineInterface
+interface ChainTaxTypeResolverInterface
 {
     /**
      * Adds a resolver.

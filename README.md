@@ -78,24 +78,24 @@ Users would create a custom resolver for:
 Usage example:
 ```php
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
-use CommerceGuys\Tax\Resolver\Engine\TaxTypeResolverEngine;
-use CommerceGuys\Tax\Resolver\Engine\TaxRateResolverEngine;
+use CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolver;
 use CommerceGuys\Tax\Resolver\TaxType\CanadaTaxTypeResolver;
 use CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver;
 use CommerceGuys\Tax\Resolver\TaxType\DefaultTaxTypeResolver;
+use CommerceGuys\Tax\Resolver\TaxRate\ChainTaxRateResolver;
 use CommerceGuys\Tax\Resolver\TaxRate\DefaultTaxRateResolver;
 use CommerceGuys\Tax\Resolver\TaxResolver;
 
-// The repository, engine and individual resolvers are usualy initialized by the
+// The repository, and the resolvers are usualy initialized by the
 // container, this is just a verbose example.
 $taxTypeRepository = new TaxTypeRepository();
-$taxTypeResolverEngine = new TaxTypeResolverEngine();
-$taxTypeResolverEngine->add(new CanadaTaxTypeResolver($taxTypeRepository));
-$taxTypeResolverEngine->add(new EuTaxTypeResolver($taxTypeRepository));
-$taxTypeResolverEngine->add(new DefaultTaxTypeResolver($taxTypeRepository));
-$taxRateResolverEngine = new TaxRateResolverEngine();
-$taxRateResolverEngine->add(new DefaultTaxRateResolver());
-$resolver = new TaxResolver($taxTypeResolverEngine, $taxRateResolverEngine);
+$chainTaxTypeResolver = new TaxTypeResolver();
+$chainTaxTypeResolver->add(new CanadaTaxTypeResolver($taxTypeRepository));
+$chainTaxTypeResolver->add(new EuTaxTypeResolver($taxTypeRepository));
+$chainTaxTypeResolver->add(new DefaultTaxTypeResolver($taxTypeRepository));
+$chainTaxRateResolver = new TaxRateResolver();
+$chainTaxRateResolver->add(new DefaultTaxRateResolver());
+$resolver = new TaxResolver($chainTaxTypeResolver, $chainTaxRateResolver);
 
 // You can also provide the customer's tax number (e.g. VAT number needed
 // to trigger Intra-Community supply rules in EU), list of additional countries

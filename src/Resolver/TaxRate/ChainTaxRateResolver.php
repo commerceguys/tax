@@ -1,12 +1,13 @@
 <?php
 
-namespace CommerceGuys\Tax\Resolver\Engine;
+namespace CommerceGuys\Tax\Resolver\TaxRate;
 
 use CommerceGuys\Tax\TaxableInterface;
+use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Resolver\Context;
-use CommerceGuys\Tax\Resolver\TaxType\TaxTypeResolverInterface;
+use CommerceGuys\Tax\Resolver\ResolverSorterTrait;
 
-class TaxTypeResolverEngine implements TaxTypeResolverEngineInterface
+class ChainTaxRateResolver implements ChainTaxRateResolverInterface
 {
     use ResolverSorterTrait;
 
@@ -20,14 +21,14 @@ class TaxTypeResolverEngine implements TaxTypeResolverEngineInterface
     /**
      * The resolvers, sorted by priority.
      *
-     * @var TaxTypeResolverInterface[]
+     * @var TaxRateResolverInterface[]
      */
     protected $sortedResolvers = [];
 
     /**
      * {@inheritdoc}
      */
-    public function add(TaxTypeResolverInterface $resolver, $priority = 0)
+    public function add(TaxRateResolverInterface $resolver, $priority = 0)
     {
         $this->resolvers[] = [
             'resolver' => $resolver,
@@ -51,20 +52,20 @@ class TaxTypeResolverEngine implements TaxTypeResolverEngineInterface
     /**
      * {@inheritdoc}
      */
-    public function resolve(TaxableInterface $taxable, Context $context)
+    public function resolve(TaxTypeInterface $taxType, TaxableInterface $taxable, Context $context)
     {
-        $result = [];
+        $result = null;
         $resolvers = $this->getAll();
         foreach ($resolvers as $resolver) {
-            $result = $resolver->resolve($taxable, $context);
+            $result = $resolver->resolve($taxType, $taxable, $context);
             if ($result) {
                 break;
             }
         }
-        // The NO_APPLICABLE_TAX_TYPE flag is used to stop further resolving,
+        // The NO_APPLICABLE_TAX_RATE flag is used to stop further resolving,
         // but shouldn't be returned to the outside world.
-        if ($result == TaxTypeResolverInterface::NO_APPLICABLE_TAX_TYPE) {
-            $result = [];
+        if ($result == TaxRateResolverInterface::NO_APPLICABLE_TAX_RATE) {
+            $result = null;
         }
 
         return $result;

@@ -3,35 +3,35 @@
 namespace CommerceGuys\Tax\Resolver;
 
 use CommerceGuys\Tax\TaxableInterface;
-use CommerceGuys\Tax\Resolver\Engine\TaxRateResolverEngineInterface;
-use CommerceGuys\Tax\Resolver\Engine\TaxTypeResolverEngineInterface;
+use CommerceGuys\Tax\Resolver\TaxRate\ChainTaxRateResolverInterface;
+use CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolverInterface;
 
 class TaxResolver implements TaxResolverInterface
 {
     /**
-     * The tax type resolver engine.
+     * The chain tax type resolver.
      *
-     * @var TaxTypeResolverEngineInterface
+     * @var ChainTaxTypeResolverInterface
      */
-    protected $taxTypeResolverEngine;
+    protected $chainTaxTypeResolver;
 
     /**
-     * The tax rate resolver engine.
+     * The chain tax rate resolver.
      *
-     * @var TaxRateResolverEngineInterface
+     * @var ChainTaxRateResolverInterface
      */
-    protected $taxRateResolverEngine;
+    protected $chainTaxRateResolver;
 
     /**
      * Creates a TaxResolver instance.
      *
-     * @param TaxTypeResolverEngineInterface $taxTypeResolverEngine
-     * @param TaxRateResolverEngineInterface $taxRateResolverEngine
+     * @param ChainTaxTypeResolverInterface $chainTaxTypeResolver
+     * @param ChainTaxRateResolverInterface $chainTaxRateResolver
      */
-    public function __construct($taxTypeResolverEngine, $taxRateResolverEngine)
+    public function __construct($chainTaxTypeResolver, $chainTaxRateResolver)
     {
-        $this->taxTypeResolverEngine = $taxTypeResolverEngine;
-        $this->taxRateResolverEngine = $taxRateResolverEngine;
+        $this->chainTaxTypeResolver = $chainTaxTypeResolver;
+        $this->chainTaxRateResolver = $chainTaxRateResolver;
     }
 
     /**
@@ -57,7 +57,7 @@ class TaxResolver implements TaxResolverInterface
         $types = $this->resolveTypes($taxable, $context);
         $rates = [];
         foreach ($types as $type) {
-            $rate = $this->taxRateResolverEngine->resolve($type, $taxable, $context);
+            $rate = $this->chainTaxRateResolver->resolve($type, $taxable, $context);
             if ($rate) {
                 $rates[] = $rate;
             }
@@ -71,6 +71,6 @@ class TaxResolver implements TaxResolverInterface
      */
     public function resolveTypes(TaxableInterface $taxable, Context $context)
     {
-        return $this->taxTypeResolverEngine->resolve($taxable, $context);
+        return $this->chainTaxTypeResolver->resolve($taxable, $context);
     }
 }

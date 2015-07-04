@@ -1,6 +1,6 @@
 <?php
 
-namespace CommerceGuys\Tax\Resolver\Engine;
+namespace CommerceGuys\Tax\Resolver;
 
 trait ResolverSorterTrait
 {

@@ -14,15 +14,15 @@ class TaxResolverTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $taxTypeResolverEngine = $this
-            ->getMockBuilder('CommerceGuys\Tax\Resolver\Engine\TaxTypeResolverEngine')
+        $chainTaxTypeResolver = $this
+            ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolver')
             ->getMock();
-        $taxRateResolverEngine = $this
-            ->getMockBuilder('CommerceGuys\Tax\Resolver\Engine\TaxRateResolverEngine')
+        $chainTaxRateResolver = $this
+            ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxRate\ChainTaxRateResolver')
             ->getMock();
-        $resolver = new TaxResolver($taxTypeResolverEngine, $taxRateResolverEngine);
-        $this->assertSame($taxTypeResolverEngine, $this->getObjectAttribute($resolver, 'taxTypeResolverEngine'));
-        $this->assertSame($taxRateResolverEngine, $this->getObjectAttribute($resolver, 'taxRateResolverEngine'));
+        $resolver = new TaxResolver($chainTaxTypeResolver, $chainTaxRateResolver);
+        $this->assertSame($chainTaxTypeResolver, $this->getObjectAttribute($resolver, 'chainTaxTypeResolver'));
+        $this->assertSame($chainTaxRateResolver, $this->getObjectAttribute($resolver, 'chainTaxRateResolver'));
     }
 
     /**
@@ -61,20 +61,20 @@ class TaxResolverTest extends \PHPUnit_Framework_TestCase
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxType')
             ->getMock();
 
-        $taxTypeResolverEngine = $this
-            ->getMockBuilder('CommerceGuys\Tax\Resolver\Engine\TaxTypeResolverEngine')
+        $chainTaxTypeResolver = $this
+            ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolver')
             ->getMock();
-        $taxTypeResolverEngine->expects($this->any())
+        $chainTaxTypeResolver->expects($this->any())
             ->method('resolve')
             ->will($this->returnValue([$firstTaxType, $secondTaxType]));
-        $taxRateResolverEngine = $this
-            ->getMockBuilder('CommerceGuys\Tax\Resolver\Engine\TaxRateResolverEngine')
+        $chainTaxRateResolver = $this
+            ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxRate\ChainTaxRateResolver')
             ->getMock();
-        $taxRateResolverEngine->expects($this->exactly(2))
+        $chainTaxRateResolver->expects($this->exactly(2))
             ->method('resolve')
             ->will($this->onConsecutiveCalls($firstTaxRate, $secondTaxRate));
 
-        $resolver = new TaxResolver($taxTypeResolverEngine, $taxRateResolverEngine);
+        $resolver = new TaxResolver($chainTaxTypeResolver, $chainTaxRateResolver);
         $taxable = $this
             ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
             ->getMock();
