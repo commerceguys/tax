@@ -24,8 +24,8 @@ class ChainTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::add
-     * @covers ::getAll
+     * @covers ::addResolver
+     * @covers ::getResolvers
      * @covers ::resolve
      * @covers \CommerceGuys\Tax\Resolver\ResolverSorterTrait::sortResolvers
      *
@@ -61,13 +61,13 @@ class ChainTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             ->method('resolve')
             ->will($this->returnValue(TaxTypeResolverInterface::NO_APPLICABLE_TAX_TYPE));
 
-        $this->chainResolver->add($firstResolver, 10);
-        $this->chainResolver->add($secondResolver);
-        $this->chainResolver->add($thirdResolver, 5);
+        $this->chainResolver->addResolver($firstResolver, 10);
+        $this->chainResolver->addResolver($secondResolver);
+        $this->chainResolver->addResolver($thirdResolver, 5);
 
         // Confirm that the added resolvers have been ordered by priority.
         $expectedResolvers = [$firstResolver, $thirdResolver, $secondResolver];
-        $this->assertEquals($expectedResolvers, $this->chainResolver->getAll());
+        $this->assertEquals($expectedResolvers, $this->chainResolver->getResolvers());
 
         $taxable = $this
             ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
@@ -82,7 +82,7 @@ class ChainTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         // The new resolver will run first, and return NO_APPLICABLE_TAX_TYPE,
         // which should cause the resolving to stop and an empty array to be
         // returned.
-        $this->chainResolver->add($fourthResolver, 10);
+        $this->chainResolver->addResolver($fourthResolver, 10);
         $result = $this->chainResolver->resolve($taxable, $context);
         $this->assertEmpty($result);
     }

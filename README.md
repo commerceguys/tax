@@ -89,12 +89,12 @@ use CommerceGuys\Tax\Resolver\TaxResolver;
 // The repository, and the resolvers are usualy initialized by the
 // container, this is just a verbose example.
 $taxTypeRepository = new TaxTypeRepository();
-$chainTaxTypeResolver = new TaxTypeResolver();
-$chainTaxTypeResolver->add(new CanadaTaxTypeResolver($taxTypeRepository));
-$chainTaxTypeResolver->add(new EuTaxTypeResolver($taxTypeRepository));
-$chainTaxTypeResolver->add(new DefaultTaxTypeResolver($taxTypeRepository));
-$chainTaxRateResolver = new TaxRateResolver();
-$chainTaxRateResolver->add(new DefaultTaxRateResolver());
+$chainTaxTypeResolver = new ChainTaxTypeResolver();
+$chainTaxTypeResolver->addResolver(new CanadaTaxTypeResolver($taxTypeRepository));
+$chainTaxTypeResolver->addResolver(new EuTaxTypeResolver($taxTypeRepository));
+$chainTaxTypeResolver->addResolver(new DefaultTaxTypeResolver($taxTypeRepository));
+$chainTaxRateResolver = new ChainTaxRateResolver();
+$chainTaxRateResolver->addResolver(new DefaultTaxRateResolver());
 $resolver = new TaxResolver($chainTaxTypeResolver, $chainTaxRateResolver);
 
 // You can also provide the customer's tax number (e.g. VAT number needed

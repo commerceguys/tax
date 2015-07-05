@@ -22,14 +22,14 @@ interface ChainTaxRateResolverInterface
      * @param TaxRateResolverInterface $resolver The resolver.
      * @param int                      $priority The priority of the resolver.
      */
-    public function add(TaxRateResolverInterface $resolver, $priority = 0);
+    public function addResolver(TaxRateResolverInterface $resolver, $priority = 0);
 
     /**
      * Gets all added resolvers, sorted by priority.
      *
      * @return TaxRateResolverInterface[] An array of tax rate resolvers.
      */
-    public function getAll();
+    public function getResolvers();
 
     /**
      * Resolves the tax rate by invoking the individual resolvers.

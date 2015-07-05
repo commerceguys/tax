@@ -27,7 +27,7 @@ class ChainTaxTypeResolver implements ChainTaxTypeResolverInterface
     /**
      * {@inheritdoc}
      */
-    public function add(TaxTypeResolverInterface $resolver, $priority = 0)
+    public function addResolver(TaxTypeResolverInterface $resolver, $priority = 0)
     {
         $this->resolvers[] = [
             'resolver' => $resolver,
@@ -39,7 +39,7 @@ class ChainTaxTypeResolver implements ChainTaxTypeResolverInterface
     /**
      * {@inheritdoc}
      */
-    public function getAll()
+    public function getResolvers()
     {
         if (empty($this->sortedResolvers) && !empty($this->resolvers)) {
             $this->sortedResolvers = $this->sortResolvers($this->resolvers);
@@ -54,7 +54,7 @@ class ChainTaxTypeResolver implements ChainTaxTypeResolverInterface
     public function resolve(TaxableInterface $taxable, Context $context)
     {
         $result = [];
-        $resolvers = $this->getAll();
+        $resolvers = $this->getResolvers();
         foreach ($resolvers as $resolver) {
             $result = $resolver->resolve($taxable, $context);
             if ($result) {
