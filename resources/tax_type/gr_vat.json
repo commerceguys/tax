@@ -83,7 +83,13 @@
                 {
                     "id": "gr_vat_reduced_2011",
                     "amount": 0.065,
-                    "start_date": "2011-01-01"
+                    "start_date": "2011-01-01",
+                    "end_date": "2015-06-30"
+                },
+                {
+                    "id": "gr_vat_reduced_2015",
+                    "amount": 0.06,
+                    "start_date": "2015-07-01"
                 }
             ]
         }
