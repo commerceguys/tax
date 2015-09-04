@@ -52,11 +52,11 @@ class Context
     /**
      * Creates a Context instance.
      *
-     * @param AddressInterface $customerAddress
-     * @param AddressInterface $storeAddress
-     * @param string           $customerTaxNumber
-     * @param array            $storeRegistrations
-     * @param DateTime         $date
+     * @param AddressInterface  $customerAddress
+     * @param AddressInterface  $storeAddress
+     * @param string            $customerTaxNumber
+     * @param array             $storeRegistrations
+     * @param \DateTime         $date
      */
     public function __construct(AddressInterface $customerAddress, AddressInterface $storeAddress, $customerTaxNumber = '', array $storeRegistrations = [], \DateTime $date = null)
     {
@@ -172,7 +172,7 @@ class Context
     /**
      * Sets the calculation date.
      *
-     * @return DateTime $date The calculation date.
+     * @param \DateTime $date The calculation date.
      */
     public function setDate($date)
     {

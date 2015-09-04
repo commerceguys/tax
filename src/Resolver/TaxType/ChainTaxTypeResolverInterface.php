@@ -32,7 +32,7 @@ interface ChainTaxTypeResolverInterface
     /**
      * Resolves the tax type by invoking the individual resolvers.
      *
-     * @param TaxableInteface The taxable object.
+     * @param TaxableInterface The taxable object.
      * @param Context $context The context.
      *
      * @return TaxTypeInterface[] An array of resolved tax types, if any.

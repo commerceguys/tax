@@ -6,7 +6,6 @@ use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Model\TaxRateInterface;
 use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Resolver\Context;
-use CommerceGuys\Tax\Resolver\ResolverSorterTrait;
 
 /**
  * Chain tax rate resolver interface.
@@ -35,7 +34,7 @@ interface ChainTaxRateResolverInterface
      * Resolves the tax rate by invoking the individual resolvers.
      *
      * @param TaxTypeInterface $taxTypes A previously resolved tax type.
-     * @param TaxableInteface  The taxable object.
+     * @param TaxableInterface $taxable  The taxable object.
      * @param Context          $context  The context.
      *
      * @return TaxRateInterface|null The resolved tax rate, or null.

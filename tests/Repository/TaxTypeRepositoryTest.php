@@ -162,7 +162,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetNonExistingTaxType()
     {
-        $taxType = $this->taxTypeRepository->get('es_vat');
+        $this->taxTypeRepository->get('es_vat');
     }
 
     /**

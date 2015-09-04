@@ -74,7 +74,7 @@ class TaxType implements TaxTypeInterface
     protected $rates;
 
     /**
-     * Creates a TaxeType instance.
+     * Creates a TaxType instance.
      */
     public function __construct()
     {
