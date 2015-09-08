@@ -2,12 +2,17 @@
 
 namespace CommerceGuys\Tax\Model;
 
-class TaxRateAmount implements TaxRateAmountInterface
+/**
+ * Default tax rate amount implementation.
+ *
+ * Can be mapped and used by Doctrine.
+ */
+class TaxRateAmount implements TaxRateAmountEntityInterface
 {
     /**
      * The tax rate.
      *
-     * @var TaxRateInterface
+     * @var TaxRateEntityInterface
      */
     protected $rate;
 
@@ -50,7 +55,7 @@ class TaxRateAmount implements TaxRateAmountInterface
     /**
      * {@inheritdoc}
      */
-    public function setRate(TaxRateInterface $rate = null)
+    public function setRate(TaxRateEntityInterface $rate = null)
     {
         $this->rate = $rate;
 

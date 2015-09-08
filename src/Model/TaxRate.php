@@ -6,12 +6,17 @@ use CommerceGuys\Tax\Exception\UnexpectedTypeException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-class TaxRate implements TaxRateInterface
+/**
+ * Default tax rate implementation.
+ *
+ * Can be mapped and used by Doctrine.
+ */
+class TaxRate implements TaxRateEntityInterface
 {
     /**
      * The tax type.
      *
-     * @var TaxTypeInterface
+     * @var TaxTypeEntityInterface
      */
     protected $type;
 
@@ -39,7 +44,7 @@ class TaxRate implements TaxRateInterface
     /**
      * The tax rate amounts.
      *
-     * @var TaxRateAmount[]
+     * @var TaxRateAmountEntityInterface[]
      */
     protected $amounts;
 
@@ -72,7 +77,7 @@ class TaxRate implements TaxRateInterface
     /**
      * {@inheritdoc}
      */
-    public function setType(TaxTypeInterface $type = null)
+    public function setType(TaxTypeEntityInterface $type = null)
     {
         $this->type = $type;
 
@@ -192,7 +197,7 @@ class TaxRate implements TaxRateInterface
     /**
      * {@inheritdoc}
      */
-    public function addAmount(TaxRateAmountInterface $amount)
+    public function addAmount(TaxRateAmountEntityInterface $amount)
     {
         if (!$this->hasAmount($amount)) {
             $amount->setRate($this);
@@ -205,7 +210,7 @@ class TaxRate implements TaxRateInterface
     /**
      * {@inheritdoc}
      */
-    public function removeAmount(TaxRateAmountInterface $amount)
+    public function removeAmount(TaxRateAmountEntityInterface $amount)
     {
         if ($this->hasAmount($amount)) {
             $amount->setRate(null);
@@ -218,7 +223,7 @@ class TaxRate implements TaxRateInterface
     /**
      * {@inheritdoc}
      */
-    public function hasAmount(TaxRateAmountInterface $amount)
+    public function hasAmount(TaxRateAmountEntityInterface $amount)
     {
         return $this->amounts->contains($amount);
     }

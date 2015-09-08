@@ -4,11 +4,16 @@ namespace CommerceGuys\Tax\Model;
 
 use CommerceGuys\Tax\Enum\GenericLabel;
 use CommerceGuys\Tax\Exception\UnexpectedTypeException;
-use CommerceGuys\Zone\Model\ZoneInterface;
+use CommerceGuys\Zone\Model\ZoneEntityInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-class TaxType implements TaxTypeInterface
+/**
+ * Default tax type implementation.
+ *
+ * Can be mapped and used by Doctrine.
+ */
+class TaxType implements TaxTypeEntityInterface
 {
     /**
      * The tax type id.
@@ -55,7 +60,7 @@ class TaxType implements TaxTypeInterface
     /**
      * The tax type zone.
      *
-     * @var ZoneInterface
+     * @var ZoneEntityInterface
      */
     protected $zone;
 
@@ -69,7 +74,7 @@ class TaxType implements TaxTypeInterface
     /**
      * The tax rates.
      *
-     * @var TaxRateInterface[]
+     * @var TaxRateEntityInterface[]
      */
     protected $rates;
 
@@ -212,7 +217,7 @@ class TaxType implements TaxTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function setZone(ZoneInterface $zone)
+    public function setZone(ZoneEntityInterface $zone)
     {
         $this->zone = $zone;
 
@@ -271,7 +276,7 @@ class TaxType implements TaxTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function addRate(TaxRateInterface $rate)
+    public function addRate(TaxRateEntityInterface $rate)
     {
         if (!$this->hasRate($rate)) {
             $rate->setType($this);
@@ -284,7 +289,7 @@ class TaxType implements TaxTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function removeRate(TaxRateInterface $rate)
+    public function removeRate(TaxRateEntityInterface $rate)
     {
         if ($this->hasRate($rate)) {
             $this->rates->removeElement($rate);
@@ -296,7 +301,7 @@ class TaxType implements TaxTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function hasRate(TaxRateInterface $rate)
+    public function hasRate(TaxRateEntityInterface $rate)
     {
         return $this->rates->contains($rate);
     }

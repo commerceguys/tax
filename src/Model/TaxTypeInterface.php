@@ -20,13 +20,6 @@ interface TaxTypeInterface
     public function getId();
 
     /**
-     * Sets the tax type id.
-     *
-     * @param string $id The tax type id.
-     */
-    public function setId($id);
-
-    /**
      * Gets the tax type name.
      *
      * For example, "German VAT".
@@ -34,13 +27,6 @@ interface TaxTypeInterface
      * @return string The tax type name.
      */
     public function getName();
-
-    /**
-     * Sets the tax type name.
-     *
-     * @param string $name The tax type name.
-     */
-    public function setName($name);
 
     /**
      * Gets the tax type generic label.
@@ -54,13 +40,6 @@ interface TaxTypeInterface
     public function getGenericLabel();
 
     /**
-     * Sets the tax type generic label.
-     *
-     * @param string $genericLabel The tax type generic label.
-     */
-    public function setGenericLabel($genericLabel);
-
-    /**
      * Gets whether the tax type is compound.
      *
      * Compound tax is calculated on top of a primary tax.
@@ -70,13 +49,6 @@ interface TaxTypeInterface
      * @return bool True if the tax type is compound, false otherwise.
      */
     public function isCompound();
-
-    /**
-     * Sets whether the tax type is compound.
-     *
-     * @param bool $compound Whether the tax type is compound.
-     */
-    public function setCompound($compound);
 
     /**
      * Gets whether the tax type is display inclusive.
@@ -90,13 +62,6 @@ interface TaxTypeInterface
     public function isDisplayInclusive();
 
     /**
-     * Sets whether the tax type is display inclusive.
-     *
-     * @param bool $displayInclusive Whether the tax type is display inclusive.
-     */
-    public function setDisplayInclusive($displayInclusive);
-
-    /**
      * Gets the tax type rounding mode.
      *
      * @return int The tax type rounding mode, a ROUND_ constant.
@@ -104,25 +69,11 @@ interface TaxTypeInterface
     public function getRoundingMode();
 
     /**
-     * Sets the tax type rounding mode.
-     *
-     * @param int $roundingMode The tax type rounding mode, a ROUND_ constant.
-     */
-    public function setRoundingMode($roundingMode);
-
-    /**
      * Gets the tax type zone.
      *
      * @return ZoneInterface The tax type zone.
      */
     public function getZone();
-
-    /**
-     * Sets the tax type zone.
-     *
-     * @param ZoneInterface $zone The tax type zone.
-     */
-    public function setZone(ZoneInterface $zone);
 
     /**
      * Gets the tax type tag.
@@ -136,13 +87,6 @@ interface TaxTypeInterface
     public function getTag();
 
     /**
-     * Sets the tax type tag.
-     *
-     * @param string $tag The tax type tag.
-     */
-    public function setTag($tag);
-
-    /**
      * Gets the tax rates.
      *
      * @return TaxRateInterface[] The tax rates.
@@ -150,39 +94,9 @@ interface TaxTypeInterface
     public function getRates();
 
     /**
-     * Sets the tax rates.
-     *
-     * @param TaxRateInterface[] $rates The tax rates.
-     */
-    public function setRates($rates);
-
-    /**
      * Checks whether the tax type has tax rates.
      *
      * @return bool True if the tax type has tax rates, false otherwise.
      */
     public function hasRates();
-
-    /**
-     * Adds a tax rate.
-     *
-     * @param TaxRateInterface $rate The tax rate.
-     */
-    public function addRate(TaxRateInterface $rate);
-
-    /**
-     * Removes a tax rate.
-     *
-     * @param TaxRateInterface $rate The tax rate.
-     */
-    public function removeRate(TaxRateInterface $rate);
-
-    /**
-     * Checks whether the tax type has a tax rate.
-     *
-     * @param TaxRateInterface $rate The tax rate.
-     *
-     * @return bool True if the tax rate was found, false otherwise.
-     */
-    public function hasRate(TaxRateInterface $rate);
 }
