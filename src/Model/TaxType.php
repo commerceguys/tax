@@ -3,7 +3,6 @@
 namespace CommerceGuys\Tax\Model;
 
 use CommerceGuys\Tax\Enum\GenericLabel;
-use CommerceGuys\Tax\Exception\UnexpectedTypeException;
 use CommerceGuys\Zone\Model\ZoneEntityInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -253,13 +252,8 @@ class TaxType implements TaxTypeEntityInterface
     /**
      * {@inheritdoc}
      */
-    public function setRates($rates)
+    public function setRates(Collection $rates)
     {
-        // The interface doesn't typehint $children to allow other
-        // implementations to avoid using Doctrine Collections if desired.
-        if (!($rates instanceof Collection)) {
-            throw new UnexpectedTypeException($rates, 'Collection');
-        }
         $this->rates = $rates;
 
         return $this;

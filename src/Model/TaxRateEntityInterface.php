@@ -2,6 +2,8 @@
 
 namespace CommerceGuys\Tax\Model;
 
+use Doctrine\Common\Collections\Collection;
+
 interface TaxRateEntityInterface extends TaxRateInterface
 {
     /**
@@ -37,7 +39,7 @@ interface TaxRateEntityInterface extends TaxRateInterface
      *
      * @param TaxRateAmountEntityInterface[] $amounts The tax rate amounts.
      */
-    public function setAmounts($amounts);
+    public function setAmounts(Collection $amounts);
 
     /**
      * Adds a tax rate amount.

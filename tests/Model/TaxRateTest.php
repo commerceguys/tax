@@ -76,17 +76,6 @@ class TaxRateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::setAmounts
-     *
-     * @uses \CommerceGuys\Tax\Model\TaxRate::__construct
-     * @expectedException \CommerceGuys\Tax\Exception\UnexpectedTypeException
-     */
-    public function testSetInvalidAmounts()
-    {
-        $this->taxRate->setAmounts([1, 2]);
-    }
-
-    /**
      * @covers ::__construct
      * @covers ::getAmounts
      * @covers ::setAmounts

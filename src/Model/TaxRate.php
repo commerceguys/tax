@@ -2,7 +2,6 @@
 
 namespace CommerceGuys\Tax\Model;
 
-use CommerceGuys\Tax\Exception\UnexpectedTypeException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -149,13 +148,8 @@ class TaxRate implements TaxRateEntityInterface
     /**
      * {@inheritdoc}
      */
-    public function setAmounts($amounts)
+    public function setAmounts(Collection $amounts)
     {
-        // The interface doesn't typehint $children to allow other
-        // implementations to avoid using Doctrine Collections if desired.
-        if (!($amounts instanceof Collection)) {
-            throw new UnexpectedTypeException($amounts, 'Collection');
-        }
         $this->amounts = $amounts;
 
         return $this;
