@@ -24,8 +24,14 @@
                 {
                     "id": "at_vat_reduced_1995",
                     "amount": 0.1,
-                    "start_date": "1995-01-01"
-                }
+                    "start_date": "1995-01-01",
+                    "end_date": "2015-12-31"
+                },
+                {
+                    "id": "at_vat_reduced_2016",
+                    "amount": 0.13,
+                    "start_date": "2016-01-01"
+                },
             ]
         }
     ]

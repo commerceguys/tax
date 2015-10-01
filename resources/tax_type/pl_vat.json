@@ -19,7 +19,13 @@
                 {
                     "id": "pl_vat_standard_2011",
                     "amount": 0.23,
-                    "start_date": "2011-01-01"
+                    "start_date": "2011-01-01",
+                    "end_date": "2015-12-31"
+                },
+                {
+                    "id": "pl_vat_standard_2016",
+                    "amount": 0.22,
+                    "start_date": "2016-01-01"
                 }
             ]
         },
