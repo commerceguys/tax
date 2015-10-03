@@ -11,6 +11,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Sets the tax type id.
      *
      * @param string $id The tax type id.
+     *
+     * @return self
      */
     public function setId($id);
 
@@ -18,6 +20,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Sets the tax type name.
      *
      * @param string $name The tax type name.
+     *
+     * @return self
      */
     public function setName($name);
 
@@ -25,6 +29,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Sets the tax type generic label.
      *
      * @param string $genericLabel The tax type generic label.
+     *
+     * @return self
      */
     public function setGenericLabel($genericLabel);
 
@@ -32,6 +38,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Sets whether the tax type is compound.
      *
      * @param bool $compound Whether the tax type is compound.
+     *
+     * @return self
      */
     public function setCompound($compound);
 
@@ -39,6 +47,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Sets whether the tax type is display inclusive.
      *
      * @param bool $displayInclusive Whether the tax type is display inclusive.
+     *
+     * @return self
      */
     public function setDisplayInclusive($displayInclusive);
 
@@ -53,6 +63,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Sets the tax type zone.
      *
      * @param ZoneEntityInterface $zone The tax type zone.
+     *
+     * @return self
      */
     public function setZone(ZoneEntityInterface $zone);
 
@@ -60,6 +72,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Sets the tax type tag.
      *
      * @param string $tag The tax type tag.
+     *
+     * @return self
      */
     public function setTag($tag);
 
@@ -67,6 +81,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Sets the tax rates.
      *
      * @param TaxRateEntityInterface[] $rates The tax rates.
+     *
+     * @return self
      */
     public function setRates(Collection $rates);
 
@@ -74,6 +90,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Adds a tax rate.
      *
      * @param TaxRateEntityInterface $rate The tax rate.
+     *
+     * @return self
      */
     public function addRate(TaxRateEntityInterface $rate);
 
@@ -81,6 +99,8 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
      * Removes a tax rate.
      *
      * @param TaxRateEntityInterface $rate The tax rate.
+     *
+     * @return self
      */
     public function removeRate(TaxRateEntityInterface $rate);
 
