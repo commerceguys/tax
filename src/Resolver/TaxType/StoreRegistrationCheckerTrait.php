@@ -30,9 +30,7 @@ trait StoreRegistrationCheckerTrait
         $storeRegistrations = $context->getStoreRegistrations();
         foreach ($storeRegistrations as $country) {
             if (!isset($this->emptyAddresses[$country])) {
-                $address = new Address();
-                $address->setCountryCode($country);
-                $this->emptyAddresses[$country] = $address;
+                $this->emptyAddresses[$country] = new Address($country);
             }
 
             if ($zone->match($this->emptyAddresses[$country])) {
