@@ -1,0 +1,21 @@
+{
+    "name": "Canada - Ontario",
+    "generic_label": "HST",
+    "display_inclusive": true,
+    "zone": "ca_on_vat",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_on_vat_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_on_vat_standard_2013",
+                    "amount": 0.13,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}

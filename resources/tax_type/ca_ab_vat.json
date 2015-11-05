@@ -1,0 +1,21 @@
+{
+    "name": "Canada - Alberta",
+    "generic_label": "GST",
+    "display_inclusive": true,
+    "zone": "ca_ab_vat",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_ab_vat_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_ab_vat_standard_2013",
+                    "amount": 0.05,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}

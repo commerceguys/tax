@@ -1,0 +1,13 @@
+{
+    "name": "Canada - New Brunswick (HST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_nb_vat_0",
+            "name": "Canada - New Brunswick",
+            "country_code": "CA",
+            "administrative_area": "CA-NB"
+        }
+    ]
+}

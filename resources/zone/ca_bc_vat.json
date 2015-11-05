@@ -1,0 +1,13 @@
+{
+    "name": "Canada - British Columbia (HST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_bs_vat_0",
+            "name": "Canada - British Columbia",
+            "country_code": "CA",
+            "administrative_area": "CA-BC"
+        }
+    ]
+}
