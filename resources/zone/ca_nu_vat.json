@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Nunavut (GST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_ns_vat_0",
+            "name": "Canada - Nunavut",
+            "country_code": "CA",
+            "administrative_area": "CA-NU"
+        }
+    ]
+}

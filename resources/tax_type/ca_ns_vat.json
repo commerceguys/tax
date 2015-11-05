@@ -1,0 +1,21 @@
+{
+    "name": "Canada - Nova Scotia",
+    "generic_label": "HST",
+    "display_inclusive": true,
+    "zone": "ca_ns_vat",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_ns_vat_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_ns_vat_standard_2013",
+                    "amount": 0.15,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Yukon (GST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_yt_vat_0",
+            "name": "Canada - Yukon",
+            "country_code": "CA",
+            "administrative_area": "CA-YT"
+        }
+    ]
+}

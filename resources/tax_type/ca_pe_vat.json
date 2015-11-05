@@ -1,0 +1,21 @@
+{
+    "name": "Canada - Prince Edward Island",
+    "generic_label": "HST",
+    "display_inclusive": true,
+    "zone": "ca_pe_vat",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_pe_vat_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_pe_vat_standard_2013",
+                    "amount": 0.14,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}

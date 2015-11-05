@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Nova Scotia (HST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_ns_vat_0",
+            "name": "Canada - Nova Scotia",
+            "country_code": "CA",
+            "administrative_area": "CA-NS"
+        }
+    ]
+}
