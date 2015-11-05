@@ -1,5 +1,5 @@
 {
-    "name": "commerceguys/tax",
+    "name": "archanium/tax",
     "type": "library",
     "description": "Tax library with a flexible data model, predefined tax rates, powerful resolving logic.",
     "keywords": ["tax", "vat"],
