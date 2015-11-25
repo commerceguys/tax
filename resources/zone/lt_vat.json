@@ -1,11 +1,11 @@
 {
-    "name": "Latvia (VAT)",
+    "name": "Lithuania (VAT)",
     "scope": "tax",
     "members": [
         {
             "type": "country",
             "id": "lt_vat_0",
-            "name": "Latvia",
+            "name": "Lithuania",
             "country_code": "LT"
         }
     ]
