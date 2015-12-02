@@ -1,17 +1,17 @@
 {
-    "name": "Canada - Yukon",
+    "name": "Canada - Nunavut",
     "generic_label": "GST",
-    "display_inclusive": true,
-    "zone": "ca_yt_vat",
+    "display_inclusive": false,
+    "zone": "ca_nu_vat",
     "tag": "CA",
     "rates": [
         {
-            "id": "ca_yt_vat_standard",
+            "id": "ca_nu_gst_standard",
             "name": "Standard",
             "default": true,
             "amounts": [
                 {
-                    "id": "ca_yt_vat_standard_2013",
+                    "id": "ca_nu_gst_standard_2013",
                     "amount": 0.05,
                     "start_date": "2013-04-01"
                 }

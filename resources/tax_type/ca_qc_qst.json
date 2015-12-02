@@ -1,0 +1,21 @@
+{
+    "name": "Canada - Quebec",
+    "generic_label": "QST",
+    "display_inclusive": false,
+    "zone": "ca_qc_vat",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_qc_qst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_qc_qst_standard_2013",
+                    "amount": 0.09975,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}

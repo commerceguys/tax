@@ -1,17 +1,17 @@
 {
-    "name": "Canada - Saskatchewan",
+    "name": "Canada - Manitoba",
     "generic_label": "GST",
-    "display_inclusive": true,
-    "zone": "ca_sk_vat",
+    "display_inclusive": false,
+    "zone": "ca_mb_vat",
     "tag": "CA",
     "rates": [
         {
-            "id": "ca_sk_vat_standard",
+            "id": "ca_mb_gst_standard",
             "name": "Standard",
             "default": true,
             "amounts": [
                 {
-                    "id": "ca_sk_vat_standard_2013",
+                    "id": "ca_mb_gst_standard_2013",
                     "amount": 0.05,
                     "start_date": "2013-04-01"
                 }
