@@ -1,17 +1,17 @@
 {
     "name": "Canada - Quebec",
     "generic_label": "GST",
-    "display_inclusive": true,
+    "display_inclusive": false,
     "zone": "ca_qc_vat",
     "tag": "CA",
     "rates": [
         {
-            "id": "ca_qc_vat_standard",
+            "id": "ca_qc_gst_standard",
             "name": "Standard",
             "default": true,
             "amounts": [
                 {
-                    "id": "ca_qc_vat_standard_2013",
+                    "id": "ca_qc_gst_standard_2013",
                     "amount": 0.05,
                     "start_date": "2013-04-01"
                 }

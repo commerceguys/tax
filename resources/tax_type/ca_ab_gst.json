@@ -1,17 +1,18 @@
 {
-    "name": "Canada - British Columbia",
+    "name": "Canada - Alberta",
     "generic_label": "GST",
-    "display_inclusive": true,
-    "zone": "ca_bc_vat",
+    "display_inclusive": false,
+    "zone": "ca_ab_vat",
     "tag": "CA",
     "rates": [
         {
-            "id": "ca_bc_vat_standard",
+            "id": "ca_ab_gst_standard",
             "name": "Standard",
             "default": true,
+            "compound": true,
             "amounts": [
                 {
-                    "id": "ca_bc_vat_standard_2013",
+                    "id": "ca_ab_gst_standard_2013",
                     "amount": 0.05,
                     "start_date": "2013-04-01"
                 }

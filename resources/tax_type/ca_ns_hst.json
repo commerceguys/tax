@@ -1,7 +1,7 @@
 {
     "name": "Canada - Nova Scotia",
     "generic_label": "HST",
-    "display_inclusive": true,
+    "display_inclusive": false,
     "zone": "ca_ns_vat",
     "tag": "CA",
     "rates": [

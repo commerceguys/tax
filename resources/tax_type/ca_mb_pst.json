@@ -1,18 +1,18 @@
 {
     "name": "Canada - Manitoba",
-    "generic_label": "GST",
-    "display_inclusive": true,
+    "generic_label": "PST",
+    "display_inclusive": false,
     "zone": "ca_mb_vat",
     "tag": "CA",
     "rates": [
         {
-            "id": "ca_mb_vat_standard",
+            "id": "ca_mb_pst_standard",
             "name": "Standard",
             "default": true,
             "amounts": [
                 {
-                    "id": "ca_mb_vat_standard_2013",
-                    "amount": 0.05,
+                    "id": "ca_mb_pst_standard_2013",
+                    "amount": 0.08,
                     "start_date": "2013-04-01"
                 }
             ]
