@@ -2,7 +2,7 @@
     "name": "Canada - British Columbia",
     "generic_label": "PST",
     "display_inclusive": false,
-    "zone": "ca_bc_vat",
+    "zone": "ca_bc",
     "tag": "CA",
     "rates": [
         {

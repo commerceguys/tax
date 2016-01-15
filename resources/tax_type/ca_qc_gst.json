@@ -2,7 +2,7 @@
     "name": "Canada - Quebec",
     "generic_label": "GST",
     "display_inclusive": false,
-    "zone": "ca_qc_vat",
+    "zone": "ca_qc",
     "tag": "CA",
     "rates": [
         {

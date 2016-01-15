@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "ca_nt_vat_0",
+            "id": "ca_nt",
             "name": "Canada - Northwest Territories",
             "country_code": "CA",
             "administrative_area": "CA-NT"

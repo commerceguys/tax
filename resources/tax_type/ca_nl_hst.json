@@ -2,7 +2,7 @@
     "name": "Canada - Newfoundland and Labrador",
     "generic_label": "HST",
     "display_inclusive": false,
-    "zone": "ca_nl_vat",
+    "zone": "ca_nl",
     "tag": "CA",
     "rates": [
         {
