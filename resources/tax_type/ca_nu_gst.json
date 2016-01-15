@@ -2,7 +2,7 @@
     "name": "Canada - Nunavut",
     "generic_label": "GST",
     "display_inclusive": false,
-    "zone": "ca_nu_vat",
+    "zone": "ca_nu",
     "tag": "CA",
     "rates": [
         {

@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "ca_qc_vat_0",
+            "id": "ca_qc",
             "name": "Canada - Quebec",
             "country_code": "CA",
             "administrative_area": "CA-QC"

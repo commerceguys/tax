@@ -2,14 +2,13 @@
     "name": "Canada - Alberta",
     "generic_label": "GST",
     "display_inclusive": false,
-    "zone": "ca_ab_vat",
+    "zone": "ca_ab",
     "tag": "CA",
     "rates": [
         {
             "id": "ca_ab_gst_standard",
             "name": "Standard",
             "default": true,
-            "compound": true,
             "amounts": [
                 {
                     "id": "ca_ab_gst_standard_2013",

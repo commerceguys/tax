@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "ca_sk_vat_0",
+            "id": "ca_sk",
             "name": "Canada - Saskatchewan",
             "country_code": "CA",
             "administrative_area": "CA-SK"

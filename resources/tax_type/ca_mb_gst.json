@@ -2,7 +2,7 @@
     "name": "Canada - Manitoba",
     "generic_label": "GST",
     "display_inclusive": false,
-    "zone": "ca_mb_vat",
+    "zone": "ca_mb",
     "tag": "CA",
     "rates": [
         {

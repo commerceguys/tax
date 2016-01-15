@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "ca_bs_vat_0",
+            "id": "ca_bc",
             "name": "Canada - British Columbia",
             "country_code": "CA",
             "administrative_area": "CA-BC"

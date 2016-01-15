@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "ca_mb_vat_0",
+            "id": "ca_mb",
             "name": "Canada - Manitoba",
             "country_code": "CA",
             "administrative_area": "CA-MB"

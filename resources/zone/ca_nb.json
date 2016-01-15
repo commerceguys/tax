@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "ca_nb_vat_0",
+            "id": "ca_nb",
             "name": "Canada - New Brunswick",
             "country_code": "CA",
             "administrative_area": "CA-NB"

@@ -4,7 +4,7 @@
     "members": [
         {
             "type": "country",
-            "id": "ca_ab_vat_0",
+            "id": "ca_ab",
             "name": "Canada - Alberta",
             "country_code": "CA",
             "administrative_area": "CA-AB"

@@ -2,7 +2,7 @@
     "name": "Canada - Yukon",
     "generic_label": "GST",
     "display_inclusive": false,
-    "zone": "ca_yt_vat",
+    "zone": "ca_yt",
     "tag": "CA",
     "rates": [
         {
