@@ -1,7 +1,6 @@
 {
     "name": "Canada - New Brunswick",
     "generic_label": "HST",
-    "display_inclusive": false,
     "zone": "ca_nb",
     "tag": "CA",
     "compound": false,

@@ -1,7 +1,6 @@
 {
     "name": "Canada - Ontario",
     "generic_label": "HST",
-    "display_inclusive": false,
     "zone": "ca_on",
     "tag": "CA",
     "rates": [

@@ -1,7 +1,6 @@
 {
     "name": "Canada - Saskatchewan",
     "generic_label": "PST",
-    "display_inclusive": false,
     "zone": "ca_sk",
     "tag": "CA",
     "rates": [

@@ -1,7 +1,6 @@
 {
     "name": "Canada - Manitoba",
     "generic_label": "PST",
-    "display_inclusive": false,
     "zone": "ca_mb",
     "tag": "CA",
     "rates": [
