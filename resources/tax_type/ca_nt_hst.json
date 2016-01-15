@@ -1,7 +1,6 @@
 {
     "name": "Canada - Northwest Territories",
     "generic_label": "GST",
-    "display_inclusive": false,
     "zone": "ca_nt",
     "tag": "CA",
     "rates": [

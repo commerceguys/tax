@@ -1,7 +1,6 @@
 {
     "name": "Canada - Alberta",
     "generic_label": "GST",
-    "display_inclusive": false,
     "zone": "ca_ab",
     "tag": "CA",
     "rates": [
