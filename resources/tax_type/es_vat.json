@@ -43,12 +43,12 @@
                     "id": "es_vat_reduced_2010",
                     "amount": 0.08,
                     "start_date": "2010-07-01",
-                    "end_date": "2010-12-31"
+                    "end_date": "2012-08-31"
                 },
                 {
-                    "id": "es_vat_reduced_2011",
+                    "id": "es_vat_reduced_2012",
                     "amount": 0.1,
-                    "start_date": "2011-01-01"
+                    "start_date": "2012-09-01"
                 }
             ]
         },
