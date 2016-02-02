@@ -25,7 +25,8 @@
                 {
                     "id": "pt_vat_standard_2010",
                     "amount": 0.21,
-                    "start_date": "2010-12-31"
+                    "start_date": "2010-07-01",
+                    "end_date": "2010-12-31"
                 },
                 {
                     "id": "pt_vat_standard_2011",
