@@ -21,7 +21,7 @@
             "name": "Hotel",
             "amounts": [
                 {
-                    "id": "ch_vat_reduced_2011",
+                    "id": "ch_vat_hotel_2011",
                     "amount": 0.038,
                     "start_date": "2011-01-01"
                 }
