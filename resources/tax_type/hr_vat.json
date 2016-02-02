@@ -39,7 +39,7 @@
             "name": "Zero",
             "amounts": [
                 {
-                    "id": "hr_vat_zero",
+                    "id": "hr_vat_zero_2013",
                     "amount": 0,
                     "start_date": "2013-07-01"
                 }

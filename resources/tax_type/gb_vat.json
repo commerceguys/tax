@@ -51,7 +51,7 @@
             "name": "Zero",
             "amounts": [
                 {
-                    "id": "gb_vat_zero",
+                    "id": "gb_vat_zero_1973",
                     "amount": 0,
                     "start_date": "1973-01-01"
                 }

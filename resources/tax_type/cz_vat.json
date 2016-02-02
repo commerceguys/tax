@@ -69,7 +69,7 @@
             "name": "Zero",
             "amounts": [
                 {
-                    "id": "cz_vat_zero",
+                    "id": "cz_vat_zero_2004",
                     "amount": 0,
                     "start_date": "2004-05-01"
                 }
