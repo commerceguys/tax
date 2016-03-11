@@ -35,6 +35,17 @@
             ]
         },
         {
+            "id": "hr_vat_super_reduced",
+            "name": "Super Reduced",
+            "amounts": [
+                {
+                    "id": "hr_vat_super_reduced_2014",
+                    "amount": 0.05,
+                    "start_date": "2014-01-01"
+                }
+            ]
+        },
+        {
             "id": "hr_vat_zero",
             "name": "Zero",
             "amounts": [
