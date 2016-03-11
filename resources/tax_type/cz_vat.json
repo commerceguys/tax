@@ -76,6 +76,17 @@
             ]
         },
         {
+            "id": "cz_vat_second_reduced",
+            "name": "Second Reduced",
+            "amounts": [
+                {
+                    "id": "cz_vat_second_reduced_2015",
+                    "amount": 0.1,
+                    "start_date": "2015-01-01"
+                }
+            ]
+        },
+        {
             "id": "cz_vat_zero",
             "name": "Zero",
             "amounts": [
