@@ -3,7 +3,6 @@
     "generic_label": "gst",
     "display_inclusive": true,
     "zone": "nz_gst",
-    "tag": "NZ",
     "rates": [
         {
             "id": "nz_gst_standard",

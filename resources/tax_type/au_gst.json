@@ -3,7 +3,6 @@
     "generic_label": "gst",
     "display_inclusive": true,
     "zone": "au_gst",
-    "tag": "AU",
     "rates": [
         {
             "id": "au_gst_standard",
