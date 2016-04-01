@@ -61,7 +61,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             "name"          => "Manitoba GST",
             "generic_label" => "gst",
             "tag"           => "CA",
-            "zone"          => "ca_mb_vat",
+            "zone"          => "ca_mb",
             "rates"         => [
                 [
                     "id"      => "ca_mb_gst",
@@ -75,7 +75,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             "name"          => "Manitoba PST",
             "generic_label" => "pst",
             "tag"           => "CA",
-            "zone"          => "ca_mb_vat",
+            "zone"          => "ca_mb",
             "rates"         => [
                 [
                     "id"      => "ca_mb_pst",
@@ -117,7 +117,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 ],
             ],
         ],
-        'ca_mb_vat' => [
+        'ca_mb' => [
             'name'    => 'Manitoba Tax',
             'members' => [
                 [
