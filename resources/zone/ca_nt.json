@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Northwest Territories (GST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_nt",
+            "name": "Canada - Northwest Territories",
+            "country_code": "CA",
+            "administrative_area": "CA-NT"
+        }
+    ]
+}

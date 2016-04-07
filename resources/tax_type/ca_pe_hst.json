@@ -1,0 +1,20 @@
+{
+    "name": "Canada - Prince Edward Island",
+    "generic_label": "HST",
+    "zone": "ca_pe",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_pe_hst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_pe_hst_standard_2013",
+                    "amount": 0.14,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}
