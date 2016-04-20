@@ -1,0 +1,12 @@
+{
+    "name": "Indonesia (GST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "id_gst_0",
+            "name": "Indonesia",
+            "country_code": "ID"
+        }
+    ]
+}
