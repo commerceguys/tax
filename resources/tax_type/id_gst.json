@@ -1,0 +1,19 @@
+{
+    "name": "Indonesian GST",
+    "generic_label": "GST",
+    "display_inclusive": true,
+    "zone": "id_gst",
+    "rates": [
+        {
+            "id": "id_gst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [{
+                    "id": "id_gst_standard",
+                    "amount": 0.10,
+                    "start_date": "2012-01-01"
+                }
+            ]
+        }
+    ]
+}
