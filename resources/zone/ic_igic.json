@@ -1,0 +1,13 @@
+{
+    "name": "Canary Islands (VAT)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ic_igic_0",
+            "name": "Canary Islands",
+            "country_code": "ES",
+            "included_postal_codes": "\/(35|38)[0-9]{3}\/"
+        }
+    ]
+}
