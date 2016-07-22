@@ -1,0 +1,43 @@
+{
+    "name": "Canarian IGIC",
+    "generic_label": "igic",
+    "display_inclusive": true,
+    "zone": "ic_igic",
+    "tag": "EU",
+    "rates": [
+        {
+            "id": "ic_igic_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ic_igic_standard_2011",
+                    "amount": 0.10,
+                    "start_date": "2011-06-01"
+                }
+            ]
+        },
+        {
+            "id": "ic_igic_reduced",
+            "name": "Reduced",
+            "amounts": [
+                {
+                    "id": "ic_igic_reduced_2011",
+                    "amount": 0.07,
+                    "start_date": "2011-06-01"
+                }
+            ]
+        },
+        {
+            "id": "ic_igic_super_reduced",
+            "name": "Super Reduced",
+            "amounts": [
+                {
+                    "id": "ic_igic_super_reduced_2011",
+                    "amount": 0.04,
+                    "start_date": "2011-06-01"
+                }
+            ]
+        }
+    ]
+}
