@@ -7,8 +7,8 @@
     "require": {
         "php": ">=5.5.0",
         "commerceguys/enum": "~1.0",
-        "commerceguys/addressing": "~0.5",
-        "commerceguys/zone": "~0.5",
+        "commerceguys/addressing": "~1.0",
+        "commerceguys/zone": "~1.0",
         "doctrine/collections": "~1.0"
     },
     "require-dev": {
@@ -16,6 +16,7 @@
         "phpunit/phpunit": "~4.0",
         "mikey179/vfsStream": "1.*"
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": { "CommerceGuys\\Tax\\": "src" }
     },

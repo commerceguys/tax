@@ -2,7 +2,7 @@
 
 namespace CommerceGuys\Tax\Tests\Resolver;
 
-use CommerceGuys\Addressing\Model\AddressInterface;
+use CommerceGuys\Addressing\AddressInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use CommerceGuys\Tax\Resolver\TaxType\DefaultTaxTypeResolver;
 use org\bovigo\vfs\vfsStream;
@@ -129,13 +129,13 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
             ->getMock();
         $serbianAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $serbianAddress->expects($this->any())
             ->method('getCountryCode')
             ->will($this->returnValue('RS'));
         $montenegrinAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $montenegrinAddress->expects($this->any())
             ->method('getCountryCode')
