@@ -1,0 +1,20 @@
+{
+    "name": "Canada - Manitoba",
+    "generic_label": "PST",
+    "zone": "ca_mb",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_mb_pst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_mb_pst_standard_2013",
+                    "amount": 0.08,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}

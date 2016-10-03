@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Alberta (GST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_ab",
+            "name": "Canada - Alberta",
+            "country_code": "CA",
+            "administrative_area": "CA-AB"
+        }
+    ]
+}
