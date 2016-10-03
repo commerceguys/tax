@@ -101,7 +101,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                     'id'                  => '1',
                     'name'                => 'Canada - Ontario',
                     'country_code'        => 'CA',
-                    'administrative_area' => 'CA-ON',
+                    'administrative_area' => 'ON',
                 ],
             ],
         ],
@@ -113,7 +113,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                     'id'                  => '2',
                     'name'                => 'Canada - Nova Scotia',
                     'country_code'        => 'CA',
-                    'administrative_area' => 'CA-NS',
+                    'administrative_area' => 'NS',
                 ],
             ],
         ],
@@ -125,7 +125,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                     'id'                  => '1',
                     'name'                => 'Canada - Manitoba',
                     'country_code'        => 'CA',
-                    'administrative_area' => 'CA-MB',
+                    'administrative_area' => 'MB',
                 ],
             ],
         ],
@@ -197,16 +197,15 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $novaScotiaAddress->expects($this->any())
             ->method('getAdministrativeArea')
             ->will($this->returnValue('NS'));
-            ->will($this->returnValue('CA'));
         $manitobaAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $manitobaAddress->expects($this->any())
             ->method('getCountryCode')
             ->will($this->returnValue('CA'));
         $manitobaAddress->expects($this->any())
             ->method('getAdministrativeArea')
-            ->will($this->returnValue('CA'));
+            ->will($this->returnValue('MB'));
 
         // Nova Scotia store, Ontario customer.
         $context = $this->getContext($ontarioAddress, $novaScotiaAddress);
