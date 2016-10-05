@@ -11,7 +11,7 @@
             "default": true,
             "amounts": [
                 {
-                    "id": "ie_vat_standard_2001",
+                    "id": "ru_vat_standard_2001",
                     "amount": 0.18,
                     "start_date": "2001-01-01"
                 }
