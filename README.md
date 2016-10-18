@@ -114,4 +114,4 @@ $types = $resolver->resolveTypes($taxable, $context);
 ```
 
 # Credits
-- [Source for EU data](http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf)
+- [Source for EU data](http://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf)
