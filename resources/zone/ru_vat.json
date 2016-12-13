@@ -1,0 +1,12 @@
+{
+    "name": "Russia (VAT)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ru_vat_0",
+            "name": "Russia",
+            "country_code": "RU"
+        }
+    ]
+}

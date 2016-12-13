@@ -1,0 +1,20 @@
+{
+    "name": "Canada - British Columbia",
+    "generic_label": "PST",
+    "zone": "ca_bc",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_bc_pst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_bc_pst_standard_2013",
+                    "amount": 0.07,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}

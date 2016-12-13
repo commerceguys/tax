@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Prince Edward Island (GST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_pe",
+            "name": "Canada - Prince Edward Island",
+            "country_code": "CA",
+            "administrative_area": "PE"
+        }
+    ]
+}

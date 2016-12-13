@@ -3,6 +3,7 @@
 namespace CommerceGuys\Tax\Tests\Resolver;
 
 use CommerceGuys\Addressing\AddressInterface;
+use CommerceGuys\Tax\Model\TaxType;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use CommerceGuys\Tax\Resolver\TaxType\CanadaTaxTypeResolver;
 use org\bovigo\vfs\vfsStream;
@@ -19,18 +20,18 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      */
     protected $taxTypes = [
         'ca_on_hst' => [
-            'name' => 'Ontario HST',
+            'name'          => 'Ontario HST',
             'generic_label' => 'hst',
-            'tag' => 'CA',
-            'zone' => 'ca_on_hst',
-            'rates' => [
+            'tag'           => 'CA',
+            'zone'          => 'ca_on_hst',
+            'rates'         => [
                 [
-                    'id' => 'ca_on_hst',
-                    'name' => 'Ontario HST',
+                    'id'      => 'ca_on_hst',
+                    'name'    => 'Ontario HST',
                     'amounts' => [
                         [
-                            'id' => 'ca_on_hst_13',
-                            'amount' => 0.13,
+                            'id'         => 'ca_on_hst_13',
+                            'amount'     => 0.13,
                             'start_date' => '2010-07-01',
                         ],
                     ],
@@ -38,24 +39,52 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             ],
         ],
         'ca_ns_hst' => [
-            'name' => 'Nova Scotia HST',
+            'name'          => 'Nova Scotia HST',
             'generic_label' => 'hst',
-            'tag' => 'CA',
-            'zone' => 'ca_ns_hst',
-            'rates' => [
+            'tag'           => 'CA',
+            'zone'          => 'ca_ns_hst',
+            'rates'         => [
                 [
-                    'id' => 'ca_ns_hst',
-                    'name' => 'Nova Scotia HST',
+                    'id'      => 'ca_ns_hst',
+                    'name'    => 'Nova Scotia HST',
                     'amounts' => [
                         [
-                            'id' => 'ca_ns_hst_15',
-                            'amount' => 0.15,
+                            'id'         => 'ca_ns_hst_15',
+                            'amount'     => 0.15,
                             'start_date' => '2010-07-01',
                         ],
                     ],
                 ],
             ],
         ],
+        "ca_mb_gst" => [
+            "name"          => "Manitoba GST",
+            "generic_label" => "gst",
+            "tag"           => "CA",
+            "zone"          => "ca_mb",
+            "rates"         => [
+                [
+                    "id"      => "ca_mb_gst",
+                    "name"    => "Manitoba GST",
+                    "default" => true,
+                    "amounts" => [["id" => "ca_mb_gst_2013", "amount" => 0.05]]
+                ]
+            ]
+        ],
+        "ca_mb_pst" => [
+            "name"          => "Manitoba PST",
+            "generic_label" => "pst",
+            "tag"           => "CA",
+            "zone"          => "ca_mb",
+            "rates"         => [
+                [
+                    "id"      => "ca_mb_pst",
+                    "name"    => "Manitoba PST",
+                    "default" => true,
+                    "amounts" => [["id" => "ca_mb_pst_2013", "amount" => 0.08]]
+                ]
+            ]
+        ]
     ];
 
     /**
@@ -65,26 +94,38 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      */
     protected $zones = [
         'ca_on_hst' => [
-            'name' => 'Ontario (HST)',
+            'name'    => 'Ontario (HST)',
             'members' => [
                 [
-                    'type' => 'country',
-                    'id' => '1',
-                    'name' => 'Canada - Ontario',
-                    'country_code' => 'CA',
+                    'type'                => 'country',
+                    'id'                  => '1',
+                    'name'                => 'Canada - Ontario',
+                    'country_code'        => 'CA',
                     'administrative_area' => 'ON',
                 ],
             ],
         ],
         'ca_ns_hst' => [
-            'name' => 'Nova Scotia (HST)',
+            'name'    => 'Nova Scotia (HST)',
             'members' => [
                 [
-                    'type' => 'country',
-                    'id' => '2',
-                    'name' => 'Canada - Nova Scotia',
-                    'country_code' => 'CA',
+                    'type'                => 'country',
+                    'id'                  => '2',
+                    'name'                => 'Canada - Nova Scotia',
+                    'country_code'        => 'CA',
                     'administrative_area' => 'NS',
+                ],
+            ],
+        ],
+        'ca_mb' => [
+            'name'    => 'Manitoba Tax',
+            'members' => [
+                [
+                    'type'                => 'country',
+                    'id'                  => '1',
+                    'name'                => 'Canada - Manitoba',
+                    'country_code'        => 'CA',
+                    'administrative_area' => 'MB',
                 ],
             ],
         ],
@@ -156,6 +197,15 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $novaScotiaAddress->expects($this->any())
             ->method('getAdministrativeArea')
             ->will($this->returnValue('NS'));
+        $manitobaAddress = $this
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
+            ->getMock();
+        $manitobaAddress->expects($this->any())
+            ->method('getCountryCode')
+            ->will($this->returnValue('CA'));
+        $manitobaAddress->expects($this->any())
+            ->method('getAdministrativeArea')
+            ->will($this->returnValue('MB'));
 
         // Nova Scotia store, Ontario customer.
         $context = $this->getContext($ontarioAddress, $novaScotiaAddress);
@@ -180,6 +230,23 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $context = $this->getContext($ontarioAddress, $usAddress);
         $result = $resolver->resolve($taxable, $context);
         $this->assertEquals([], $result);
+
+        // Ontario store, Manitoba customer.
+        $context = $this->getContext($manitobaAddress, $ontarioAddress);
+        $results = $resolver->resolve($taxable, $context);
+        reset($results);
+        $this->assertCount(2, $results);
+        $ids = [];
+        /** @var TaxType $result */
+        foreach ($results as $result) {
+            $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $result);
+            $ids[]   = $result->getId();
+        }
+
+        foreach (["ca_mb_gst", "ca_mb_pst"] as $id) {
+            $this->assertContains($id, $ids);
+        }
+
     }
 
     /**

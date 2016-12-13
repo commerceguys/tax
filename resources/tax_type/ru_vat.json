@@ -1,0 +1,43 @@
+{
+    "name": "Russian VAT",
+    "generic_label": "vat",
+    "display_inclusive": true,
+    "zone": "ru_vat",
+    "tag": "RU",
+    "rates": [
+        {
+            "id": "ru_vat_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ru_vat_standard_2001",
+                    "amount": 0.18,
+                    "start_date": "2001-01-01"
+                }
+            ]
+        },
+        {
+            "id": "ru_vat_reduced",
+            "name": "Reduced",
+            "amounts": [
+                {
+                    "id": "ru_vat_reduced_2001",
+                    "amount": 0.1,
+                    "start_date": "2001-01-01"
+                }
+            ]
+        },
+        {
+            "id": "ru_vat_zero",
+            "name": "Zero",
+            "amounts": [
+                {
+                    "id": "ru_vat_zero_2001",
+                    "amount": 0,
+                    "start_date": "2001-01-01"
+                }
+            ]
+        }
+    ]
+}

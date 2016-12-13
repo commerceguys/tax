@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Quebec (GST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_qc",
+            "name": "Canada - Quebec",
+            "country_code": "CA",
+            "administrative_area": "QC"
+        }
+    ]
+}
