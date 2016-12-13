@@ -1,0 +1,26 @@
+code: LU
+name: Luxembourg
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      1992-01-01: 15
+      
+  - name: Intermediate
+    code: I
+    rates:
+      1979-02-12: 12
+      
+  - name: Reduced
+    code: R
+    rates:
+      1983-07-01: 6
+      
+  - name: Super Reduced
+    code: SR
+    rates:
+      1983-07-01: 3
+      
+zone:
+  country: LU

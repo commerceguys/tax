@@ -1,0 +1,21 @@
+code: RO
+name: Romania
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2010-07-01: 24
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2008-12-01: 9
+      
+  - name: Reduced
+    code: R
+    rates:
+      2008-12-01: 5
+      
+zone:
+  country: RO

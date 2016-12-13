@@ -1,0 +1,21 @@
+code: SE
+name: Sweden
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      1990-07-01: 25
+      
+  - name: Intermediate
+    code: I
+    rates:
+      1993-07-01: 12
+  
+  - name: Reduced
+    code: R
+    rates:
+      1996-01-01: 6
+      
+zone:
+  country: SE

@@ -1,0 +1,25 @@
+code: DE
+name: Germany
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates: 
+      2007-01-01: 19
+      
+  - name: Reduced
+    code: R
+    rates:
+      1983-07-01: 7
+    
+zones:
+  - country: DE
+    not-postalcode: ['27498', '78266']
+  
+  - country: AT
+    postalcode: 
+      6691 # Jungholz
+      6991 # Mittelberg
+      6992
+      6993
+  

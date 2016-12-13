@@ -1,0 +1,16 @@
+code: BG
+name: Bulgaria
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      1999-01-01: 20
+      
+  - name: Reduced
+    code: R
+    rates:
+      2011-04-01: 9
+      
+zone:
+  country: BG

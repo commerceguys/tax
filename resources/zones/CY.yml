@@ -1,0 +1,24 @@
+code: CY
+name: Cyprus
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2014-01-13: 19
+      2013-01-14: 18
+      2012-03-01: 17
+      
+  - name: Intermediate
+    code: I
+    rates:
+      2014-01-13: 9
+      2005-08-01: 8
+      
+  - name: Reduced
+    code: R
+    rates:
+      2000-07-01: 5
+      
+zone:
+  country: CY

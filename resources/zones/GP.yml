@@ -1,0 +1,17 @@
+code: GP
+name: Guadeloupe
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2000-01-01: 8.5
+      
+  - name: Reduced
+    code: R
+    rates:
+      2000-01-01: 2.1
+    
+zone:
+  country: GP
+  

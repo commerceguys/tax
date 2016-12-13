@@ -1,0 +1,23 @@
+code: IT
+name: Italy
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2013-10-01: 22
+      2011-09-17: 21
+  
+  - name: Reduced
+    code: R
+    rates:
+      1995-02-24: 10
+      
+  - name: Super Reduced
+    code: SR
+    rates:
+      1989-01-01: 4
+      
+zone:
+  country: IT
+  not-postalcode: ['23030', '22060']

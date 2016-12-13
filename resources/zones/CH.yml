@@ -1,0 +1,23 @@
+code: CH
+name: Switzerland
+type: VAT
+taxes:
+  - name: Standard
+    code: S
+    rates:
+      2011-01-01: 8
+      
+  - name: Hotel
+    code: H
+    rates:
+      2011-01-01: 3.8
+      
+  - name: Reduced
+    code: R
+    rates:
+      2011-01-01: 2.5
+      
+zones:
+  - country: CH
+  - country: DE
+    postalcode: ['27498', '78266']
