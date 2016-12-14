@@ -121,11 +121,11 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @covers ::resolve
      * @covers ::getTaxTypes
      *
-     * @uses    \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
-     * @uses    \CommerceGuys\Tax\Repository\TaxTypeRepository
-     * @uses    \CommerceGuys\Tax\Model\TaxType
-     * @uses    \CommerceGuys\Tax\Model\TaxRate
-     * @uses    \CommerceGuys\Tax\Model\TaxRateAmount
+     * @uses \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
+     * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
+     * @uses \CommerceGuys\Tax\Model\TaxType
+     * @uses \CommerceGuys\Tax\Model\TaxRate
+     * @uses \CommerceGuys\Tax\Model\TaxRateAmount
      * @depends testConstructor
      * @param CanadaTaxTypeResolver $resolver
      */
