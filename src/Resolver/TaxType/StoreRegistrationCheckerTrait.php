@@ -3,6 +3,7 @@
 namespace CommerceGuys\Tax\Resolver\TaxType;
 
 use CommerceGuys\Addressing\Address;
+use CommerceGuys\Tax\Model\TaxType;
 use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Resolver\Context;
 use CommerceGuys\Zone\Model\ZoneInterface;
@@ -52,7 +53,7 @@ trait StoreRegistrationCheckerTrait
      */
     protected function filterByStoreRegistration(array $taxTypes, Context $context)
     {
-        $taxTypes = array_filter($taxTypes, function ($taxType) use ($context) {
+        $taxTypes = array_filter($taxTypes, function (TaxType $taxType) use ($context) {
             $zone = $taxType->getZone();
 
             return $this->checkStoreRegistration($zone, $context);

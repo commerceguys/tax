@@ -10,6 +10,11 @@ use CommerceGuys\Tax\Resolver\TaxRate\DefaultTaxRateResolver;
 class DefaultTaxRateResolverTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * @var DefaultTaxRateResolver
+     */
+    private $resolver;
+
+    /**
      * {@inheritdoc}
      */
     public function setUp()

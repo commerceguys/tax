@@ -3,6 +3,8 @@
 namespace CommerceGuys\Tax\Tests\Repository;
 
 use CommerceGuys\Tax\Enum\GenericLabel;
+use CommerceGuys\Tax\Model\TaxRate;
+use CommerceGuys\Tax\Model\TaxType;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use org\bovigo\vfs\vfsStream;
 
@@ -131,6 +133,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         $rates = $taxType->getRates();
         $this->assertCount(1, $rates);
 
+        /** @var TaxRate $rate */
         $rate = $rates[0];
         $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxRate', $rate);
         $this->assertEquals($taxType, $rate->getType());
@@ -184,8 +187,11 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(2, $taxTypes);
         $this->assertArrayHasKey('fr_vat', $taxTypes);
         $this->assertArrayHasKey('de_vat', $taxTypes);
-        $this->assertEquals($taxTypes['fr_vat']->getId(), 'fr_vat');
-        $this->assertEquals($taxTypes['de_vat']->getId(), 'de_vat');
+        /** @var TaxType $taxType */
+        $taxType = $taxTypes['fr_vat'];
+        $this->assertEquals($taxType->getId(), 'fr_vat');
+        $taxType = $taxTypes['de_vat'];
+        $this->assertEquals($taxType->getId(), 'de_vat');
     }
 
     /**

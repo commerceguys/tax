@@ -3,6 +3,7 @@
 namespace CommerceGuys\Tax\Resolver\TaxType;
 
 use CommerceGuys\Addressing\AddressInterface;
+use CommerceGuys\Tax\Model\TaxType;
 use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepositoryInterface;
@@ -100,7 +101,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
      */
     protected function filterByAddress(array $taxTypes, AddressInterface $address)
     {
-        $taxTypes = array_filter($taxTypes, function ($taxType) use ($address) {
+        $taxTypes = array_filter($taxTypes, function (TaxType $taxType) use ($address) {
             $zone = $taxType->getZone();
 
             return $zone->match($address);
@@ -117,7 +118,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
     protected function getTaxTypes()
     {
         $taxTypes = $this->taxTypeRepository->getAll();
-        $taxTypes = array_filter($taxTypes, function ($taxType) {
+        $taxTypes = array_filter($taxTypes, function (TaxType $taxType) {
             // "eu_ic_vat" is not resolved via its zone, so it isn't needed.
             return $taxType->getId() != 'eu_ic_vat' && $taxType->getTag() == 'EU';
         });

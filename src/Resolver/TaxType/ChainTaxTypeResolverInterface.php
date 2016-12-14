@@ -2,9 +2,9 @@
 
 namespace CommerceGuys\Tax\Resolver\TaxType;
 
+use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Resolver\Context;
-use CommerceGuys\Tax\Resolver\TaxType\TaxTypeResolverInterface;
 
 /**
  * Chain tax type resolver interface.
@@ -32,7 +32,7 @@ interface ChainTaxTypeResolverInterface
     /**
      * Resolves the tax type by invoking the individual resolvers.
      *
-     * @param TaxableInterface The taxable object.
+     * @param TaxableInterface $taxable The taxable object.
      * @param Context $context The context.
      *
      * @return TaxTypeInterface[] An array of resolved tax types, if any.

@@ -45,7 +45,7 @@ class Context
     /**
      * The calculation date.
      *
-     * @var DateTime
+     * @var \DateTime
      */
     protected $date;
 
@@ -81,6 +81,7 @@ class Context
      * Sets the customer address.
      *
      * @param AddressInterface $customerAddress The customer address.
+     * @return $this
      */
     public function setCustomerAddress($customerAddress)
     {
@@ -103,6 +104,7 @@ class Context
      * Sets the store address.
      *
      * @param AddressInterface $storeAddress The store address.
+     * @return $this
      */
     public function setStoreAddress($storeAddress)
     {
@@ -125,6 +127,7 @@ class Context
      * Sets the customer tax number.
      *
      * @param string $customerTaxNumber The customer tax number.
+     * @return $this
      */
     public function setCustomerTaxNumber($customerTaxNumber)
     {
@@ -151,6 +154,7 @@ class Context
      * Sets the store registrations.
      *
      * @param array $storeRegistrations An array of country codes.
+     * @return $this
      */
     public function setStoreRegistrations(array $storeRegistrations)
     {
@@ -162,7 +166,7 @@ class Context
     /**
      * Gets the calculation date.
      *
-     * @return DateTime The calculation date.
+     * @return \DateTime The calculation date.
      */
     public function getDate()
     {
@@ -173,6 +177,7 @@ class Context
      * Sets the calculation date.
      *
      * @param \DateTime $date The calculation date.
+     * @return $this
      */
     public function setDate($date)
     {

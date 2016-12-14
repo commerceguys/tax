@@ -10,7 +10,7 @@ use CommerceGuys\Tax\Resolver\Context;
 class ContextTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var TaxType
+     * @var Context
      */
     protected $context;
 

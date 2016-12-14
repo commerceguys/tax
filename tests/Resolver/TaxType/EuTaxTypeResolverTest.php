@@ -4,7 +4,9 @@ namespace CommerceGuys\Tax\Tests\Resolver;
 
 use CommerceGuys\Addressing\AddressInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
+use CommerceGuys\Tax\Resolver\Context;
 use CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver;
+use CommerceGuys\Tax\TaxableInterface;
 use org\bovigo\vfs\vfsStream;
 
 /**
@@ -172,14 +174,18 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @covers ::resolve
      * @covers ::filterByAddress
      * @covers ::getTaxTypes
-     * @covers \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
+     * @covers       \CommerceGuys\Tax\Resolver\TaxType\StoreRegistrationCheckerTrait
      *
-     * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
-     * @uses \CommerceGuys\Tax\Model\TaxType
-     * @uses \CommerceGuys\Tax\Model\TaxRate
-     * @uses \CommerceGuys\Tax\Model\TaxRateAmount
-     * @depends testConstructor
+     * @uses         \CommerceGuys\Tax\Repository\TaxTypeRepository
+     * @uses         \CommerceGuys\Tax\Model\TaxType
+     * @uses         \CommerceGuys\Tax\Model\TaxRate
+     * @uses         \CommerceGuys\Tax\Model\TaxRateAmount
+     * @depends      testConstructor
      * @dataProvider dataProvider
+     * @param TaxableInterface $taxable
+     * @param Context $context
+     * @param mixed $expected
+     * @param EuTaxTypeResolver $resolver
      */
     public function testResolver($taxable, $context, $expected, $resolver)
     {
