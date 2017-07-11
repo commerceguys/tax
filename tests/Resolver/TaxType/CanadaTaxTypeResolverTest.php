@@ -198,7 +198,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             ->method('getAdministrativeArea')
             ->will($this->returnValue('NS'));
         $manitobaAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $manitobaAddress->expects($this->any())
             ->method('getCountryCode')
