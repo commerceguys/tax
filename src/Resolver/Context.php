@@ -2,7 +2,7 @@
 
 namespace CommerceGuys\Tax\Resolver;
 
-use CommerceGuys\Addressing\Model\AddressInterface;
+use CommerceGuys\Addressing\AddressInterface;
 
 /**
  * Contains information relevant to tax resolving.

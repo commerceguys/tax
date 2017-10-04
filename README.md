@@ -3,7 +3,7 @@ tax
 
 [![Build Status](https://travis-ci.org/commerceguys/tax.svg?branch=master)](https://travis-ci.org/commerceguys/tax)
 
-A PHP 5.4+ tax management library.
+A PHP 5.5+ tax management library.
 
 Features:
 - Smart data model designed for fluctuating tax rate amounts ("19% -> 21% on January 1st")
@@ -114,4 +114,4 @@ $types = $resolver->resolveTypes($taxable, $context);
 ```
 
 # Credits
-- [Source for EU data](http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf)
+- [Source for EU data](http://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf)
