@@ -1,0 +1,64 @@
+{
+    "name": "Norwegian VAT",
+    "generic_label": "vat",
+    "display_inclusive": true,
+    "zone": "no_vat",
+    "rates": [
+        {
+            "id": "no_vat_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "no_vat_standard_2017",
+                    "amount": 0.25,
+                    "start_date": "2017-10-01"
+                }
+            ]
+        },
+        {
+            "id": "no_vat_reduced_food_and_beverages",
+            "name": "15% Reduced (Food and Beverages)",
+            "amounts": [
+                {
+                    "id": "nl_vat_reduced_1986_food",
+                    "amount": 0.15,
+                    "start_date": "1986-10-01"
+                }
+            ]
+        },
+        {
+            "id": "no_vat_reduced_supply_of_raw_fish",
+            "name": "11.11% Reduced (Supply of Raw Fish)",
+            "amounts": [
+                {
+                    "id": "nl_vat_reduced_1986_fish",
+                    "amount": 0.1111,
+                    "start_date": "1986-10-01"
+                }
+            ]
+        },
+        {
+            "id": "no_vat_reduced_cultural_transport",
+            "name": "10% Reduced (Cultural Activities, Transport Services)",
+            "amounts": [
+                {
+                    "id": "nl_vat_reduced_1986_transport",
+                    "amount": 0.10,
+                    "start_date": "1986-10-01"
+                }
+            ]
+        },
+        {
+            "id": "no_vat_reduced_cultural",
+            "name": "8% Reduced (Certain Sporting and Cultural Services)",
+            "amounts": [
+                {
+                    "id": "nl_vat_reduced_1986_sport",
+                    "amount": 0.08,
+                    "start_date": "1986-10-01"
+                }
+            ]
+        }
+    ]
+}
