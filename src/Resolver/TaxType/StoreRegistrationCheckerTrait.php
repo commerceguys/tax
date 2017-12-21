@@ -2,7 +2,7 @@
 
 namespace CommerceGuys\Tax\Resolver\TaxType;
 
-use CommerceGuys\Addressing\Model\Address;
+use CommerceGuys\Addressing\Address;
 use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Resolver\Context;
 use CommerceGuys\Zone\Model\ZoneInterface;

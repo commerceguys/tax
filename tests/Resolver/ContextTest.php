@@ -20,7 +20,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $address = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $this->context = new Context($address, $address);
     }
@@ -37,10 +37,10 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     public function testConstructor()
     {
         $customerAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $storeAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $date = new \DateTime('2014-10-10');
         $context = new Context($customerAddress, $storeAddress, '0123', ['DE'], $date);
@@ -60,7 +60,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     public function testCustomerAddress()
     {
         $address = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $this->context->setCustomerAddress($address);
         $this->assertSame($address, $this->context->getCustomerAddress());
@@ -75,7 +75,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     public function testStoreAddress()
     {
         $address = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Model\Address')
+            ->getMockBuilder('CommerceGuys\Addressing\Address')
             ->getMock();
         $this->context->setStoreAddress($address);
         $this->assertSame($address, $this->context->getStoreAddress());
