@@ -21,6 +21,12 @@
             "name": "Italy (Lake Lugano)",
             "country_code": "IT",
             "included_postal_codes": "22060"
+        },
+        {
+            "type": "country",
+            "id": "ch_vat_3",
+            "name": "Liechtenstein",
+            "country_code": "LI"
         }
     ]
 }
