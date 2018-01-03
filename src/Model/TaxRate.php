@@ -180,7 +180,7 @@ class TaxRate implements TaxRateEntityInterface
             $startDate = $amount->getStartDate();
             $endDate = $amount->getEndDate();
             // Match the date against the optional amount start/end dates.
-            if ((!$startDate || $startDate <= $date) && (!$endDate || $endDate > $date)) {
+            if ((!$startDate || $startDate <= $date) && (!$endDate || $endDate >= $date)) {
                 return $amount;
             }
         }
