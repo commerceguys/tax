@@ -22,7 +22,7 @@
             "name": "Zero",
             "amounts": [
                 {
-                    "id": "dk_vat_zero",
+                    "id": "dk_vat_zero_1973",
                     "amount": 0,
                     "start_date": "1973-01-01"
                 }

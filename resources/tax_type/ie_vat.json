@@ -85,7 +85,7 @@
             "name": "Zero",
             "amounts": [
                 {
-                    "id": "ie_vat_zero",
+                    "id": "ie_vat_zero_1972",
                     "amount": 0,
                     "start_date": "1972-04-01"
                 }
