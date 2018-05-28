@@ -57,6 +57,17 @@
                     "start_date": "2011-01-01"
                 }
             ]
+        },
+        {
+            "id": "lv_vat_super_reduced",
+            "name": "Super Reduced",
+            "amounts": [
+                {
+                    "id": "lv_vat_super_reduced_2018",
+                    "amount": 0.05,
+                    "start_date": "2018-01-01"
+                }
+            ]
         }
     ]
 }
