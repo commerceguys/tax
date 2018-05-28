@@ -2,7 +2,7 @@
 
 namespace CommerceGuys\Tax\Enum;
 
-use CommerceGuys\Enum\AbstractEnum;
+use CommerceGuys\Addressing\AbstractEnum;
 
 /**
  * Enumerates available generic labels.
