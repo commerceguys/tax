@@ -162,6 +162,8 @@ class Context
     /**
      * Gets the calculation date.
      *
+     * This is the date the supply was made for tax, e.g. the invoice date.
+     *
      * @return DateTime The calculation date.
      */
     public function getDate()
