@@ -2,6 +2,7 @@
 
 namespace CommerceGuys\Tax\Resolver\TaxType;
 
+use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepositoryInterface;
 use CommerceGuys\Tax\Resolver\Context;
