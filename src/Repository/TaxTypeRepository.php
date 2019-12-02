@@ -96,6 +96,14 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getZoneRepository()
+    {
+        return $this->zoneRepository;
+    }
+
+    /**
      * Loads the tax type definition for the provided id.
      *
      * @param string $id The zone id.
