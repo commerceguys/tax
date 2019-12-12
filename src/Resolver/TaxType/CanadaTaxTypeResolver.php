@@ -7,7 +7,7 @@ use CommerceGuys\Tax\Repository\TaxTypeRepositoryInterface;
 use CommerceGuys\Tax\Resolver\Context;
 
 /**
- * Resolver for Canada's tax types (HST, PST, GST).
+ * Resolver for Canada's tax types:
  * GST  Goods and Services Tax
  * HST  Harmonized Sales Tax
  * PST  Provincial Sales Tax (generic provincial label)
@@ -44,7 +44,7 @@ class CanadaTaxTypeResolver implements TaxTypeResolverInterface
 			// The customer or the store is not in Canada.
 			return [];
 		}
-		// Canadian tax types are divided in two seperate levels:
+		// Canadian tax types are divided in two separate levels:
 		// FEDERAL - GST and HST always apply between canadian stores and clients
 		// PROVINCIAL - PST, QST and RST only apply when the store is registered in the client's province
 		$taxTypes = $this->getTaxTypes();
@@ -60,7 +60,7 @@ class CanadaTaxTypeResolver implements TaxTypeResolverInterface
 				}
 				// Provincial taxes (PST, QST, RST), where the store is registered
 				$storeRegistrationTaxProvinces = $context->getStoreRegistrations();
-				// Add store's province of origin
+				// Add store's province of origin, as it should always be registered there
 				$storeRegistrationTaxProvinces[] = !in_array($storeProvince, $storeRegistrationTaxProvinces) ? $storeProvince : '';
 				if (!empty($storeRegistrationTaxProvinces)) {
 					foreach ($storeRegistrationTaxProvinces as $province) {
