@@ -16,8 +16,6 @@ use CommerceGuys\Tax\Resolver\Context;
  */
 class CanadaTaxTypeResolver implements TaxTypeResolverInterface
 {
-	use StoreRegistrationCheckerTrait;
-
 	/**
 	 * The tax type repository.
 	 *
