@@ -1,0 +1,26 @@
+{
+    "name": "Canada - Manitoba",
+    "generic_label": "RST",
+    "zone": "ca_mb",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_mb_rst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_mb_rst_standard_2013",
+                    "amount": 0.08,
+                    "start_date": "2013-07-01",
+                    "end_date": "2019-06-30"
+                },
+                {
+                    "id": "ca_mb_rst_standard_2019",
+                    "amount": 0.07,
+                    "start_date": "2019-07-01"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "name": "Canada - New Brunswick",
+    "generic_label": "HST",
+    "zone": "ca_nb",
+    "tag": "CA",
+    "compound": false,
+    "rates": [
+        {
+            "id": "ca_nb_hst_standard",
+            "name": "hst",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_nb_hst_standard_2013",
+                    "amount": 0.13,
+                    "start_date": "2013-04-01",
+                    "end_date": "2016-06-30"
+                },
+                {
+                    "id": "ca_nb_hst_standard_2016",
+                    "amount": 0.15,
+                    "start_date": "2016-07-01"
+                }
+            ]
+        }
+    ]
+}
