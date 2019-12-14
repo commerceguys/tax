@@ -1,5 +1,6 @@
 {
     "name": "commerceguys/tax",
+    "version": "0.9.0",
     "type": "library",
     "description": "Tax library with a flexible data model, predefined tax rates, powerful resolving logic.",
     "keywords": ["tax", "vat"],
