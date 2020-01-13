@@ -1,0 +1,45 @@
+{
+    "name": "Greek Islands VAT",
+    "generic_label": "vat",
+    "display_inclusive": true,
+    "zone": "gr_x_vat",
+    "tag": "EU",
+    "rates": [
+        {
+            "id": "gr_x_vat_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "gr_x_vat_standard_2016_06",
+                    "amount": 0.17,
+                    "start_date": "2016-06-01"
+                }
+            ]
+        },
+        {
+            "id": "gr_x_vat_intermediate",
+            "name": "Intermediate",
+            "amounts": [
+
+                {
+                    "id": "gr_x_vat_intermediate_2011",
+                    "amount": 0.09,
+                    "start_date": "2011-01-01"
+                }
+            ]
+        },
+        {
+            "id": "gr_x_vat_reduced",
+            "name": "Reduced",
+            "amounts": [
+
+                {
+                    "id": "gr_x_vat_reduced_2015",
+                    "amount": 0.05,
+                    "start_date": "2015-07-01"
+                }
+            ]
+        }
+    ]
+}
