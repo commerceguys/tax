@@ -7,7 +7,7 @@
             "id": "gr_vat_0",
             "name": "Greece (ex. Lesbos, Chios, Samos, Kos, Leros)",
             "country_code": "GR",
-            "excluded_postal_codes": "\/((811|821|831|853|854) ?[0-9]{2})\/"
+            "excluded_postal_codes": "\/(811|821|831|853|854) ?[0-9]{2}\/"
         }
     ]
 }
