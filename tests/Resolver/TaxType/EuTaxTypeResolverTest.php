@@ -64,6 +64,26 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                 ],
             ],
         ],
+        'at_vat' => [
+            'name' => 'Austrian VAT',
+            'generic_label' => 'vat',
+            'zone' => 'at_vat',
+            'tag' => 'EU',
+            'rates' => [
+                [
+                    'id' => 'at_vat_standard',
+                    'name' => 'Standard',
+                    'default' => true,
+                    'amounts' => [
+                        [
+                            'id' => 'at_vat_standard_1995',
+                            'amount' => 0.2,
+                            'start_date' => '1995-01-01'
+                        ]
+                    ]
+                ],
+            ],
+        ],
         'eu_ic_vat' => [
             'name' => 'Intra-Community Supply',
             'generic_label' => 'vat',
@@ -121,6 +141,25 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
                     'name' => 'Germany',
                     'country_code' => 'DE',
                 ],
+                [
+                    'type' => 'country',
+                    'id' => 'de_vat_1',
+                    'name' => 'Austria (Jungholz and Mittelberg)',
+                    'country_code' => 'AT',
+                    'included_postal_codes' => '6691, 6991:6993'
+                ]
+            ],
+        ],
+        'at_vat' => [
+            'name' => 'Austria (VAT)',
+            'members' => [
+                [
+                    'type' => 'country',
+                    'id' => 'at_vat_0',
+                    'name' => 'Austria (ex. Jungholz and Mittelberg)',
+                    'country_code' => 'AT',
+                    'excluded_postal_codes' => '6691, 6991:6993'
+                ]
             ],
         ],
         'eu_vat' => [
@@ -227,6 +266,23 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
         $date2 = new \DateTime('2015-02-24');
         $notApplicable = EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE;
 
+        $austrianAddress = $mockAddressBuilder->getMock();
+        $austrianAddress->expects($this->any())
+            ->method('getCountryCode')
+            ->will($this->returnValue('AT'));
+        $austrianAddress->method('getLocality')->will($this->returnValue('Wien'));
+        $austrianAddress->method('getPostalCode')->will($this->returnValue('1017'));
+        $austrianAddress->method('getAddressLine1')->will($this->returnValue('Dr.-Karl-Renner-Ring 3'));
+
+        $austrianAddressUnderGermanVAT = $mockAddressBuilder->getMock();
+        $austrianAddressUnderGermanVAT->expects($this->any())
+            ->method('getCountryCode')
+            ->will($this->returnValue('AT'));
+        $austrianAddressUnderGermanVAT->method('getLocality')->will($this->returnValue('Mittelberg'));
+        $austrianAddressUnderGermanVAT->method('getPostalCode')->will($this->returnValue('6992'));
+        $austrianAddressUnderGermanVAT->method('getAddressLine1')->will($this->returnValue('Walserstraße 226'));
+
+
         return [
             // German customer, French store, VAT number provided.
             [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '123'), 'eu_ic_vat'],
@@ -250,6 +306,10 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             [$physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), []],
             // French customer, Serbian store, physical product.
             [$physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), []],
+            // German customer, Austrian store under German VAT, VAT number provided.
+            [$physicalTaxable, $this->getContext($germanAddress, $austrianAddressUnderGermanVAT, '123'), 'de_vat'],
+            // Austrian customer, Austrian store under German VAT, VAT number provided.
+            [$physicalTaxable, $this->getContext($austrianAddress, $austrianAddressUnderGermanVAT, '123'), 'eu_ic_vat'],
         ];
     }
 

@@ -2,6 +2,9 @@
 
 namespace CommerceGuys\Tax\Repository;
 
+use CommerceGuys\Tax\Model\TaxTypeInterface;
+use CommerceGuys\Zone\Repository\ZoneRepositoryInterface;
+
 /**
  * Tax type repository interface.
  */
@@ -22,4 +25,11 @@ interface TaxTypeRepositoryInterface
      * @return TaxTypeInterface[] An array of tax type instances.
      */
     public function getAll();
+
+    /**
+     * The Zone Repository used for finding matching Tax Types
+     *
+     * @return ZoneRepositoryInterface
+     */
+    public function getZoneRepository();
 }

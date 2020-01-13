@@ -188,6 +188,15 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($taxTypes['de_vat']->getId(), 'de_vat');
     }
 
+  /**
+   * @covers ::getZoneRepository
+   */
+    public function testGetZoneRepository()
+    {
+      $zoneRepository = $this->taxTypeRepository->getZoneRepository();
+      $this->assertEquals($zoneRepository, $this->getZoneRepository());
+    }
+
     /**
      * Returns a mock zone repository.
      *

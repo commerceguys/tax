@@ -7,6 +7,7 @@ use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepositoryInterface;
 use CommerceGuys\Tax\Resolver\Context;
+use CommerceGuys\Zone\Model\ZoneInterface;
 
 /**
  * Resolver for EU VAT.
@@ -39,14 +40,22 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
     {
         $taxTypes = $this->getTaxTypes();
         $customerAddress = $context->getCustomerAddress();
-        $customerCountry = $customerAddress->getCountryCode();
         $customerTaxTypes = $this->filterByAddress($taxTypes, $customerAddress);
         if (empty($customerTaxTypes)) {
             // The customer is not in the EU.
             return [];
         }
         $storeAddress = $context->getStoreAddress();
-        $storeCountry = $storeAddress->getCountryCode();
+
+        /** @var ZoneInterface $euZone */
+        $euZone = $this->taxTypeRepository->getZoneRepository()->get('eu_vat');
+        $storeZone = null;
+        foreach ($euZone->getMembers() as $euZoneMember) {
+            if ($euZoneMember->match($storeAddress)) {
+                $storeZone = $euZoneMember;
+            }
+        }
+
         $storeTaxTypes = $this->filterByAddress($taxTypes, $storeAddress);
         $storeRegistrationTaxTypes = $this->filterByStoreRegistration($taxTypes, $context);
         if (empty($storeTaxTypes) && empty($storeRegistrationTaxTypes)) {
@@ -68,7 +77,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
             if ($isDigital && !$customerTaxNumber) {
                 $resolvedTaxTypes = $customerTaxTypes;
             }
-        } elseif ($customerTaxNumber && $customerCountry != $storeCountry) {
+        } elseif ($customerTaxNumber && !$storeZone->match($customerAddress)) {
             // Intra-community supply (B2B).
             $icTaxType = $this->taxTypeRepository->get('eu_ic_vat');
             $resolvedTaxTypes = [$icTaxType];
