@@ -4,6 +4,7 @@ namespace CommerceGuys\Tax\Resolver\TaxType;
 
 use CommerceGuys\Tax\TaxableInterface;
 use CommerceGuys\Tax\Resolver\Context;
+use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Resolver\TaxType\TaxTypeResolverInterface;
 
 /**

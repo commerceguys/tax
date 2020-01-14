@@ -2,6 +2,8 @@
 
 namespace CommerceGuys\Tax\Repository;
 
+use CommerceGuys\Tax\Model\TaxTypeInterface;
+
 /**
  * Tax type repository interface.
  */
