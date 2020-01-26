@@ -7,7 +7,7 @@
     "rates": [
         {
             "id": "ca_nb_hst_standard",
-            "name": "hst",
+            "name": "Standard",
             "default": true,
             "amounts": [
                 {
