@@ -45,7 +45,7 @@ class Context
     /**
      * The calculation date.
      *
-     * @var DateTime
+     * @var \DateTime
      */
     protected $date;
 
@@ -162,7 +162,7 @@ class Context
     /**
      * Gets the calculation date.
      *
-     * @return DateTime The calculation date.
+     * @return \DateTime The calculation date.
      */
     public function getDate()
     {

@@ -2,6 +2,9 @@
 
 namespace CommerceGuys\Tax\Resolver;
 
+use CommerceGuys\Tax\Model\TaxRateAmountInterface;
+use CommerceGuys\Tax\Model\TaxRateInterface;
+use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\TaxableInterface;
 
 /**
