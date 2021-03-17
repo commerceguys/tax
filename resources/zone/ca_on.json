@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Ontario (HST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_on",
+            "name": "Canada - Ontario",
+            "country_code": "CA",
+            "administrative_area": "ON"
+        }
+    ]
+}
