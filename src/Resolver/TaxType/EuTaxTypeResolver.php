@@ -16,7 +16,7 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
     /**
      * The date on which the one stop shop rules are in effect
      */
-    const ONE_STOP_SHOP_INTRODUCTION = '2021-07-01T00:00:00+0100';
+    const ONE_STOP_SHOP_INTRODUCTION = '2020-07-01T00:00:00+0100';
 
     use StoreRegistrationCheckerTrait;
 
