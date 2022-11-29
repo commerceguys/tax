@@ -1,0 +1,12 @@
+{
+    "name": "Singapore (GST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "sg_gst_0",
+            "name": "Singapore",
+            "country_code": "SG"
+        }
+    ]
+}
