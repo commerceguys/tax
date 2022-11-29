@@ -5,18 +5,19 @@ namespace CommerceGuys\Tax\Tests\Model;
 use CommerceGuys\Tax\Enum\GenericLabel;
 use CommerceGuys\Tax\Model\TaxType;
 use Doctrine\Common\Collections\ArrayCollection;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Model\TaxType
  */
-class TaxTypeTest extends \PHPUnit_Framework_TestCase
+class TaxTypeTest extends TestCase
 {
     /**
      * @var TaxType
      */
     protected $taxType;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->taxType = new TaxType();
     }

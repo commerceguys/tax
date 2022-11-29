@@ -4,11 +4,12 @@ namespace CommerceGuys\Tax\Tests\Resolver\TaxType;
 
 use CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolver;
 use CommerceGuys\Tax\Resolver\TaxType\TaxTypeResolverInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolver
  */
-class ChainTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
+class ChainTaxTypeResolverTest extends TestCase
 {
     /**
      * @var ChainTaxTypeResolver
@@ -18,7 +19,7 @@ class ChainTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->chainResolver = new ChainTaxTypeResolver();
     }
