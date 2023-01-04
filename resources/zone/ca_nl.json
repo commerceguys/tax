@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Newfoundland and Labrador (HST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_nl",
+            "name": "Canada - Newfoundland and Labrador",
+            "country_code": "CA",
+            "administrative_area": "NL"
+        }
+    ]
+}
