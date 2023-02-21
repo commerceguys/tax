@@ -6,11 +6,12 @@ use CommerceGuys\Addressing\AddressInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver
  */
-class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
+class EuTaxTypeResolverTest extends TestCase
 {
     /**
      * Known tax types.
@@ -147,7 +148,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      */
-    public function testConstructor()
+    protected function createResolver()
     {
         $root = vfsStream::setup('resources');
         $directory = vfsStream::newDirectory('tax_type')->at($root);
@@ -163,7 +164,6 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
         $taxTypeRepository = new TaxTypeRepository('vfs://resources/');
         $resolver = new EuTaxTypeResolver($taxTypeRepository);
-        $this->assertSame($taxTypeRepository, $this->getObjectAttribute($resolver, 'taxTypeRepository'));
 
         return $resolver;
     }
@@ -178,11 +178,12 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount
-     * @depends testConstructor
      * @dataProvider dataProvider
      */
-    public function testResolver($taxable, $context, $expected, $resolver)
+    public function testResolver($taxable, $context, $expected)
     {
+        $resolver = $this->createResolver();
+
         $results = $resolver->resolve($taxable, $context);
         if (empty($expected) || $expected == EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE) {
             $this->assertEquals($expected, $results);
@@ -205,23 +206,38 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
         $digitalTaxable = $mockTaxableBuilder->getMock();
 
-        $mockAddressBuilder = $this->getMockBuilder('CommerceGuys\Addressing\Address');
-        $serbianAddress = $mockAddressBuilder->getMock();
-        $serbianAddress->expects($this->any())
+        $serbianAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $serbianAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('RS'));
-        $frenchAddress = $mockAddressBuilder->getMock();
-        $frenchAddress->expects($this->any())
+            ->willReturn('RS');
+        $serbianAddress
+            ->method('getPostalCode')
+            ->willReturn('')
+            ;
+        $frenchAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $frenchAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('FR'));
-        $germanAddress = $mockAddressBuilder->getMock();
-        $germanAddress->expects($this->any())
+            ->willReturn('FR');
+        $frenchAddress
+            ->method('getPostalCode')
+            ->willreturn('')
+            ;
+        $germanAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $germanAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('DE'));
-        $usAddress = $mockAddressBuilder->getMock();
-        $usAddress->expects($this->any())
+            ->willReturn('DE');
+        $germanAddress
+            ->method('getPostalCode')
+            ->willreturn('')
+            ;
+        $usAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $usAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('US'));
+            ->willReturn('US');
+        $usAddress
+            ->method('getPostalCode')
+            ->willreturn('')
+            ;
 
         $date1 = new \DateTime('2014-02-24');
         $date2 = new \DateTime('2015-02-24');

@@ -3,16 +3,17 @@
 namespace CommerceGuys\Tax\Tests\Resolver;
 
 use CommerceGuys\Tax\Resolver\TaxRate\DefaultTaxRateResolver;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxRate\DefaultTaxRateResolver
  */
-class DefaultTaxRateResolverTest extends \PHPUnit_Framework_TestCase
+class DefaultTaxRateResolverTest extends TestCase
 {
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->resolver = new DefaultTaxRateResolver();
     }

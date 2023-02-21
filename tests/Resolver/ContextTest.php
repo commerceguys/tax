@@ -3,11 +3,12 @@
 namespace CommerceGuys\Tax\Tests\Resolver;
 
 use CommerceGuys\Tax\Resolver\Context;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\Context
  */
-class ContextTest extends \PHPUnit_Framework_TestCase
+class ContextTest extends TestCase
 {
     /**
      * @var TaxType
@@ -17,7 +18,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         $address = $this
             ->getMockBuilder('CommerceGuys\Addressing\Address')
