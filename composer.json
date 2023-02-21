@@ -29,10 +29,5 @@
         {
             "name": "David Kitchen"
         }
-    ],
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.x-dev"
-        }
-    }
+    ]
 }
