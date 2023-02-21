@@ -3,18 +3,19 @@
 namespace CommerceGuys\Tax\Tests\Model;
 
 use CommerceGuys\Tax\Model\TaxRateAmount;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Model\TaxRateAmount
  */
-class TaxRateAmountTest extends \PHPUnit_Framework_TestCase
+class TaxRateAmountTest extends TestCase
 {
     /**
      * @var TaxRateAmount
      */
     protected $amount;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->amount = new TaxRateAmount();
     }

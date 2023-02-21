@@ -1,0 +1,20 @@
+name: CI PHP 7.2
+
+on: [push]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: php-actions/composer@v6
+        with:
+          php_version: "7.2"
+
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
+        with:
+          version: "8"
+          php_version: "7.2"

@@ -6,11 +6,12 @@ use CommerceGuys\Addressing\AddressInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use CommerceGuys\Tax\Resolver\TaxType\DefaultTaxTypeResolver;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxType\DefaultTaxTypeResolver
  */
-class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
+class DefaultTaxTypeResolverTest extends TestCase
 {
     /**
      * Known tax types.
@@ -91,7 +92,7 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      */
-    public function testConstructor()
+    protected function createResolver()
     {
         $root = vfsStream::setup('resources');
         $directory = vfsStream::newDirectory('tax_type')->at($root);
@@ -107,7 +108,6 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
         $taxTypeRepository = new TaxTypeRepository('vfs://resources/');
         $resolver = new DefaultTaxTypeResolver($taxTypeRepository);
-        $this->assertSame($taxTypeRepository, $this->getObjectAttribute($resolver, 'taxTypeRepository'));
 
         return $resolver;
     }
@@ -121,25 +121,31 @@ class DefaultTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount
-     * @depends testConstructor
      */
-    public function testResolver($resolver)
+    public function testResolver()
     {
+        $resolver = $this->createResolver();
+
         $taxable = $this
             ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
             ->getMock();
-        $serbianAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Address')
-            ->getMock();
-        $serbianAddress->expects($this->any())
+        $serbianAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $serbianAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('RS'));
-        $montenegrinAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Address')
-            ->getMock();
-        $montenegrinAddress->expects($this->any())
+            ->willReturn('RS')
+            ;
+        $serbianAddress
+            ->method('getPostalCode')
+            ->willReturn('');
+            ;
+        $montenegrinAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $montenegrinAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('ME'));
+            ->willReturn('ME')
+            ;
+        $montenegrinAddress
+            ->method('getPostalCode')
+            ->willReturn('');
 
         // Serbian store, Serbian customer.
         $context = $this->getContext($serbianAddress, $serbianAddress);

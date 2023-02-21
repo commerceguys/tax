@@ -3,28 +3,13 @@
 namespace CommerceGuys\Tax\Tests\Resolver;
 
 use CommerceGuys\Tax\Resolver\TaxResolver;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxResolver
  */
-class TaxResolverTest extends \PHPUnit_Framework_TestCase
+class TaxResolverTest extends TestCase
 {
-    /**
-     * @covers ::__construct
-     */
-    public function testConstructor()
-    {
-        $chainTaxTypeResolver = $this
-            ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxType\ChainTaxTypeResolver')
-            ->getMock();
-        $chainTaxRateResolver = $this
-            ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxRate\ChainTaxRateResolver')
-            ->getMock();
-        $resolver = new TaxResolver($chainTaxTypeResolver, $chainTaxRateResolver);
-        $this->assertSame($chainTaxTypeResolver, $this->getObjectAttribute($resolver, 'chainTaxTypeResolver'));
-        $this->assertSame($chainTaxRateResolver, $this->getObjectAttribute($resolver, 'chainTaxRateResolver'));
-    }
-
     /**
      * @covers ::resolveAmounts
      * @covers ::resolveRates
