@@ -18,7 +18,13 @@
                 {
                     "id": "sg_gst_standard_2023",
                     "amount": 0.08,
-                    "start_date": "2023-01-01"
+                    "start_date": "2023-01-01",
+                    "end_date": "2023-12-31"
+                },
+                {
+                    "id": "sg_gst_standard_2024",
+                    "amount": 0.09,
+                    "start_date": "2024-01-01"
                 }
             ]
         }
