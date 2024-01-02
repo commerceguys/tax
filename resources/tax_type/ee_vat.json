@@ -19,7 +19,8 @@
                 {
                     "id": "ee_vat_standard_2009",
                     "amount": 0.2,
-                    "start_date": "2009-07-01"
+                    "start_date": "2009-07-01",
+                    "end_date": "2023-12-31"
                 },
                 {
                     "id": "ee_vat_standard_2024",
