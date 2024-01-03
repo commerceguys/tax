@@ -5,14 +5,16 @@
         {
             "type": "country",
             "id": "gb_vat_0",
-            "name": "United Kingdom",
-            "country_code": "GB"
+            "name": "United Kingdom (ex. Channel Islands & Isle Of Man)",
+            "country_code": "GB",
+            "excluded_postal_codes": "\/(^IM[0-9]{1})|(^JE[0-9]{1})|(^GY[0-9]{1,2})\/"
         },
         {
             "type": "country",
             "id": "gb_vat_1",
             "name": "Isle of Man",
-            "country_code": "IM"
+            "country_code": "IM",
+            "included_postal_codes": "\/^IM[0-9]{1}\/"
         }
     ]
 }
