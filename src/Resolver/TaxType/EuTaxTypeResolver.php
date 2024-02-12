@@ -13,6 +13,11 @@ use CommerceGuys\Tax\Resolver\Context;
  */
 class EuTaxTypeResolver implements TaxTypeResolverInterface
 {
+    /**
+     * The date on which the one stop shop rules are in effect
+     */
+    const ONE_STOP_SHOP_INTRODUCTION = '2020-07-01T00:00:00+0100';
+
     use StoreRegistrationCheckerTrait;
 
     /**
@@ -60,19 +65,32 @@ class EuTaxTypeResolver implements TaxTypeResolverInterface
         // to Germany needs to have German VAT applied.
         $isDigital = $context->getDate()->format('Y') >= '2015' && !$taxable->isPhysical();
 
+        $oneStopShop = $context->getDate()->getTimeStamp() > strtotime(static::ONE_STOP_SHOP_INTRODUCTION);
+
         $resolvedTaxTypes = [];
-        if (empty($storeTaxTypes) && !empty($storeRegistrationTaxTypes)) {
+        if (
+            !$oneStopShop
+            && empty($storeTaxTypes)
+            && !empty($storeRegistrationTaxTypes)
+        ) {
             // The store is not in the EU but is registered to collect VAT.
             // This VAT is only charged on B2C digital services.
             $resolvedTaxTypes = self::NO_APPLICABLE_TAX_TYPE;
             if ($isDigital && !$customerTaxNumber) {
                 $resolvedTaxTypes = $customerTaxTypes;
             }
-        } elseif ($customerTaxNumber && $customerCountry != $storeCountry) {
+        } elseif (
+            $customerTaxNumber
+            && $customerCountry != $storeCountry
+            && !empty($storeTaxTypes) // store is in the EU
+        ) {
             // Intra-community supply (B2B).
             $icTaxType = $this->taxTypeRepository->get('eu_ic_vat');
             $resolvedTaxTypes = [$icTaxType];
-        } elseif ($isDigital) {
+        } elseif (
+            $isDigital
+            || $oneStopShop
+        ) {
             $resolvedTaxTypes = $customerTaxTypes;
         } else {
             // Physical products use the origin tax types, unless the store is

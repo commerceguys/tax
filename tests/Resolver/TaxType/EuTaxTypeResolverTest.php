@@ -241,6 +241,7 @@ class EuTaxTypeResolverTest extends TestCase
 
         $date1 = new \DateTime('2014-02-24');
         $date2 = new \DateTime('2015-02-24');
+        $date3 = new \DateTime('2021-08-24');
         $notApplicable = EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE;
 
         return [
@@ -249,9 +250,9 @@ class EuTaxTypeResolverTest extends TestCase
             // French customer, French store, VAT number provided.
             [$physicalTaxable, $this->getContext($frenchAddress, $frenchAddress, '123'), 'fr_vat'],
             // German customer, French store, physical product.
-            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress), 'fr_vat'],
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date2), 'fr_vat'],
             // German customer, French store registered for German VAT, physical product.
-            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', ['DE']), 'de_vat'],
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', ['DE'], $date2), 'de_vat'],
             // German customer, French store, digital product before Jan 1st 2015.
             [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date1), 'fr_vat'],
             // German customer, French store, digital product.
@@ -266,6 +267,12 @@ class EuTaxTypeResolverTest extends TestCase
             [$physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), []],
             // French customer, Serbian store, physical product.
             [$physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), []],
+            // German customer, French store, digital product after July 1st 2021.
+            [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date3), 'de_vat'],
+            // German customer, French store, physical product after July 1st 2021.
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date3), 'de_vat'],
+            // German customer US store registered in FR, physical product after July 1st 2021
+            [$physicalTaxable, $this->getContext($germanAddress, $usAddress, '', ['FR'], $date3), 'de_vat'],
         ];
     }
 
