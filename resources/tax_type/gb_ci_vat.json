@@ -1,0 +1,21 @@
+{
+    "name": "British Channel Islands VAT",
+    "generic_label": "vat",
+    "display_inclusive": true,
+    "zone": "gb_ci_vat",
+    "tag": "EU",
+    "rates": [
+        {
+            "id": "gb_ci_vat_zero",
+            "name": "Zero",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "gb_ci_vat_zero",
+                    "amount": 0,
+                    "start_date": "1973-01-01"
+                }
+            ]
+        }
+    ]
+}
