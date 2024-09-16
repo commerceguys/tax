@@ -4,18 +4,19 @@ namespace CommerceGuys\Tax\Tests\Model;
 
 use CommerceGuys\Tax\Model\TaxRate;
 use Doctrine\Common\Collections\ArrayCollection;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Model\TaxRate
  */
-class TaxRateTest extends \PHPUnit_Framework_TestCase
+class TaxRateTest extends TestCase
 {
     /**
      * @var TaxRate
      */
     protected $taxRate;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->taxRate = new TaxRate();
     }

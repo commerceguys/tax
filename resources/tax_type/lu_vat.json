@@ -19,7 +19,19 @@
                 {
                     "id": "lu_vat_standard_2015",
                     "amount": 0.17,
-                    "start_date": "2015-01-01"
+                    "start_date": "2015-01-01",
+                    "end_date": "2022-12-31"
+                },
+                {
+                    "id": "lu_vat_standard_2023",
+                    "amount": 0.16,
+                    "start_date": "2023-01-01",
+                    "end_date": "2023-12-31"
+                },
+                {
+                    "id": "lu_vat_standard_2024",
+                    "amount": 0.17,
+                    "start_date": "2024-01-01"
                 }
             ]
         },
@@ -36,7 +48,19 @@
                 {
                     "id": "lu_vat_intermediate_2015",
                     "amount": 0.14,
-                    "start_date": "2015-01-01"
+                    "start_date": "2015-01-01",
+                    "end_date": "2022-12-31"
+                },
+                {
+                    "id": "lu_vat_intermediate_2023",
+                    "amount": 0.13,
+                    "start_date": "2023-01-01",
+                    "end_date": "2023-12-31"
+                },
+                {
+                    "id": "lu_vat_intermediate_2024",
+                    "amount": 0.14,
+                    "start_date": "2024-01-01"
                 }
             ]
         },
@@ -53,7 +77,19 @@
                 {
                     "id": "lu_vat_reduced_2015",
                     "amount": 0.08,
-                    "start_date": "2015-01-01"
+                    "start_date": "2015-01-01",
+                    "end_date": "2022-12-31"
+                },
+                {
+                    "id": "lu_vat_reduced_2023",
+                    "amount": 0.07,
+                    "start_date": "2023-01-01",
+                    "end_date": "2023-12-31"
+                },
+                {
+                    "id": "lu_vat_reduced_2024",
+                    "amount": 0.08,
+                    "start_date": "2024-01-01"
                 }
             ]
         },

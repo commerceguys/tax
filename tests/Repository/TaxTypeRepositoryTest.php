@@ -5,11 +5,12 @@ namespace CommerceGuys\Tax\Tests\Repository;
 use CommerceGuys\Tax\Enum\GenericLabel;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Repository\TaxTypeRepository
  */
-class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
+class TaxTypeRepositoryTest extends TestCase
 {
     /**
      * Known tax types.
@@ -78,7 +79,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         // Mock the existence of JSON definitions on the filesystem.
         $root = vfsStream::setup('resources');
@@ -90,20 +91,6 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $zoneRepository = $this->getZoneRepository();
         $this->taxTypeRepository = new TaxTypeRepository('vfs://resources/', $zoneRepository);
-    }
-
-    /**
-     * @covers ::__construct
-     */
-    public function testConstructor()
-    {
-        // Note: other tests use $this->dataProvider instead of depending on
-        // testConstructor because of a phpunit bug with dependencies and mocks:
-        // https://github.com/sebastianbergmann/phpunit-mock-objects/issues/127
-        $zoneRepository = $this->getZoneRepository();
-        $taxTypeRepository = new TaxTypeRepository('vfs://resources/', $zoneRepository);
-        $setZoneRepository = $this->getObjectAttribute($taxTypeRepository, 'zoneRepository');
-        $this->assertSame($setZoneRepository, $zoneRepository);
     }
 
     /**
@@ -158,10 +145,10 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
      * @covers ::loadDefinition
      *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository::__construct
-     * @expectedException \CommerceGuys\Tax\Exception\UnknownTaxTypeException
      */
     public function testGetNonExistingTaxType()
     {
+        $this->expectException('\CommerceGuys\Tax\Exception\UnknownTaxTypeException');
         $this->taxTypeRepository->get('es_vat');
     }
 
@@ -195,7 +182,7 @@ class TaxTypeRepositoryTest extends \PHPUnit_Framework_TestCase
      */
     protected function getZoneRepository()
     {
-        $zone = $this->getMock('CommerceGuys\Zone\Model\Zone');
+        $zone = $this->createMock('CommerceGuys\Zone\Model\Zone');
         $zoneRepository = $this
             ->getMockBuilder('CommerceGuys\Zone\Repository\ZoneRepository')
             ->disableOriginalConstructor()

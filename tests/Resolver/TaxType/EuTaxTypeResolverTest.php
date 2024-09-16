@@ -6,11 +6,12 @@ use CommerceGuys\Addressing\AddressInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver
  */
-class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
+class EuTaxTypeResolverTest extends TestCase
 {
     /**
      * Known tax types.
@@ -147,7 +148,7 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      */
-    public function testConstructor()
+    protected function createResolver()
     {
         $root = vfsStream::setup('resources');
         $directory = vfsStream::newDirectory('tax_type')->at($root);
@@ -163,7 +164,6 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
         $taxTypeRepository = new TaxTypeRepository('vfs://resources/');
         $resolver = new EuTaxTypeResolver($taxTypeRepository);
-        $this->assertSame($taxTypeRepository, $this->getObjectAttribute($resolver, 'taxTypeRepository'));
 
         return $resolver;
     }
@@ -178,11 +178,12 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount
-     * @depends testConstructor
      * @dataProvider dataProvider
      */
-    public function testResolver($taxable, $context, $expected, $resolver)
+    public function testResolver($taxable, $context, $expected)
     {
+        $resolver = $this->createResolver();
+
         $results = $resolver->resolve($taxable, $context);
         if (empty($expected) || $expected == EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE) {
             $this->assertEquals($expected, $results);
@@ -205,26 +206,42 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
         $digitalTaxable = $mockTaxableBuilder->getMock();
 
-        $mockAddressBuilder = $this->getMockBuilder('CommerceGuys\Addressing\Address');
-        $serbianAddress = $mockAddressBuilder->getMock();
-        $serbianAddress->expects($this->any())
+        $serbianAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $serbianAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('RS'));
-        $frenchAddress = $mockAddressBuilder->getMock();
-        $frenchAddress->expects($this->any())
+            ->willReturn('RS');
+        $serbianAddress
+            ->method('getPostalCode')
+            ->willReturn('')
+            ;
+        $frenchAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $frenchAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('FR'));
-        $germanAddress = $mockAddressBuilder->getMock();
-        $germanAddress->expects($this->any())
+            ->willReturn('FR');
+        $frenchAddress
+            ->method('getPostalCode')
+            ->willreturn('')
+            ;
+        $germanAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $germanAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('DE'));
-        $usAddress = $mockAddressBuilder->getMock();
-        $usAddress->expects($this->any())
+            ->willReturn('DE');
+        $germanAddress
+            ->method('getPostalCode')
+            ->willreturn('')
+            ;
+        $usAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $usAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('US'));
+            ->willReturn('US');
+        $usAddress
+            ->method('getPostalCode')
+            ->willreturn('')
+            ;
 
         $date1 = new \DateTime('2014-02-24');
         $date2 = new \DateTime('2015-02-24');
+        $date3 = new \DateTime('2021-08-24');
         $notApplicable = EuTaxTypeResolver::NO_APPLICABLE_TAX_TYPE;
 
         return [
@@ -233,9 +250,9 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             // French customer, French store, VAT number provided.
             [$physicalTaxable, $this->getContext($frenchAddress, $frenchAddress, '123'), 'fr_vat'],
             // German customer, French store, physical product.
-            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress), 'fr_vat'],
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date2), 'fr_vat'],
             // German customer, French store registered for German VAT, physical product.
-            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', ['DE']), 'de_vat'],
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', ['DE'], $date2), 'de_vat'],
             // German customer, French store, digital product before Jan 1st 2015.
             [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date1), 'fr_vat'],
             // German customer, French store, digital product.
@@ -250,6 +267,12 @@ class EuTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
             [$physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), []],
             // French customer, Serbian store, physical product.
             [$physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), []],
+            // German customer, French store, digital product after July 1st 2021.
+            [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date3), 'de_vat'],
+            // German customer, French store, physical product after July 1st 2021.
+            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date3), 'de_vat'],
+            // German customer US store registered in FR, physical product after July 1st 2021
+            [$physicalTaxable, $this->getContext($germanAddress, $usAddress, '', ['FR'], $date3), 'de_vat'],
         ];
     }
 

@@ -39,6 +39,17 @@
                     "start_date": "2013-07-01"
                 }
             ]
+        },
+        {
+            "id": "si_vat_super_reduced",
+            "name": "Super Reduced",
+            "amounts": [
+                {
+                    "id": "si_vat_super_reduced_2020",
+                    "amount": 0.05,
+                    "start_date": "2020-01-01"
+                }
+            ]
         }
     ]
 }

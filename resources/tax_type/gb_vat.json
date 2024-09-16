@@ -3,7 +3,6 @@
     "generic_label": "vat",
     "display_inclusive": true,
     "zone": "gb_vat",
-    "tag": "EU",
     "rates": [
         {
             "id": "gb_vat_standard",

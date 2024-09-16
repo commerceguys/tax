@@ -6,11 +6,12 @@ use CommerceGuys\Addressing\AddressInterface;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use CommerceGuys\Tax\Resolver\TaxType\CanadaTaxTypeResolver;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxType\CanadaTaxTypeResolver
  */
-class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
+class CanadaTaxTypeResolverTest extends TestCase
 {
     /**
      * Known tax types.
@@ -95,7 +96,7 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      *
      * @uses \CommerceGuys\Tax\Repository\TaxTypeRepository
      */
-    public function testConstructor()
+    protected function createResolver()
     {
         $root = vfsStream::setup('resources');
         $directory = vfsStream::newDirectory('tax_type')->at($root);
@@ -111,7 +112,6 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
 
         $taxTypeRepository = new TaxTypeRepository('vfs://resources/');
         $resolver = new CanadaTaxTypeResolver($taxTypeRepository);
-        $this->assertSame($taxTypeRepository, $this->getObjectAttribute($resolver, 'taxTypeRepository'));
 
         return $resolver;
     }
@@ -125,37 +125,47 @@ class CanadaTaxTypeResolverTest extends \PHPUnit_Framework_TestCase
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount
-     * @depends testConstructor
      */
-    public function testResolver($resolver)
+    public function testResolver()
     {
+        $resolver = $this->createResolver();
+
         $taxable = $this
             ->getMockBuilder('CommerceGuys\Tax\TaxableInterface')
             ->getMock();
-        $usAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Address')
-            ->getMock();
-        $usAddress->expects($this->any())
+        $usAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $usAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('US'));
-        $ontarioAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Address')
-            ->getMock();
-        $ontarioAddress->expects($this->any())
+            ->willReturn('US')
+            ;
+        $usAddress
+            ->method('getPostalCode')
+            ->willReturn('')
+            ;
+        $ontarioAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $ontarioAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('CA'));
-        $ontarioAddress->expects($this->any())
+            ->willReturn('CA')
+            ;
+        $ontarioAddress
+            ->method('getPostalCode')
+            ->willReturn('')
+            ;
+        $ontarioAddress
             ->method('getAdministrativeArea')
-            ->will($this->returnValue('ON'));
-        $novaScotiaAddress = $this
-            ->getMockBuilder('CommerceGuys\Addressing\Address')
-            ->getMock();
-        $novaScotiaAddress->expects($this->any())
+            ->willReturn('ON');
+        $novaScotiaAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $novaScotiaAddress
             ->method('getCountryCode')
-            ->will($this->returnValue('CA'));
-        $novaScotiaAddress->expects($this->any())
+            ->willReturn('CA')
+            ;
+        $novaScotiaAddress
+            ->method('getPostalCode')
+            ->willReturn('')
+            ;
+        $novaScotiaAddress
             ->method('getAdministrativeArea')
-            ->will($this->returnValue('NS'));
+            ->willReturn('NS');
 
         // Nova Scotia store, Ontario customer.
         $context = $this->getContext($ontarioAddress, $novaScotiaAddress);

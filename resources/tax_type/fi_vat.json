@@ -25,7 +25,13 @@
                 {
                     "id": "fi_vat_standard_2013",
                     "amount": 0.24,
-                    "start_date": "2013-01-01"
+                    "start_date": "2013-01-01",
+                    "end_date": "2024-08-31"
+                },
+                {
+                    "id": "fi_vat_standard_2024",
+                    "amount": 0.255,
+                    "start_date": "2024-09-01"
                 }
             ]
         },
