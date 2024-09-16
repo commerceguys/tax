@@ -1,0 +1,20 @@
+{
+    "name": "Canada - Nunavut",
+    "generic_label": "GST",
+    "zone": "ca_nu",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_nu_gst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_nu_gst_standard_2013",
+                    "amount": 0.05,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}

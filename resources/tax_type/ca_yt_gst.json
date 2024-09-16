@@ -1,0 +1,20 @@
+{
+    "name": "Canada - Yukon",
+    "generic_label": "GST",
+    "zone": "ca_yt",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_yt_gst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_yt_gst_standard_2013",
+                    "amount": 0.05,
+                    "start_date": "2013-04-01"
+                }
+            ]
+        }
+    ]
+}
