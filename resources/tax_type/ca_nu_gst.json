@@ -1,6 +1,6 @@
 {
     "name": "Canada - Nunavut",
-    "generic_label": "GST",
+    "generic_label": "gst",
     "zone": "ca_nu",
     "tag": "CA",
     "rates": [

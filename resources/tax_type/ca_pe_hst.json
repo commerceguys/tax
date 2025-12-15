@@ -1,6 +1,6 @@
 {
     "name": "Canada - Prince Edward Island",
-    "generic_label": "HST",
+    "generic_label": "hst",
     "zone": "ca_pe",
     "tag": "CA",
     "rates": [

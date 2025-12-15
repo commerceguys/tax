@@ -1,6 +1,6 @@
 {
     "name": "Canada - Newfoundland and Labrador",
-    "generic_label": "HST",
+    "generic_label": "hst",
     "zone": "ca_nl",
     "tag": "CA",
     "rates": [

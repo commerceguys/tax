@@ -1,6 +1,6 @@
 {
     "name": "Canada - Yukon",
-    "generic_label": "GST",
+    "generic_label": "gst",
     "zone": "ca_yt",
     "tag": "CA",
     "rates": [

@@ -1,6 +1,6 @@
 {
     "name": "Canada - Ontario",
-    "generic_label": "HST",
+    "generic_label": "hst",
     "zone": "ca_on",
     "tag": "CA",
     "rates": [

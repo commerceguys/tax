@@ -1,6 +1,6 @@
 {
     "name": "Canada - British Columbia",
-    "generic_label": "GST",
+    "generic_label": "gst",
     "zone": "ca_bc",
     "tag": "CA",
     "rates": [
