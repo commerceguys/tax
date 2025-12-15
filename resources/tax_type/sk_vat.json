@@ -19,7 +19,13 @@
                 {
                     "id": "sk_vat_standard_2011",
                     "amount": 0.2,
-                    "start_date": "2011-01-01"
+                    "start_date": "2011-01-01",
+                    "end_date": "2024-12-31"
+                },
+                {
+                    "id": "sk_vat_standard_2025",
+                    "amount": 0.23,
+                    "start_date": "2025-01-01"
                 }
             ]
         },
