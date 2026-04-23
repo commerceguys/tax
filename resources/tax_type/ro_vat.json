@@ -31,7 +31,13 @@
                 {
                     "id": "ro_vat_standard_2017",
                     "amount": 0.19,
-                    "start_date": "2017-01-01"
+                    "start_date": "2017-01-01",
+                    "end_date": "2025-07-31"
+                },
+                {
+                    "id": "ro_vat_standard_2025",
+                    "amount": 0.21,
+                    "start_date": "2025-08-01"
                 }
             ]
         },
@@ -42,7 +48,8 @@
                 {
                     "id": "ro_vat_intermediate_2008",
                     "amount": 0.09,
-                    "start_date": "2008-12-01"
+                    "start_date": "2008-12-01",
+                    "end_date": "2025-07-31"
                 }
             ]
         },
@@ -53,7 +60,20 @@
                 {
                     "id": "ro_vat_reduced_2008",
                     "amount": 0.05,
-                    "start_date": "2008-12-01"
+                    "start_date": "2008-12-01",
+                    "end_date": "2025-07-31"
+                }
+            ]
+        },
+        {
+            "id": "ro_vat_reduced_2025",
+            "name": "Reduced",
+            "default": false,
+            "amounts": [
+                {
+                    "id": "ro_vat_reduced_2025_amount",
+                    "amount": 0.11,
+                    "start_date": "2025-08-01"
                 }
             ]
         }
