@@ -31,7 +31,13 @@
                 {
                     "id": "ro_vat_standard_2017",
                     "amount": 0.19,
-                    "start_date": "2017-01-01"
+                    "start_date": "2017-01-01",
+                    "end_date": "2025-07-24"
+                },
+                {
+                    "id": "ro_vat_standard_2025",
+                    "amount": 0.21,
+                    "start_date": "2025-07-25"
                 }
             ]
         },
