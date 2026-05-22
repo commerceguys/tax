@@ -68,7 +68,6 @@
         {
             "id": "ro_vat_reduced_2025",
             "name": "Reduced",
-            "default": false,
             "amounts": [
                 {
                     "id": "ro_vat_reduced_2025_amount",
