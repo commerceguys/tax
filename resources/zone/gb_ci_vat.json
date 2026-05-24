@@ -1,0 +1,34 @@
+{
+    "name": "United Kingdom - Channel Islands (VAT)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "gb_ci_vat_0",
+            "name": "Jersey",
+            "country_code": "JE",
+            "included_postal_codes": "\/(^$)|(^JE[0-9]{1})\/"
+        },
+        {
+            "type": "country",
+            "id": "gb_ci_vat_1",
+            "name": "Jersey",
+            "country_code": "GB",
+            "included_postal_codes": "\/(^JE[0-9]{1})\/"
+        },
+        {
+            "type": "country",
+            "id": "gb_ci_vat_2",
+            "name": "Guernsey",
+            "country_code": "GG",
+            "included_postal_codes": "\/(^$)|(^GY[0-9]{1,2})\/"
+        },
+        {
+            "type": "country",
+            "id": "gb_ci_vat_3",
+            "name": "Guernsey",
+            "country_code": "GB",
+            "included_postal_codes": "\/(^GY[0-9]{1,2})\/"
+        }
+    ]
+}
