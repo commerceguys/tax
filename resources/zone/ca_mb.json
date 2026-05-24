@@ -1,0 +1,13 @@
+{
+    "name": "Canada - Manitoba (GST + RST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_mb",
+            "name": "Canada - Manitoba",
+            "country_code": "CA",
+            "administrative_area": "MB"
+        }
+    ]
+}
