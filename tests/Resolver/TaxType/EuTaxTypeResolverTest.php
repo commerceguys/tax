@@ -287,7 +287,7 @@ class EuTaxTypeResolverTest extends TestCase
      *
      * @return \CommerceGuys\Tax\Resolver\Context
      */
-    protected function getContext($customerAddress, $storeAddress, $customerTaxNumber = '', $storeRegistrations = [], $date = null)
+    protected function getContext($customerAddress, $storeAddress, $customerTaxNumber = '', $storeRegistrations = [], \DateTime|null $date = null)
     {
         $context = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Context')

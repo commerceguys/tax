@@ -3,6 +3,7 @@
 namespace CommerceGuys\Tax\Tests\Resolver;
 
 use CommerceGuys\Tax\Resolver\TaxRate\DefaultTaxRateResolver;
+use CommerceGuys\Tax\Resolver\TaxRate\TaxRateResolverInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -10,6 +11,8 @@ use PHPUnit\Framework\TestCase;
  */
 class DefaultTaxRateResolverTest extends TestCase
 {
+
+    protected TaxRateResolverInterface $resolver;
     /**
      * {@inheritdoc}
      */

@@ -13,7 +13,7 @@ interface TaxRateEntityInterface extends TaxRateInterface
      *
      * @return self
      */
-    public function setType(TaxTypeEntityInterface $type = null);
+    public function setType(TaxTypeEntityInterface|null $type = null);
 
     /**
      * Sets the tax rate id.

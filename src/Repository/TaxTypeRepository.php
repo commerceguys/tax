@@ -48,7 +48,7 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
      * @param string $definitionPath The path to the tax type and zone
      *                               definitions. Defaults to 'resources/'.
      */
-    public function __construct($definitionPath = null, ZoneRepositoryInterface $zoneRepository = null)
+    public function __construct(string|null $definitionPath = null, ZoneRepositoryInterface|null $zoneRepository = null)
     {
         $definitionPath = $definitionPath ?: __DIR__ . '/../../resources/';
         $this->definitionPath = $definitionPath . 'tax_type/';

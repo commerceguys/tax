@@ -76,7 +76,7 @@ class TaxRate implements TaxRateEntityInterface
     /**
      * {@inheritdoc}
      */
-    public function setType(TaxTypeEntityInterface $type = null)
+    public function setType(TaxTypeEntityInterface|null $type = null)
     {
         $this->type = $type;
 
@@ -166,7 +166,7 @@ class TaxRate implements TaxRateEntityInterface
     /**
      * {@inheritdoc}
      */
-    public function getAmount(\DateTime $date = null)
+    public function getAmount(\DateTime|null $date = null)
     {
         if (is_null($date)) {
             // Initialize DateTime to the current date.

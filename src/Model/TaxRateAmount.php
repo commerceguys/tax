@@ -55,7 +55,7 @@ class TaxRateAmount implements TaxRateAmountEntityInterface
     /**
      * {@inheritdoc}
      */
-    public function setRate(TaxRateEntityInterface $rate = null)
+    public function setRate(TaxRateEntityInterface|null $rate = null)
     {
         $this->rate = $rate;
 
