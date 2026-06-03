@@ -49,19 +49,19 @@ class ChainTaxRateResolverTest extends TestCase
             ->getMock();
         $secondResolver->expects($this->any())
             ->method('resolve')
-            ->will($this->returnValue($firstTaxRate));
+            ->willReturn($firstTaxRate);
         $thirdResolver = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxRate\TaxRateResolverInterface')
             ->getMock();
         $thirdResolver->expects($this->any())
             ->method('resolve')
-            ->will($this->returnValue($secondTaxRate));
+            ->willReturn($secondTaxRate);
         $fourthResolver = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxRate\TaxRateResolverInterface')
             ->getMock();
         $fourthResolver->expects($this->any())
             ->method('resolve')
-            ->will($this->returnValue(TaxRateResolverInterface::NO_APPLICABLE_TAX_RATE));
+            ->willReturn(TaxRateResolverInterface::NO_APPLICABLE_TAX_RATE);
 
         $this->chainResolver->addResolver($firstResolver, 10);
         $this->chainResolver->addResolver($secondResolver);

@@ -184,13 +184,13 @@ class DefaultTaxTypeResolverTest extends TestCase
             ->getMock();
         $context->expects($this->any())
             ->method('getCustomerAddress')
-            ->will($this->returnValue($customerAddress));
+            ->willReturn($customerAddress);
         $context->expects($this->any())
             ->method('getStoreAddress')
-            ->will($this->returnValue($storeAddress));
+            ->willReturn($storeAddress);
         $context->expects($this->any())
             ->method('getStoreRegistrations')
-            ->will($this->returnValue($storeRegistrations));
+            ->willReturn($storeRegistrations);
 
         return $context;
     }

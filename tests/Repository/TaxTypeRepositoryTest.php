@@ -190,7 +190,7 @@ class TaxTypeRepositoryTest extends TestCase
         $zoneRepository
             ->expects($this->any())
             ->method('get')
-            ->will($this->returnValue($zone));
+            ->willReturn($zone);
 
         return $zoneRepository;
     }
