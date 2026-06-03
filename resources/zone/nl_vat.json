@@ -1,6 +1,5 @@
 {
     "name": "Netherlands (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

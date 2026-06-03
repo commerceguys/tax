@@ -7,7 +7,6 @@
     "require": {
         "php": ">=7.1",
         "commerceguys/addressing": "^1.0",
-        "commerceguys/zone": "^0.8",
         "doctrine/collections": "^1.0 || ^2.0"
     },
     "require-dev": {

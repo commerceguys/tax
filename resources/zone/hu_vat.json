@@ -1,6 +1,5 @@
 {
     "name": "Hungary (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

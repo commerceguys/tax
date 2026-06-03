@@ -1,6 +1,5 @@
 {
     "name": "Iceland (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

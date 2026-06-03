@@ -1,6 +1,5 @@
 {
     "name": "Estonia (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

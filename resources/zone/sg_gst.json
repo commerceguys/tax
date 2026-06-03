@@ -1,6 +1,5 @@
 {
     "name": "Singapore (GST)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

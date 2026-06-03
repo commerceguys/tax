@@ -1,6 +1,5 @@
 {
     "name": "Luxembourg (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

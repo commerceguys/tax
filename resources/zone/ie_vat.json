@@ -1,6 +1,5 @@
 {
     "name": "Ireland (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

@@ -1,6 +1,5 @@
 {
     "name": "France DOM (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

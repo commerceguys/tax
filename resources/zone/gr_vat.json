@@ -1,6 +1,5 @@
 {
     "name": "Greece (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

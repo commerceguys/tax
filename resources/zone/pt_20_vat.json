@@ -1,6 +1,5 @@
 {
     "name": "Portugal - Azores (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

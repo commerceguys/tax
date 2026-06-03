@@ -1,6 +1,5 @@
 {
     "name": "Lithuania (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

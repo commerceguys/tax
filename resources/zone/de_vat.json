@@ -1,6 +1,5 @@
 {
     "name": "Germany (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

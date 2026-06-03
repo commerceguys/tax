@@ -6,8 +6,6 @@ use CommerceGuys\Tax\Exception\UnknownTaxTypeException;
 use CommerceGuys\Tax\Model\TaxType;
 use CommerceGuys\Tax\Model\TaxRate;
 use CommerceGuys\Tax\Model\TaxRateAmount;
-use CommerceGuys\Zone\Repository\ZoneRepository;
-use CommerceGuys\Zone\Repository\ZoneRepositoryInterface;
 
 /**
  * Manages tax types based on JSON definitions.
@@ -24,7 +22,7 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
     /**
      * The zone repository.
      *
-     * @var ZoneRepositoryInterface
+     * @var ZoneRepository
      */
     protected $zoneRepository;
 
@@ -48,7 +46,7 @@ class TaxTypeRepository implements TaxTypeRepositoryInterface
      * @param string $definitionPath The path to the tax type and zone
      *                               definitions. Defaults to 'resources/'.
      */
-    public function __construct($definitionPath = null, ?ZoneRepositoryInterface $zoneRepository = null)
+    public function __construct($definitionPath = null, ?ZoneRepository $zoneRepository = null)
     {
         $definitionPath = $definitionPath ?: __DIR__ . '/../../resources/';
         $this->definitionPath = $definitionPath . 'tax_type/';

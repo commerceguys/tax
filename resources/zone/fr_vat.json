@@ -1,6 +1,5 @@
 {
     "name": "France (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",
