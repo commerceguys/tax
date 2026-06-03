@@ -10,6 +10,8 @@ use PHPUnit\Framework\TestCase;
  */
 class DefaultTaxRateResolverTest extends TestCase
 {
+    private ?DefaultTaxRateResolver $resolver = null;
+
     /**
      * {@inheritdoc}
      */
