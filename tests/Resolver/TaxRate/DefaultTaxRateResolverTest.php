@@ -10,6 +10,8 @@ use PHPUnit\Framework\TestCase;
  */
 class DefaultTaxRateResolverTest extends TestCase
 {
+    private ?DefaultTaxRateResolver $resolver = null;
+
     /**
      * {@inheritdoc}
      */
@@ -31,13 +33,13 @@ class DefaultTaxRateResolverTest extends TestCase
             ->getMock();
         $reducedRate->expects($this->any())
             ->method('isDefault')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
         $standardRate = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRate')
             ->getMock();
         $standardRate->expects($this->any())
             ->method('isDefault')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         // Confirm that the default tax rate is returned.
         $taxType = $this->getTaxType([$reducedRate, $standardRate]);
@@ -71,7 +73,7 @@ class DefaultTaxRateResolverTest extends TestCase
             ->getMock();
         $taxType->expects($this->any())
             ->method('getRates')
-            ->will($this->returnValue($rates));
+            ->willReturn($rates);
 
         return $taxType;
     }

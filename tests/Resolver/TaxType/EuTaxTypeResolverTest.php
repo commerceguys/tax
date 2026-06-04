@@ -7,6 +7,7 @@ use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver;
 use org\bovigo\vfs\vfsStream;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @coversDefaultClass \CommerceGuys\Tax\Resolver\TaxType\EuTaxTypeResolver
@@ -178,9 +179,9 @@ class EuTaxTypeResolverTest extends TestCase
      * @uses \CommerceGuys\Tax\Model\TaxType
      * @uses \CommerceGuys\Tax\Model\TaxRate
      * @uses \CommerceGuys\Tax\Model\TaxRateAmount
-     * @dataProvider dataProvider
      */
-    public function testResolver($taxable, $context, $expected)
+    #[DataProvider("resolverProvider")]
+    public function testResolver($taxable, $context, $expected): void
     {
         $resolver = $this->createResolver();
 
@@ -197,16 +198,20 @@ class EuTaxTypeResolverTest extends TestCase
     /**
      * Provides data for the resolver test.
      */
-    public function dataProvider()
+    public static function resolverProvider(): array
     {
-        $mockTaxableBuilder = $this->getMockBuilder('CommerceGuys\Tax\TaxableInterface');
+        $self = new self(self::class);
+
+        $mockTaxableBuilder = $self->getMockBuilder('CommerceGuys\Tax\TaxableInterface');
         $physicalTaxable = $mockTaxableBuilder->getMock();
-        $physicalTaxable->expects($this->any())
+
+        $physicalTaxable->expects($self->atLeastOnce())
             ->method('isPhysical')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $digitalTaxable = $mockTaxableBuilder->getMock();
 
-        $serbianAddress = $this->createStub('CommerceGuys\Addressing\Address');
+
+        $serbianAddress = $self->createStub('CommerceGuys\Addressing\Address');
         $serbianAddress
             ->method('getCountryCode')
             ->willReturn('RS');
@@ -214,29 +219,30 @@ class EuTaxTypeResolverTest extends TestCase
             ->method('getPostalCode')
             ->willReturn('')
             ;
-        $frenchAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $frenchAddress = $self->createStub('CommerceGuys\Addressing\Address');
         $frenchAddress
             ->method('getCountryCode')
             ->willReturn('FR');
         $frenchAddress
             ->method('getPostalCode')
-            ->willreturn('')
+            ->willReturn('')
             ;
-        $germanAddress = $this->createStub('CommerceGuys\Addressing\Address');
+
+        $germanAddress = $self->createStub('CommerceGuys\Addressing\Address');
         $germanAddress
             ->method('getCountryCode')
             ->willReturn('DE');
         $germanAddress
             ->method('getPostalCode')
-            ->willreturn('')
+            ->willReturn('')
             ;
-        $usAddress = $this->createStub('CommerceGuys\Addressing\Address');
+        $usAddress = $self->createStub('CommerceGuys\Addressing\Address');
         $usAddress
             ->method('getCountryCode')
             ->willReturn('US');
         $usAddress
             ->method('getPostalCode')
-            ->willreturn('')
+            ->willReturn('')
             ;
 
         $date1 = new \DateTime('2014-02-24');
@@ -246,33 +252,33 @@ class EuTaxTypeResolverTest extends TestCase
 
         return [
             // German customer, French store, VAT number provided.
-            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '123'), 'eu_ic_vat'],
+            [$physicalTaxable, $self->getContext($germanAddress, $frenchAddress, '123'), 'eu_ic_vat'],
             // French customer, French store, VAT number provided.
-            [$physicalTaxable, $this->getContext($frenchAddress, $frenchAddress, '123'), 'fr_vat'],
+            [$physicalTaxable, $self->getContext($frenchAddress, $frenchAddress, '123'), 'fr_vat'],
             // German customer, French store, physical product.
-            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date2), 'fr_vat'],
+            [$physicalTaxable, $self->getContext($germanAddress, $frenchAddress, '', [], $date2), 'fr_vat'],
             // German customer, French store registered for German VAT, physical product.
-            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', ['DE'], $date2), 'de_vat'],
+            [$physicalTaxable, $self->getContext($germanAddress, $frenchAddress, '', ['DE'], $date2), 'de_vat'],
             // German customer, French store, digital product before Jan 1st 2015.
-            [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date1), 'fr_vat'],
+            [$digitalTaxable, $self->getContext($germanAddress, $frenchAddress, '', [], $date1), 'fr_vat'],
             // German customer, French store, digital product.
-            [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date2), 'de_vat'],
+            [$digitalTaxable, $self->getContext($germanAddress, $frenchAddress, '', [], $date2), 'de_vat'],
             // German customer, US store, digital product
-            [$digitalTaxable, $this->getContext($germanAddress, $usAddress, '', [], $date2), []],
+            [$digitalTaxable, $self->getContext($germanAddress, $usAddress, '', [], $date2), []],
             // German customer, US store registered in FR, digital product.
-            [$digitalTaxable, $this->getContext($germanAddress, $usAddress, '', ['FR'], $date2), 'de_vat'],
+            [$digitalTaxable, $self->getContext($germanAddress, $usAddress, '', ['FR'], $date2), 'de_vat'],
             // German customer with VAT number, US store registered in FR, digital product.
-            [$digitalTaxable, $this->getContext($germanAddress, $usAddress, '123', ['FR'], $date2), $notApplicable],
+            [$digitalTaxable, $self->getContext($germanAddress, $usAddress, '123', ['FR'], $date2), $notApplicable],
             // Serbian customer, French store, physical product.
-            [$physicalTaxable, $this->getContext($serbianAddress, $frenchAddress), []],
+            [$physicalTaxable, $self->getContext($serbianAddress, $frenchAddress), []],
             // French customer, Serbian store, physical product.
-            [$physicalTaxable, $this->getContext($frenchAddress, $serbianAddress), []],
+            [$physicalTaxable, $self->getContext($frenchAddress, $serbianAddress), []],
             // German customer, French store, digital product after July 1st 2021.
-            [$digitalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date3), 'de_vat'],
+            [$digitalTaxable, $self->getContext($germanAddress, $frenchAddress, '', [], $date3), 'de_vat'],
             // German customer, French store, physical product after July 1st 2021.
-            [$physicalTaxable, $this->getContext($germanAddress, $frenchAddress, '', [], $date3), 'de_vat'],
+            [$physicalTaxable, $self->getContext($germanAddress, $frenchAddress, '', [], $date3), 'de_vat'],
             // German customer US store registered in FR, physical product after July 1st 2021
-            [$physicalTaxable, $this->getContext($germanAddress, $usAddress, '', ['FR'], $date3), 'de_vat'],
+            [$physicalTaxable, $self->getContext($germanAddress, $usAddress, '', ['FR'], $date3), 'de_vat'],
         ];
     }
 
@@ -293,22 +299,22 @@ class EuTaxTypeResolverTest extends TestCase
             ->getMockBuilder('CommerceGuys\Tax\Resolver\Context')
             ->disableOriginalConstructor()
             ->getMock();
-        $context->expects($this->any())
+        $context->expects($this->atLeastOnce())
             ->method('getCustomerAddress')
-            ->will($this->returnValue($customerAddress));
-        $context->expects($this->any())
+            ->willReturn($customerAddress);
+        $context->expects($this->atLeastOnce())
             ->method('getStoreAddress')
-            ->will($this->returnValue($storeAddress));
-        $context->expects($this->any())
+            ->willReturn($storeAddress);
+        $context->expects($this->atLeastOnce())
             ->method('getCustomerTaxNumber')
-            ->will($this->returnValue($customerTaxNumber));
-        $context->expects($this->any())
+            ->willReturn($customerTaxNumber);
+        $context->expects($this->atLeastOnce())
             ->method('getStoreRegistrations')
-            ->will($this->returnValue($storeRegistrations));
+            ->willReturn($storeRegistrations);
         $date = $date ?: new \DateTime();
-        $context->expects($this->any())
+        $context->expects($this->atLeastOnce())
             ->method('getDate')
-            ->will($this->returnValue($date));
+            ->willReturn($date);
 
         return $context;
     }

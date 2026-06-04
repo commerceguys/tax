@@ -97,11 +97,11 @@ class TaxRateTest extends TestCase
         $firstAmount
             ->expects($this->any())
             ->method('getStartDate')
-            ->will($this->returnValue(new \DateTime('2013/01/01')));
+            ->willReturn(new \DateTime('2013/01/01'));
         $firstAmount
             ->expects($this->any())
             ->method('getEndDate')
-            ->will($this->returnValue(new \DateTime('2013/12/31')));
+            ->willReturn(new \DateTime('2013/12/31'));
         $secondAmount = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRateAmount')
             ->disableOriginalConstructor()
@@ -109,7 +109,7 @@ class TaxRateTest extends TestCase
         $secondAmount
             ->expects($this->any())
             ->method('getStartDate')
-            ->will($this->returnValue(new \DateTime('2014/01/01')));
+            ->willReturn(new \DateTime('2014/01/01'));
         $empty = new ArrayCollection();
         $amounts = new ArrayCollection([$firstAmount, $secondAmount]);
 

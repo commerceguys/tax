@@ -32,13 +32,13 @@ class TaxResolverTest extends TestCase
             ->getMock();
         $firstTaxRate->expects($this->any())
             ->method('getAmount')
-            ->will($this->returnValue($firstTaxRateAmount));
+            ->willReturn($firstTaxRateAmount);
         $secondTaxRate = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxRate')
             ->getMock();
         $secondTaxRate->expects($this->any())
             ->method('getAmount')
-            ->will($this->returnValue($secondTaxRateAmount));
+            ->willReturn($secondTaxRateAmount);
         $firstTaxType = $this
             ->getMockBuilder('CommerceGuys\Tax\Model\TaxType')
             ->getMock();
@@ -51,13 +51,23 @@ class TaxResolverTest extends TestCase
             ->getMock();
         $chainTaxTypeResolver->expects($this->any())
             ->method('resolve')
-            ->will($this->returnValue([$firstTaxType, $secondTaxType]));
+            ->willReturn([$firstTaxType, $secondTaxType]);
         $chainTaxRateResolver = $this
             ->getMockBuilder('CommerceGuys\Tax\Resolver\TaxRate\ChainTaxRateResolver')
             ->getMock();
-        $chainTaxRateResolver->expects($this->exactly(2))
+
+        $invokedCount = $this->exactly(2);
+        $chainTaxRateResolver->expects($invokedCount)
             ->method('resolve')
-            ->will($this->onConsecutiveCalls($firstTaxRate, $secondTaxRate));
+            ->willReturnCallback(function ($parameters) use ($invokedCount, $firstTaxRate, $secondTaxRate) {
+                if ($invokedCount->numberOfInvocations() === 1) {
+                    return $firstTaxRate;
+                }
+
+                if ($invokedCount->numberOfInvocations() === 2) {
+                    return $secondTaxRate;
+                }
+            });
 
         $resolver = new TaxResolver($chainTaxTypeResolver, $chainTaxRateResolver);
         $taxable = $this

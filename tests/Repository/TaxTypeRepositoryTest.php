@@ -109,7 +109,7 @@ class TaxTypeRepositoryTest extends TestCase
     {
         $taxType = $this->taxTypeRepository->get('fr_vat');
         $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $taxType);
-        $this->assertInstanceOf('CommerceGuys\Zone\Model\Zone', $taxType->getZone());
+        $this->assertInstanceOf('CommerceGuys\Addressing\Zone\Zone', $taxType->getZone());
         $this->assertEquals('fr_vat', $taxType->getId());
         $this->assertEquals('French VAT', $taxType->getName());
         $this->assertEquals(GenericLabel::VAT, $taxType->getGenericLabel());
@@ -182,15 +182,15 @@ class TaxTypeRepositoryTest extends TestCase
      */
     protected function getZoneRepository()
     {
-        $zone = $this->createMock('CommerceGuys\Zone\Model\Zone');
+        $zone = $this->createMock('CommerceGuys\Addressing\Zone\Zone');
         $zoneRepository = $this
-            ->getMockBuilder('CommerceGuys\Zone\Repository\ZoneRepository')
+            ->getMockBuilder('CommerceGuys\Tax\Repository\ZoneRepository')
             ->disableOriginalConstructor()
             ->getMock();
         $zoneRepository
             ->expects($this->any())
             ->method('get')
-            ->will($this->returnValue($zone));
+            ->willReturn($zone);
 
         return $zoneRepository;
     }
