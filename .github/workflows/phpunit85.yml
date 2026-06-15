@@ -1,4 +1,4 @@
-name: CI PHP 8.3
+name: CI PHP 8.5
 
 on:
   push:
@@ -14,10 +14,10 @@ jobs:
 
       - uses: php-actions/composer@v6
         with:
-          php_version: "8.3"
+          php_version: "8.5"
 
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v3
         with:
           version: "8"
-          php_version: "8.3"
+          php_version: "8.5"
