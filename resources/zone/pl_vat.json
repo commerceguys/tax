@@ -1,6 +1,5 @@
 {
     "name": "Poland (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

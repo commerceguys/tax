@@ -4,6 +4,7 @@ namespace CommerceGuys\Tax\Tests\Repository;
 
 use CommerceGuys\Tax\Enum\GenericLabel;
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
+use CommerceGuys\Tax\Repository\ZoneRepository;
 use org\bovigo\vfs\vfsStream;
 use PHPUnit\Framework\TestCase;
 
@@ -109,7 +110,7 @@ class TaxTypeRepositoryTest extends TestCase
     {
         $taxType = $this->taxTypeRepository->get('fr_vat');
         $this->assertInstanceOf('CommerceGuys\Tax\Model\TaxType', $taxType);
-        $this->assertInstanceOf('CommerceGuys\Zone\Model\Zone', $taxType->getZone());
+        $this->assertInstanceOf('CommerceGuys\Addressing\Zone\Zone', $taxType->getZone());
         $this->assertEquals('fr_vat', $taxType->getId());
         $this->assertEquals('French VAT', $taxType->getName());
         $this->assertEquals(GenericLabel::VAT, $taxType->getGenericLabel());
@@ -178,13 +179,13 @@ class TaxTypeRepositoryTest extends TestCase
     /**
      * Returns a mock zone repository.
      *
-     * @return \CommerceGuys\Zone\Repository\ZoneRepository
+     * @return \CommerceGuys\Tax\Repository\ZoneRepository
      */
-    protected function getZoneRepository()
+    protected function getZoneRepository(): ZoneRepository
     {
-        $zone = $this->createMock('CommerceGuys\Zone\Model\Zone');
+        $zone = $this->createMock('CommerceGuys\Addressing\Zone\Zone');
         $zoneRepository = $this
-            ->getMockBuilder('CommerceGuys\Zone\Repository\ZoneRepository')
+            ->getMockBuilder('CommerceGuys\Tax\Repository\ZoneRepository')
             ->disableOriginalConstructor()
             ->getMock();
         $zoneRepository

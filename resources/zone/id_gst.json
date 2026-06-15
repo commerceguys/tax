@@ -1,6 +1,5 @@
 {
     "name": "Indonesia (GST)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

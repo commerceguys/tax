@@ -1,6 +1,5 @@
 {
     "name": "Spain (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

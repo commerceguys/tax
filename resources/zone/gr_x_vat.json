@@ -1,6 +1,5 @@
 {
     "name": "Greece Islands (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

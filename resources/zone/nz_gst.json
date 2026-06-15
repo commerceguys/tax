@@ -1,6 +1,5 @@
 {
     "name": "New Zealand (GST)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

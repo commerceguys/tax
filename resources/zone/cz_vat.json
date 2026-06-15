@@ -1,6 +1,5 @@
 {
     "name": "Czech Republic (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

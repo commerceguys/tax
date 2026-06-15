@@ -1,6 +1,5 @@
 {
     "name": "Portugal - Madeira (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

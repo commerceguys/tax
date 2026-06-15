@@ -1,6 +1,5 @@
 {
     "name": "Bulgaria (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

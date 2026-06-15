@@ -1,6 +1,5 @@
 {
     "name": "Switzerland (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

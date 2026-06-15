@@ -1,6 +1,5 @@
 {
     "name": "Australia (GST)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

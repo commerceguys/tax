@@ -1,6 +1,5 @@
 {
     "name": "Sweden (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

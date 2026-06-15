@@ -1,6 +1,5 @@
 {
     "name": "EU (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "zone",

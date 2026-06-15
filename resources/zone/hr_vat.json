@@ -1,6 +1,5 @@
 {
     "name": "Croatia (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

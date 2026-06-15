@@ -1,6 +1,5 @@
 {
     "name": "Latvia (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

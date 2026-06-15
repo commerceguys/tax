@@ -1,6 +1,5 @@
 {
     "name": "Cyprus (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

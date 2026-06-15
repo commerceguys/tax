@@ -1,6 +1,5 @@
 {
     "name": "Austria (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",

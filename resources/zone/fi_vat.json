@@ -1,6 +1,5 @@
 {
     "name": "Finland (VAT)",
-    "scope": "tax",
     "members": [
         {
             "type": "country",
