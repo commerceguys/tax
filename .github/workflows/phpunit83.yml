@@ -1,6 +1,9 @@
 name: CI PHP 8.3
 
-on: [push]
+on:
+  push:
+  pull_request:
+    types: [synchronize]
 
 jobs:
   build-test:
