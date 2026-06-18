@@ -1,6 +1,6 @@
 {
     "name": "Indonesian GST",
-    "generic_label": "GST",
+    "generic_label": "gst",
     "display_inclusive": true,
     "zone": "id_gst",
     "rates": [
