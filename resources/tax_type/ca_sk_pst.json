@@ -1,0 +1,26 @@
+{
+    "name": "Canada - Saskatchewan",
+    "generic_label": "PST",
+    "zone": "ca_sk",
+    "tag": "CA",
+    "rates": [
+        {
+            "id": "ca_sk_pst_standard",
+            "name": "Standard",
+            "default": true,
+            "amounts": [
+                {
+                    "id": "ca_sk_pst_standard_2006",
+                    "amount": 0.05,
+                    "start_date": "2006-10-28",
+                    "end_date": "2017-03-22"
+                },
+                {
+                    "id": "ca_sk_pst_standard_2017",
+                    "amount": 0.06,
+                    "start_date": "2017-03-23"
+                }
+            ]
+        }
+    ]
+}

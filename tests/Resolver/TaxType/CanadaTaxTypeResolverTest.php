@@ -23,7 +23,7 @@ class CanadaTaxTypeResolverTest extends TestCase
             'name' => 'Ontario HST',
             'generic_label' => 'hst',
             'tag' => 'CA',
-            'zone' => 'ca_on_hst',
+            'zone' => 'ca_on',
             'rates' => [
                 [
                     'id' => 'ca_on_hst',
@@ -42,7 +42,7 @@ class CanadaTaxTypeResolverTest extends TestCase
             'name' => 'Nova Scotia HST',
             'generic_label' => 'hst',
             'tag' => 'CA',
-            'zone' => 'ca_ns_hst',
+            'zone' => 'ca_ns',
             'rates' => [
                 [
                     'id' => 'ca_ns_hst',
@@ -65,24 +65,24 @@ class CanadaTaxTypeResolverTest extends TestCase
      * @var array
      */
     protected $zones = [
-        'ca_on_hst' => [
+        'ca_on' => [
             'name' => 'Ontario (HST)',
             'members' => [
                 [
                     'type' => 'country',
-                    'id' => '1',
+                    'id' => 'ca_on',
                     'name' => 'Canada - Ontario',
                     'country_code' => 'CA',
                     'administrative_area' => 'ON',
                 ],
             ],
         ],
-        'ca_ns_hst' => [
+        'ca_ns' => [
             'name' => 'Nova Scotia (HST)',
             'members' => [
                 [
                     'type' => 'country',
-                    'id' => '2',
+                    'id' => 'ca_ns',
                     'name' => 'Canada - Nova Scotia',
                     'country_code' => 'CA',
                     'administrative_area' => 'NS',

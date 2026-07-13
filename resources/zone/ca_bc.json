@@ -1,0 +1,13 @@
+{
+    "name": "Canada - British Columbia (GST + PST)",
+    "scope": "tax",
+    "members": [
+        {
+            "type": "country",
+            "id": "ca_bc",
+            "name": "Canada - British Columbia",
+            "country_code": "CA",
+            "administrative_area": "BC"
+        }
+    ]
+}
