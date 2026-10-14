@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-versions: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+        php-versions: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
       fail-fast: false
     name: CI PHP ${{ matrix.php-versions }}
 
@@ -24,7 +24,6 @@ jobs:
           php_version: ${{ matrix.php-versions }}
 
       - name: PHPUnit Tests
-        uses: php-actions/phpunit@v3
+        uses: php-actions/phpunit@v4
         with:
-          version: "8"
           php_version: ${{ matrix.php-versions }}

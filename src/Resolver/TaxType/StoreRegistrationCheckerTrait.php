@@ -3,9 +3,9 @@
 namespace CommerceGuys\Tax\Resolver\TaxType;
 
 use CommerceGuys\Addressing\Address;
+use CommerceGuys\Addressing\Zone\Zone;
 use CommerceGuys\Tax\Model\TaxTypeInterface;
 use CommerceGuys\Tax\Resolver\Context;
-use CommerceGuys\Zone\Model\ZoneInterface;
 
 trait StoreRegistrationCheckerTrait
 {
@@ -19,13 +19,13 @@ trait StoreRegistrationCheckerTrait
     /**
      * Checks whether the store is registered to collect taxes in the given zone.
      *
-     * @param ZoneInterface $zone    The zone.
+     * @param Zone $zone    The zone.
      * @param Context       $context The context containing store information.
      *
      * @return bool True if the store is registered to collect taxes in the
      *              given zone, false otherwise.
      */
-    protected function checkStoreRegistration(ZoneInterface $zone, Context $context)
+    protected function checkStoreRegistration(Zone $zone, Context $context)
     {
         $storeRegistrations = $context->getStoreRegistrations();
         foreach ($storeRegistrations as $country) {

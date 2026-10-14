@@ -2,7 +2,7 @@
 
 namespace CommerceGuys\Tax\Model;
 
-use CommerceGuys\Zone\Model\ZoneInterface;
+use CommerceGuys\Addressing\Zone\Zone;
 
 interface TaxTypeInterface
 {
@@ -71,7 +71,7 @@ interface TaxTypeInterface
     /**
      * Gets the tax type zone.
      *
-     * @return ZoneInterface The tax type zone.
+     * @return Zone The tax type zone.
      */
     public function getZone();
 

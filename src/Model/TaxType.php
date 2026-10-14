@@ -2,8 +2,8 @@
 
 namespace CommerceGuys\Tax\Model;
 
+use CommerceGuys\Addressing\Zone\Zone;
 use CommerceGuys\Tax\Enum\GenericLabel;
-use CommerceGuys\Zone\Model\ZoneEntityInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -59,7 +59,7 @@ class TaxType implements TaxTypeEntityInterface
     /**
      * The tax type zone.
      *
-     * @var ZoneEntityInterface
+     * @var Zone
      */
     protected $zone;
 
@@ -216,7 +216,7 @@ class TaxType implements TaxTypeEntityInterface
     /**
      * {@inheritdoc}
      */
-    public function setZone(ZoneEntityInterface $zone)
+    public function setZone(Zone $zone)
     {
         $this->zone = $zone;
 

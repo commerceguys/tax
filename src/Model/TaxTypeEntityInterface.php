@@ -2,8 +2,8 @@
 
 namespace CommerceGuys\Tax\Model;
 
+use CommerceGuys\Addressing\Zone\Zone;
 use Doctrine\Common\Collections\Collection;
-use CommerceGuys\Zone\Model\ZoneEntityInterface;
 
 interface TaxTypeEntityInterface extends TaxTypeInterface
 {
@@ -62,11 +62,11 @@ interface TaxTypeEntityInterface extends TaxTypeInterface
     /**
      * Sets the tax type zone.
      *
-     * @param ZoneEntityInterface $zone The tax type zone.
+     * @param Zone $zone The tax type zone.
      *
      * @return self
      */
-    public function setZone(ZoneEntityInterface $zone);
+    public function setZone(Zone $zone);
 
     /**
      * Sets the tax type tag.

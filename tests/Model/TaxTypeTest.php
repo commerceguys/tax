@@ -105,7 +105,8 @@ class TaxTypeTest extends TestCase
     public function testZone()
     {
         $zone = $this
-            ->getMockBuilder('CommerceGuys\Zone\Model\Zone')
+            ->getMockBuilder('CommerceGuys\Addressing\Zone\Zone')
+            ->setConstructorArgs([['id' => 'test', 'label' => 'test label', 'territories' => [['country_code' => 'test']]]])
             ->getMock();
 
         $this->taxType->setZone($zone);
